@@ -2,6 +2,9 @@
  * Central "company brain" — single source of truth for all SEO, GEO, and LLMs.txt.
  * Edit this file first whenever you add a page or change brand/product details.
  * Every field here propagates to: metadata, sitemap, robots.txt, structured data, llms.txt.
+ *
+ * NOTE: For the portfolio, this serves as fallback defaults.
+ * When Firebase is configured, profile data from Firebase overrides these values.
  */
 
 import type { MetadataRoute } from 'next';
@@ -11,15 +14,10 @@ export type SitemapChangeFreq = NonNullable<
 >;
 
 export interface PageConfig {
-  /** URL path relative to root, e.g. '/about' */
   path: string;
-  /** <title> for this page */
   title: string;
-  /** Meta description — be specific: include what the visitor gains */
   description: string;
-  /** Sitemap change frequency hint */
   changeFreq: SitemapChangeFreq;
-  /** Sitemap priority 0.0–1.0 */
   priority: number;
 }
 
@@ -50,70 +48,67 @@ export interface SiteConfig {
     twitterHandle?: string;
     locale: string;
   };
-  /** Registry of all public pages — drives sitemap + LLMs.txt page index */
   pages: Record<string, PageConfig>;
 }
 
 export const siteConfig: SiteConfig = {
   // ─── Core Identity ───────────────────────────────────────────────────────────
-  name: 'My Product',
-  tagline: 'One sentence that nails the value proposition.',
+  name: 'Yoel Sitorus',
+  tagline: 'Full Stack Developer & AI Agent Orchestrator',
   description:
-    'Two-sentence pitch: what the product does, who it is for, and what makes it different from alternatives.',
-  url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://example.com',
+    'Portfolio of Yoel Sitorus — Full Stack Developer building production web apps and autonomous AI agents. Founder of Zemetia Studio, Youdo POS, and Freshideas Agency.',
+  url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://yoelsitorus.com',
 
   // ─── Brand Assets ────────────────────────────────────────────────────────────
   ogImage: '/og.png',
 
-  // ─── Company Details (drives Organization schema + LLMs.txt) ─────────────────
+  // ─── Company Details ─────────────────────────────────────────────────────────
   company: {
-    legalName: 'My Company, Inc.',
+    legalName: 'Yoel Sitorus',
     foundedYear: 2024,
-    industry: 'Software / SaaS',
+    industry: 'Software Development / AI',
     targetAudience:
-      'Developers and product teams building modern web applications who need …',
+      'Startups and agencies needing full-stack development, AI agent orchestration, and digital product design.',
     problemSolved:
-      'Most teams waste weeks bootstrapping the same infrastructure decisions — auth, state, i18n, design system — before they can ship any real product value.',
+      'Most teams struggle to ship production-quality software fast. Yoel combines full-stack engineering expertise with autonomous AI agent orchestration to deliver complex products efficiently.',
     solution:
-      'My Product is a production-ready Next.js template with every architectural decision pre-made, documented, and tested, so teams can ship features from day one.',
+      'Portfolio showcasing projects including Youdo POS (restaurant POS serving 2,000+ businesses), Zemetia Studio (web development agency), and Hermes Agent (multi-agent AI orchestration system).',
     keyBenefits: [
-      'Zero config — works out of the box with TypeScript, Tailwind v4, and next-intl',
-      'Opinionated patterns that scale — CVA components, Zustand stores, Zod validation',
-      'AI-agent friendly — every pattern is documented in machine-readable blueprint docs',
+      'Full-stack Next.js development expertise',
+      'AI agent orchestration and workflow automation',
+      'End-to-end product delivery from concept to deployment',
+      'Bilingual (EN/ID) — serves both local and international clients',
     ],
-    contactEmail: 'contact@example.com',
+    contactEmail: 'yoel@zemetia.id',
     socialLinks: {
-      twitter: 'https://twitter.com/handle',
-      github: 'https://github.com/org/repo',
-      linkedin: 'https://linkedin.com/company/my-company',
+      github: 'https://github.com/yoelsitorus',
+      linkedin: 'https://linkedin.com/in/yoelsitorus',
     },
   },
 
   // ─── SEO Settings ────────────────────────────────────────────────────────────
   seo: {
-    titleTemplate: '%s | My Product',
-    defaultTitle: 'My Product — One sentence value prop',
-    twitterHandle: '@handle',
+    titleTemplate: '%s | Yoel Sitorus',
+    defaultTitle: 'Yoel Sitorus — Full Stack Developer & AI Agent Orchestrator',
+    twitterHandle: '@yoelsitorus',
     locale: 'en_US',
   },
 
   // ─── Pages Registry ──────────────────────────────────────────────────────────
-  // Add a new entry here every time you create a new public page.
-  // Path is locale-stripped (the sitemap helper adds locale prefixes).
   pages: {
     home: {
       path: '/',
-      title: 'My Product — One sentence value prop',
+      title: 'Yoel Sitorus — Full Stack Developer & AI Agent Orchestrator',
       description:
-        'My Product is a production-ready Next.js 16 template. Ship features from day one with TypeScript, Tailwind v4, next-intl, Zustand, and full SEO / GEO / LLMs.txt support.',
+        'Portfolio of Yoel Sitorus — Full Stack Developer building production web apps and autonomous AI agents. Explore projects, skills, and experience.',
       changeFreq: 'weekly',
       priority: 1.0,
     },
     about: {
       path: '/about',
-      title: 'About My Product',
+      title: 'About Yoel Sitorus',
       description:
-        'Learn the story, team, and mission behind My Product — the opinionated Next.js template built for teams who want to skip the boilerplate and focus on shipping.',
+        'Learn about Yoel Sitorus — Full Stack Developer, AI Agent Orchestrator, and founder of multiple tech ventures in Indonesia.',
       changeFreq: 'monthly',
       priority: 0.8,
     },

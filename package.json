@@ -16,7 +16,10 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.56.0",
@@ -34,7 +37,10 @@
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",
     "zod": "^4.4.3",
-    "zustand": "^5.0.14"
+    "zustand": "^5.0.14",
+    "firebase": "^11.0.0",
+    "firebase-admin": "^13.0.0",
+    "@prisma/client": "^6.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
@@ -60,6 +66,7 @@
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.8",
-    "webpack": "^5.99.9"
+    "webpack": "^5.99.9",
+    "prisma": "^6.0.0"
   }
 }

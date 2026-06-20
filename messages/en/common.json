@@ -1,4 +1,6 @@
 {
+  "loadMore": "Load More",
+  "backToTop": "Back to Top",
   "loading": "Loading...",
   "error": "An error occurred",
   "retry": "Try again",
