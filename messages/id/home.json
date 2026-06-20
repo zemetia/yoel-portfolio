@@ -1,13 +1,142 @@
 {
   "meta": {
-    "title": "Yoel Sitorus — Portofolio",
-    "description": "Full Stack Developer & AI Agent Orchestrator"
+    "title": "Yoel Sitorus — Portofolio Data Science & AI",
+    "description": "Data Scientist, ML Engineer & AI Agent Orchestrator. Membangun sistem cerdas di Zemetia."
   },
   "hero": {
-    "badge": "Terbuka untuk peluang",
-    "title": "Full Stack Developer\n& AI Agent Orchestrator",
-    "description": "Membangun aplikasi produksi dan agen AI otonom. Pendiri Zemetia Studio, Youdo POS, dan Freshideas Agency.",
+    "badge": "Data Scientist & ML Engineer",
+    "badge2": "Terbuka untuk peluang",
+    "title": "Mengubah Data Menjadi\nKeputusan Cerdas",
+    "description": "Membangun sistem ML produksi dan agen AI otonom. Pendiri Zemetia Studio, Youdo POS, dan Freshideas Agency.",
     "ctaPrimary": "Lihat Proyek",
     "ctaSecondary": "Hubungi Saya"
+  },
+  "profile": {
+    "heading": "Tentang Saya",
+    "name": "Yoel Sitorus",
+    "bio": "Data Scientist dan Machine Learning Engineer dengan keahlian mendalam dalam membangun pipeline ML end-to-end, sistem NLP, dan produk berbasis AI. Saya merancang sistem cerdas yang mengubah data mentah menjadi wawasan yang dapat ditindaklanjuti — dari model prediktif hingga agen otonom. Berpengalaman dalam persimpangan antara data science, AI bahasa, dan rekayasa produksi.",
+    "skillsHeading": "Keahlian Inti"
+  },
+  "experience": {
+    "heading": "Pengalaman",
+    "subheading": "Membangun sistem cerdas yang berarti",
+    "entries": {
+      "0": {
+        "company": "Zemetia Studio",
+        "role": "Founder & AI Orchestrator",
+        "dates": "2024 — Sekarang",
+        "description": "Membangun sistem agen AI, aplikasi full-stack, dan produk berbasis data. Mengorkestrasi workflow multi-agen untuk otomatisasi dan kecerdasan."
+      },
+      "1": {
+        "company": "Youdo POS",
+        "role": "Founder & ML Engineer",
+        "dates": "2024 — Sekarang",
+        "description": "Mengembangkan analitik POS bertenaga AI dengan peramalan permintaan, segmentasi pelanggan, dan optimasi inventaris menggunakan model ML."
+      },
+      "2": {
+        "company": "Freshideas Agency",
+        "role": "Founder & Data Strategist",
+        "dates": "2023 — Sekarang",
+        "description": "Strategi pemasaran berbasis data, analitik audiens, dan optimasi kampanye. Menerapkan pemodelan statistik untuk mengukur dan meningkatkan ROI."
+      }
+    }
+  },
+  "projects": {
+    "heading": "Proyek",
+    "subheading": "Sistem Data Science & AI yang telah saya bangun",
+    "entries": {
+      "0": {
+        "title": "AI Agent Orchestrator",
+        "description": "Sistem multi-agen yang menguraikan tujuan kompleks menjadi alur kerja paralel, mendelegasikan ke agen khusus, dan mensintesis hasil.",
+        "tags": ["Python", "LangChain", "FastAPI", "PostgreSQL"]
+      },
+      "1": {
+        "title": "Analitik Point of Sale",
+        "description": "Mesin analitik bertenaga ML untuk ritel dengan peramalan penjualan, segmentasi pelanggan, dan deteksi anomali.",
+        "tags": ["Python", "TensorFlow", "scikit-learn", "BigQuery"]
+      },
+      "2": {
+        "title": "Pipeline NLP untuk Bahasa Indonesia",
+        "description": "Pipeline NLP end-to-end untuk klasifikasi teks, analisis sentimen, dan pengenalan entitas bernama bahasa Indonesia.",
+        "tags": ["PyTorch", "Transformers", "spaCy", "FastText"]
+      },
+      "3": {
+        "title": "Mesin Dashboard Real-time",
+        "description": "Pipeline data streaming yang mendukung dashboard business intelligence real-time dengan latensi query sub-detik.",
+        "tags": ["Apache Kafka", "ClickHouse", "Grafana", "Go"]
+      },
+      "4": {
+        "title": "Sistem Rekomendasi",
+        "description": "Mesin rekomendasi hybrid collaborative filtering dan content-based yang melayani rekomendasi personalisasi dalam skala besar.",
+        "tags": ["Python", "PyTorch", "Redis", "gRPC"]
+      },
+      "5": {
+        "title": "Agen Web Otonom",
+        "description": "Agen otonom berbasis browser yang mampu melakukan tugas web multi-langkah yang kompleks menggunakan computer vision dan penalaran LLM.",
+        "tags": ["Python", "Playwright", "GPT-4", "Computer Vision"]
+      }
+    }
+  },
+  "volunteer": {
+    "heading": "Komunitas & Relawan",
+    "subheading": "Berkontribusi kembali ke komunitas data science",
+    "entries": {
+      "0": {
+        "organization": "Data Science Indonesia",
+        "role": "Kontributor Komunitas",
+        "description": "Berkontribusi ke komunitas data science Indonesia melalui ceramah, workshop, dan proyek open-source."
+      },
+      "1": {
+        "organization": "AI untuk Kebaikan Sosial",
+        "role": "Penasihat Teknis",
+        "description": "Memberikan saran kepada organisasi nirlaba tentang memanfaatkan AI dan data science untuk inisiatif dampak sosial."
+      },
+      "2": {
+        "organization": "Open Source ML",
+        "role": "Maintainer",
+        "description": "Memelihara library dan alat ML open-source, meninjau kontribusi, dan membimbing kontributor baru."
+      }
+    }
+  },
+  "publications": {
+    "heading": "Publikasi & Ceramah",
+    "subheading": "Penelitian, presentasi, dan tulisan",
+    "entries": {
+      "0": {
+        "title": "Orkestrasi Multi-Agen untuk Dekomposisi Tugas Kompleks",
+        "venue": "Konferensi AI Engineering 2025",
+        "year": "2025",
+        "type": "Konferensi"
+      },
+      "1": {
+        "title": "Pipeline ML Produksi: Pelajaran dari Lapangan",
+        "venue": "Jurnal Rekayasa Machine Learning",
+        "year": "2025",
+        "type": "Jurnal"
+      },
+      "2": {
+        "title": "NLP untuk Bahasa dengan Sumber Daya Terbatas: Studi Kasus Bahasa Indonesia",
+        "venue": "Workshop NLP Sumber Daya Rendah",
+        "year": "2024",
+        "type": "Workshop"
+      },
+      "3": {
+        "title": "Membangun Agen Cerdas dengan LLM",
+        "venue": "DevOpsDays Jakarta 2024",
+        "year": "2024",
+        "type": "Konferensi"
+      },
+      "4": {
+        "title": "Dari Data ke Keputusan: Kerangka Kerja Praktis",
+        "venue": "Data Science Indonesia Meetup",
+        "year": "2024",
+        "type": "Ceramah"
+      }
+    }
+  },
+  "contact": {
+    "heading": "Hubungi Saya",
+    "description": "Tertarik dengan data science, AI, atau kolaborasi? Mari bicara.",
+    "footer": "Dibangun dengan Next.js, Tailwind CSS & ❤️ untuk data science"
   }
 }

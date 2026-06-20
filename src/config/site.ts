@@ -54,9 +54,9 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   // ─── Core Identity ───────────────────────────────────────────────────────────
   name: 'Yoel Sitorus',
-  tagline: 'Full Stack Developer & AI Agent Orchestrator',
+  tagline: 'Data Scientist & ML Engineer | AI Agent Orchestrator',
   description:
-    'Portfolio of Yoel Sitorus — Full Stack Developer building production web apps and autonomous AI agents. Founder of Zemetia Studio, Youdo POS, and Freshideas Agency.',
+    'Portfolio of Yoel Sitorus — Data Scientist, ML Engineer, and AI Agent Orchestrator. Building production ML systems, NLP pipelines, and autonomous AI agents. Founder of Zemetia Studio, Youdo POS, and Freshideas Agency.',
   url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://yoelsitorus.com',
 
   // ─── Brand Assets ────────────────────────────────────────────────────────────
@@ -66,17 +66,17 @@ export const siteConfig: SiteConfig = {
   company: {
     legalName: 'Yoel Sitorus',
     foundedYear: 2024,
-    industry: 'Software Development / AI',
+    industry: 'Data Science / AI Engineering',
     targetAudience:
-      'Startups and agencies needing full-stack development, AI agent orchestration, and digital product design.',
+      'Startups and enterprises needing data science solutions, ML pipeline engineering, AI agent orchestration, and intelligent systems development.',
     problemSolved:
-      'Most teams struggle to ship production-quality software fast. Yoel combines full-stack engineering expertise with autonomous AI agent orchestration to deliver complex products efficiently.',
+      'Most organizations struggle to turn raw data into production ML systems. Yoel combines data science expertise with AI engineering to build intelligent, scalable solutions that drive real business outcomes.',
     solution:
-      'Portfolio showcasing projects including Youdo POS (restaurant POS serving 2,000+ businesses), Zemetia Studio (web development agency), and Hermes Agent (multi-agent AI orchestration system).',
+      'Data Science portfolio showcasing projects including NLP pipelines, ML-powered POS analytics, recommendation systems, real-time dashboards, and autonomous AI agents built with modern ML stacks.',
     keyBenefits: [
-      'Full-stack Next.js development expertise',
-      'AI agent orchestration and workflow automation',
-      'End-to-end product delivery from concept to deployment',
+      'End-to-end ML pipeline engineering — from data ingestion to model deployment',
+      'NLP and language AI systems for under-resourced languages',
+      'Autonomous AI agents and multi-agent orchestration',
       'Bilingual (EN/ID) — serves both local and international clients',
     ],
     contactEmail: 'yoel@zemetia.id',
@@ -89,7 +89,7 @@ export const siteConfig: SiteConfig = {
   // ─── SEO Settings ────────────────────────────────────────────────────────────
   seo: {
     titleTemplate: '%s | Yoel Sitorus',
-    defaultTitle: 'Yoel Sitorus — Full Stack Developer & AI Agent Orchestrator',
+    defaultTitle: 'Yoel Sitorus — Data Scientist & ML Engineer',
     twitterHandle: '@yoelsitorus',
     locale: 'en_US',
   },
@@ -98,9 +98,9 @@ export const siteConfig: SiteConfig = {
   pages: {
     home: {
       path: '/',
-      title: 'Yoel Sitorus — Full Stack Developer & AI Agent Orchestrator',
+      title: 'Yoel Sitorus — Data Scientist & ML Engineer',
       description:
-        'Portfolio of Yoel Sitorus — Full Stack Developer building production web apps and autonomous AI agents. Explore projects, skills, and experience.',
+        'Portfolio of Yoel Sitorus — Data Scientist, ML Engineer, and AI Agent Orchestrator. Explore data science projects, ML pipelines, AI systems, and professional experience.',
       changeFreq: 'weekly',
       priority: 1.0,
     },
@@ -108,7 +108,7 @@ export const siteConfig: SiteConfig = {
       path: '/about',
       title: 'About Yoel Sitorus',
       description:
-        'Learn about Yoel Sitorus — Full Stack Developer, AI Agent Orchestrator, and founder of multiple tech ventures in Indonesia.',
+        'Learn about Yoel Sitorus — Data Scientist, ML Engineer, AI Agent Orchestrator, and founder of multiple tech ventures including Zemetia Studio, Youdo POS, and Freshideas Agency.',
       changeFreq: 'monthly',
       priority: 0.8,
     },
