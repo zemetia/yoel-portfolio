@@ -1,5 +1,9 @@
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
+import { buildMetadata } from '@/lib/seo';
+import { serializeSchema, webPageSchema, organizationSchema } from '@/lib/structured-data';
+import { siteConfig } from '@/config/site';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -8,23 +12,38 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
 const STACK_ITEMS = [
-  { label: 'Next.js 15', color: 'text-white' },
-  { label: 'React 19', color: 'text-cyan-400' },
-  { label: 'TypeScript', color: 'text-blue-400' },
-  { label: 'Tailwind v4', color: 'text-teal-400' },
-  { label: 'next-intl', color: 'text-violet-400' },
-  { label: 'Zustand', color: 'text-orange-400' },
-  { label: 'Storybook 8', color: 'text-pink-400' },
-  { label: 'Vitest', color: 'text-green-400' },
+  { label: 'Next.js 16', color: 'text-foreground' },
+  { label: 'React 19', color: 'text-primary' },
+  { label: 'TypeScript', color: 'text-primary' },
+  { label: 'Tailwind v4', color: 'text-success' },
+  { label: 'next-intl v4', color: 'text-foreground-muted' },
+  { label: 'Zustand', color: 'text-warning' },
+  { label: 'Storybook 10', color: 'text-destructive' },
+  { label: 'Vitest', color: 'text-success' },
 ] as const;
+
+interface Props {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const page = siteConfig.pages['home'];
+  return buildMetadata({
+    title: page?.title,
+    description: page?.description,
+    path: '/',
+    locale,
+  });
+}
 
 export default function HomePage() {
   const t = useTranslations('home');
 
   const features = [
-    { key: 'i18n', badge: 'next-intl v3' },
+    { key: 'i18n', badge: 'next-intl v4' },
     { key: 'components', badge: 'CVA + Tailwind' },
-    { key: 'storybook', badge: 'Storybook 8' },
+    { key: 'storybook', badge: 'Storybook 10' },
     { key: 'services', badge: 'Typed Fetch' },
     { key: 'testing', badge: 'Vitest + RTL' },
     { key: 'typescript', badge: 'Strict Mode' },
@@ -32,6 +51,25 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        id="org-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(organizationSchema()) }}
+      />
+      <script
+        id="webpage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeSchema(
+            webPageSchema({
+              name: siteConfig.pages['home']?.title ?? siteConfig.name,
+              description: siteConfig.pages['home']?.description ?? siteConfig.description,
+              url: siteConfig.url,
+              datePublished: '2024-01-01',
+            }),
+          ),
+        }}
+      />
       <Header />
       <main>
         {/* Hero */}

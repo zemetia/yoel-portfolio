@@ -103,8 +103,8 @@ import { PostHogProvider }             from '@/providers';
 | 8 | One `<Toaster />` mount only | [src/app/[locale]/layout.tsx](../../src/app/%5Blocale%5D/layout.tsx) |
 | 9 | `displayName` on every component | Required for Sentry + DevTools |
 | 10 | Sentry/PostHog are no-ops without env vars | Safe to omit in dev |
-| 11 | `middleware.ts` is deprecated — use `proxy.ts` only | Next.js 16 renamed this convention |
-| 12 | Proxy logic lives in `src/proxy/` — compose in `proxy.ts` | No inline logic in proxy.ts beyond orchestration |
+| 11 | Export `middleware` from `src/middleware.ts` only — root `proxy.ts` is deprecated | Root `proxy.ts` has known production/Windows bugs in Next.js 16 |
+| 12 | Request-intercept modules live in `src/proxy/` — compose them in `src/middleware.ts` | No inline logic in middleware.ts beyond orchestration |
 
 ---
 

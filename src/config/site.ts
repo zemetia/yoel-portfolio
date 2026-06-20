@@ -56,44 +56,44 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   // ─── Core Identity ───────────────────────────────────────────────────────────
-  name: 'My Product',
-  tagline: 'One sentence that nails the value proposition.',
+  name: 'Yoel — Developer & Tech Entrepreneur',
+  tagline: 'Building software that moves businesses forward — from POS systems to full-stack platforms.',
   description:
-    'Two-sentence pitch: what the product does, who it is for, and what makes it different from alternatives.',
-  url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://example.com',
+    "Yoel is a full-stack developer and tech entrepreneur based in Indonesia. Building Zemetia Studio (software house), Youdo POS (restaurant POS), and Freshideas Agency (marketing) — turning complex problems into clean, scalable solutions.",
+  url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://zemetia.sh',
 
   // ─── Brand Assets ────────────────────────────────────────────────────────────
   ogImage: '/og.png',
 
   // ─── Company Details (drives Organization schema + LLMs.txt) ─────────────────
   company: {
-    legalName: 'My Company, Inc.',
+    legalName: 'Zemetia Studio',
     foundedYear: 2024,
-    industry: 'Software / SaaS',
+    industry: 'Software Development / SaaS / Agency',
     targetAudience:
-      'Developers and product teams building modern web applications who need …',
+      'Restaurant owners needing modern POS systems, businesses seeking custom software solutions, and brands wanting strategic marketing.',
     problemSolved:
-      'Most teams waste weeks bootstrapping the same infrastructure decisions — auth, state, i18n, design system — before they can ship any real product value.',
+      'Most small-to-medium businesses in Indonesia struggle with outdated, disconnected tools — clunky POS systems, bespoke software that never ships, and marketing that doesn\'t convert.',
     solution:
-      'My Product is a production-ready Next.js template with every architectural decision pre-made, documented, and tested, so teams can ship features from day one.',
+      'Yoel builds end-to-end solutions — Youdo POS for modern restaurant management, Zemetia Studio for custom software, and Freshideas Agency for data-driven marketing — all backed by clean architecture and AI-augmented workflows.',
     keyBenefits: [
-      'Zero config — works out of the box with TypeScript, Tailwind v4, and next-intl',
-      'Opinionated patterns that scale — CVA components, Zustand stores, Zod validation',
-      'AI-agent friendly — every pattern is documented in machine-readable blueprint docs',
+      'Full-stack expertise — from React/Next.js frontends to Go/Express backends and PostgreSQL',
+      'Product-minded engineering — every project ships with SEO, analytics, monitoring, and documentation',
+      'AI-augmented delivery — workflows optimized with AI tooling for speed without sacrificing quality',
     ],
-    contactEmail: 'contact@example.com',
+    contactEmail: 'yoel@zemetia.sh',
     socialLinks: {
-      twitter: 'https://twitter.com/handle',
-      github: 'https://github.com/org/repo',
-      linkedin: 'https://linkedin.com/company/my-company',
+      twitter: 'https://twitter.com/zemetia',
+      github: 'https://github.com/zemetia',
+      linkedin: 'https://linkedin.com/in/yoel',
     },
   },
 
   // ─── SEO Settings ────────────────────────────────────────────────────────────
   seo: {
-    titleTemplate: '%s | My Product',
-    defaultTitle: 'My Product — One sentence value prop',
-    twitterHandle: '@handle',
+    titleTemplate: '%s | Yoel',
+    defaultTitle: 'Yoel — Full-Stack Developer & Tech Entrepreneur',
+    twitterHandle: '@zemetia',
     locale: 'en_US',
   },
 
@@ -103,17 +103,17 @@ export const siteConfig: SiteConfig = {
   pages: {
     home: {
       path: '/',
-      title: 'My Product — One sentence value prop',
+      title: 'Yoel — Full-Stack Developer & Tech Entrepreneur',
       description:
-        'My Product is a production-ready Next.js 16 template. Ship features from day one with TypeScript, Tailwind v4, next-intl, Zustand, and full SEO / GEO / LLMs.txt support.',
+        'Yoel is a full-stack developer building Zemetia Studio, Youdo POS, and Freshideas Agency. Turning complex problems into clean, scalable solutions.',
       changeFreq: 'weekly',
       priority: 1.0,
     },
     about: {
       path: '/about',
-      title: 'About My Product',
+      title: 'About Yoel',
       description:
-        'Learn the story, team, and mission behind My Product — the opinionated Next.js template built for teams who want to skip the boilerplate and focus on shipping.',
+        'Learn about Yoel\'s journey — from coding the first line to building multiple tech businesses in Indonesia.',
       changeFreq: 'monthly',
       priority: 0.8,
     },
