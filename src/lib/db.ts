@@ -11,7 +11,7 @@
 // Do NOT import PrismaClient directly elsewhere — always go through this module
 // so the singleton pattern is respected across hot reloads.
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@/lib/generated/prisma';
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;

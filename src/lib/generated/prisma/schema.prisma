@@ -1,0 +1,291 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── User / Auth ─────────────────────────────────────────────────────────────
+
+model Account {
+  id        String  @id @default(cuid())
+  userId    String  @unique
+  email     String  @unique
+  name      String?
+  avatarUrl String?
+  role      Role    @default(USER)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  profile Profile?
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+// ─── Profile ─────────────────────────────────────────────────────────────────
+
+model Profile {
+  id        String  @id @default(cuid())
+  accountId String  @unique
+  account   Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  // Personal info
+  fullName String @default("")
+  headline String @default("") // e.g. "Full-Stack Developer & AI Engineer"
+  summary  String @default("") // short bio / about section
+  location String @default("")
+  phone    String @default("")
+  email    String @default("")
+
+  // Social / links
+  website     String?
+  linkedinUrl String?
+  githubUrl   String?
+  twitterUrl  String?
+  youtubeUrl  String?
+  mediumUrl   String?
+
+  // Media
+  avatarUrl String?
+  resumeUrl String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  skills        Skill[]
+  education     Education[]
+  experience    Experience[]
+  projects      Project[]
+  publications  Publication[]
+  licenses      License[]
+  volunteerExp  VolunteerExperience[]
+  organizations Organization[]
+  contacts      Contact[]
+}
+
+// ─── Skill ───────────────────────────────────────────────────────────────────
+
+model Skill {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  name        String
+  category    String? // "Frontend", "Backend", "DevOps", "Language", etc.
+  proficiency Int? // 1-5 scale
+  iconSlug    String? // icon identifier (devicon, simple-icons)
+  order       Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+// ─── Education ───────────────────────────────────────────────────────────────
+
+model Education {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  institution String
+  degree      String? // "Bachelor", "Master", "PhD", "Diploma"
+  field       String? // "Computer Science", "Mathematics"
+  startDate   DateTime?
+  endDate     DateTime?
+  isCurrent   Boolean   @default(false)
+  gpa         String?
+  description String?
+  logoUrl     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+// ─── Experience ──────────────────────────────────────────────────────────────
+
+model Experience {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  company        String
+  position       String
+  location       String?
+  startDate      DateTime?
+  endDate        DateTime?
+  isCurrent      Boolean   @default(false)
+  description    String?   @db.Text
+  achievements   String[] // bullet-point achievements
+  companyUrl     String?
+  companyLogo    String?
+  employmentType String? // "Full-time", "Contract", "Freelance", "Internship"
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+// ─── Project ─────────────────────────────────────────────────────────────────
+
+model Project {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  title       String
+  slug        String  @unique
+  summary     String? @db.Text
+  description String? @db.Text
+  coverImage  String?
+  gallery     Json?
+  body        Json? // Rich content blocks for detailed case study
+
+  // Links
+  liveUrl      String?
+  githubUrl    String?
+  caseStudyUrl String?
+
+  // Metadata
+  industry         String?
+  duration         String?
+  servicesProvided String[]
+  filterTag        String?
+  techStack        String[] // tech names for quick display
+  isFeatured       Boolean       @default(false)
+  status           PublishStatus @default(DRAFT)
+  publishedAt      DateTime?
+  order            Int           @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+  @@index([slug])
+  @@index([status])
+}
+
+// ─── Publication ─────────────────────────────────────────────────────────────
+
+model Publication {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  title         String
+  publisher     String? // Journal, Conference, Blog name
+  url           String?
+  publishedDate DateTime?
+  description   String?   @db.Text
+  authors       String[]
+  doi           String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+// ─── License / Certification ─────────────────────────────────────────────────
+
+model License {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  name          String
+  issuer        String
+  url           String?
+  issueDate     DateTime?
+  expiryDate    DateTime?
+  doesNotExpire Boolean   @default(false)
+  credentialId  String?
+  credentialUrl String?
+  logoUrl       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+// ─── Volunteer Experience ────────────────────────────────────────────────────
+
+model VolunteerExperience {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  organization String
+  role         String
+  cause        String?
+  startDate    DateTime?
+  endDate      DateTime?
+  isCurrent    Boolean   @default(false)
+  description  String?   @db.Text
+  achievements String[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+// ─── Organization (memberships) ──────────────────────────────────────────────
+
+model Organization {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  name        String
+  role        String?
+  url         String?
+  logoUrl     String?
+  startDate   DateTime?
+  endDate     DateTime?
+  isCurrent   Boolean   @default(false)
+  description String?   @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+// ─── Contact (form submissions / inquiry log) ────────────────────────────────
+
+model Contact {
+  id        String   @id @default(cuid())
+  profileId String?
+  profile   Profile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+
+  name      String
+  email     String
+  subject   String?
+  message   String    @db.Text
+  isRead    Boolean   @default(false)
+  repliedAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([profileId])
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+}

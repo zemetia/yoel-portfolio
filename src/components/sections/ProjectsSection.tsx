@@ -102,7 +102,7 @@ export function ProjectsSection() {
           {/* Section subheading */}
           <FadeIn direction="up" delay={0.15}>
             <Typography
-              variant="body"
+              variant="p"
               className="text-base sm:text-lg text-center mb-14 max-w-2xl mx-auto"
               style={{ color: 'var(--color-muted-foreground)' }}
             >

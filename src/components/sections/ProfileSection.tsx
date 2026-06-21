@@ -71,7 +71,7 @@ export function ProfileSection() {
                   {t.raw('name') || 'Yoel'}
                 </Typography>
                 <Typography
-                  variant="body"
+                  variant="p"
                   className="text-base sm:text-lg leading-relaxed max-w-2xl"
                   style={{ color: 'var(--color-muted-foreground)' }}
                 >

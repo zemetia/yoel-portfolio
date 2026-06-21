@@ -8,10 +8,11 @@
  *   const snapshot = await db.collection('portfolio/profile').get();
  */
 
-import type { app, firestore } from 'firebase-admin';
+import type { App } from 'firebase-admin';
+import type { Firestore } from 'firebase-admin/firestore';
 
-let adminApp: app.App | null = null;
-let adminFirestore: firestore.Firestore | null = null;
+let adminApp: App | null = null;
+let adminFirestore: Firestore | null = null;
 
 export interface FirebaseConfig {
   projectId: string;
@@ -40,7 +41,7 @@ function getConfig(): FirebaseConfig | null {
  * Get the Firebase Admin app instance.
  * Returns null if credentials are not configured (graceful fallback).
  */
-export function getAdminApp(): app.App | null {
+export function getAdminApp(): App | null {
   if (adminApp) return adminApp;
 
   const config = getConfig();
@@ -52,7 +53,7 @@ export function getAdminApp(): app.App | null {
 
   try {
     adminApp = admin.initializeApp({
-      credential: admin.credential.cert({
+      credential: admin.cert({
         projectId: config.projectId,
         clientEmail: config.clientEmail,
         privateKey: config.privateKey,
@@ -62,7 +63,7 @@ export function getAdminApp(): app.App | null {
   } catch (err: unknown) {
     // If already initialized, use the existing app
     if (err instanceof Error && err.message?.includes('already exists')) {
-      adminApp = admin.app();
+      adminApp = admin.getApp();
     } else {
       console.error('[firebase-admin] init failed:', err instanceof Error ? err.message : String(err));
       return null;
@@ -76,13 +77,15 @@ export function getAdminApp(): app.App | null {
  * Get the Firestore instance.
  * Returns null if Firebase admin is not configured.
  */
-export function getFirestore(): firestore.Firestore | null {
+export function getFirestore(): Firestore | null {
   if (adminFirestore) return adminFirestore;
 
   const app = getAdminApp();
   if (!app) return null;
 
-  adminFirestore = app.firestore();
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { getFirestore: getAdminFirestore } = require('firebase-admin/firestore') as typeof import('firebase-admin/firestore');
+  adminFirestore = getAdminFirestore(app);
   return adminFirestore;
 }
 

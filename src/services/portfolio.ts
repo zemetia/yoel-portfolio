@@ -70,7 +70,7 @@ export const portfolioService = {
     const profile = await firestoreService.profile.getByAccountId(accountId);
     if (!profile || !(profile as unknown as Record<string, unknown>).id) return null;
 
-    const profileId = (profile as unknown as Record<string, string>).id;
+    const profileId = (profile as unknown as Record<string, string>).id!;
 
     const [skills, education, experience, projects, publications, licenses, volunteerExperience, organizations] =
       await Promise.all([

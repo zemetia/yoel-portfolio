@@ -19,7 +19,7 @@
 //   import { firestoreService } from '@/services/firebase';
 //   const profile = await firestoreService.profile.getByAccountId('abc');
 
-import type { DocumentData } from 'firebase-admin/firestore';
+import type { Timestamp, DocumentData, CollectionReference } from 'firebase-admin/firestore';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 // Mirrors Prisma schema — same shapes, different backing store.
@@ -40,8 +40,8 @@ export interface ProfileData {
   mediumUrl?: string | null;
   avatarUrl?: string | null;
   resumeUrl?: string | null;
-  createdAt?: FirebaseFirestore.Timestamp;
-  updatedAt?: FirebaseFirestore.Timestamp;
+  createdAt?: Timestamp;
+  updatedAt?: Timestamp;
 }
 
 export interface SkillData {
@@ -176,7 +176,7 @@ interface CollectionService<T> {
 function createCollectionService<T extends DocumentData>(
   collectionName: string,
 ): CollectionService<T> {
-  const ref = (): FirebaseFirestore.CollectionReference =>
+  const ref = (): CollectionReference =>
     getFirestore().collection(collectionName);
 
   return {
@@ -224,7 +224,7 @@ function createCollectionService<T extends DocumentData>(
 let _db: FirebaseFirestore.Firestore | null = null;
 
 function getFirestore(): FirebaseFirestore.Firestore {
-  if (_db) return _db;
+  if (_db) return _db!;
 
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const admin = require('firebase-admin');
@@ -249,7 +249,7 @@ function getFirestore(): FirebaseFirestore.Firestore {
     admin.initializeApp();
   }
 
-  _db = admin.firestore();
+  _db = admin.firestore() as FirebaseFirestore.Firestore;
   return _db;
 }
 
@@ -279,6 +279,7 @@ export const firestoreService = {
         .then((snap) => {
           if (snap.empty) return null;
           const doc = snap.docs[0];
+          if (!doc) return null;
           return { id: doc.id, ...doc.data() } as unknown as ProfileData;
         }),
     ...createCollectionService<ProfileData>('profiles'),

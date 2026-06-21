@@ -2,7 +2,6 @@
 
 import { FadeIn } from '@/components/animations/FadeIn';
 import { Typography } from '@/components/ui/Typography';
-import { Button } from '@/components/ui/Button';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
@@ -69,7 +68,7 @@ export function HeroSection() {
 
           {/* Tagline */}
           <FadeIn direction="up" delay={0.4}>
-            <Typography variant="body" className="text-base sm:text-lg max-w-2xl mb-10 text-center lg:text-left leading-relaxed" style={{ color: 'var(--color-muted-foreground)' }}>
+            <Typography variant="p" className="text-base sm:text-lg max-w-2xl mb-10 text-center lg:text-left leading-relaxed" style={{ color: 'var(--color-muted-foreground)' }}>
               {t.raw('tagline') || 'Turning complex data into actionable insights. Passionate about machine learning, statistical modeling, and data-driven decision making.'}
             </Typography>
           </FadeIn>
@@ -77,19 +76,17 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <FadeIn direction="up" delay={0.5}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="/projects" passHref legacyBehavior>
-                <Button asChild>
-                  <a className="inline-flex items-center justify-center px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:opacity-90 hover:shadow-lg hover:shadow-[var(--color-primary)]/25">
-                    {t.raw('ctaProjects') || 'View Projects'}
-                  </a>
-                </Button>
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:opacity-90 hover:shadow-lg hover:shadow-[var(--color-primary)]/25"
+              >
+                {t.raw('ctaProjects') || 'View Projects'}
               </Link>
-              <Link href="/contact" passHref legacyBehavior>
-                <Button asChild variant="outline">
-                  <a className="inline-flex items-center justify-center px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 border border-[var(--color-border)] text-[var(--color-foreground)] hover:bg-[var(--color-accent)] hover:border-[var(--color-primary)]/50">
-                    {t.raw('ctaContact') || 'Get in Touch'}
-                  </a>
-                </Button>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 border border-[var(--color-border)] text-[var(--color-foreground)] hover:bg-[var(--color-accent)] hover:border-[var(--color-primary)]/50"
+              >
+                {t.raw('ctaContact') || 'Get in Touch'}
               </Link>
             </div>
           </FadeIn>

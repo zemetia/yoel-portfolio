@@ -1,5 +1,4 @@
 import { portfolioService, firestoreService } from '@/services';
-import type { PortfolioData } from '@/services/portfolio';
 import type {
   Profile,
   Skill,

@@ -2,7 +2,6 @@
 
 import { FadeIn } from '@/components/animations/FadeIn';
 import { Typography } from '@/components/ui/Typography';
-import { Button } from '@/components/ui/Button';
 import { useTranslations } from 'next-intl';
 
 const contactLinks = [
@@ -91,7 +90,7 @@ export function ContactSection() {
           {/* Section description */}
           <FadeIn direction="up" delay={0.15}>
             <Typography
-              variant="body"
+              variant="p"
               className="text-base sm:text-lg text-center mb-12 max-w-2xl mx-auto"
               style={{ color: 'var(--color-muted-foreground)' }}
             >
@@ -156,7 +155,7 @@ export function ContactSection() {
           <FadeIn direction="up" delay={0.7}>
             <div className="mt-10 text-center">
               <Typography
-                variant="body"
+                variant="small"
                 className="text-sm"
                 style={{ color: 'var(--color-muted-foreground)' }}
               >

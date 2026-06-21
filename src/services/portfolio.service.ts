@@ -20,7 +20,7 @@ import type {
   Project,
   Education,
 } from '@/types/portfolio';
-import type { firestore } from 'firebase-admin';
+import type { DocumentSnapshot, CollectionReference, DocumentData } from 'firebase-admin/firestore';
 
 // ─── Collection paths ────────────────────────────────────────────────────
 
@@ -28,13 +28,13 @@ const PORTFOLIO_COLLECTION = 'portfolio';
 
 // ─── Internal helpers ─────────────────────────────────────────────────────
 
-function docSnapshotToData<T>(snapshot: firestore.DocumentSnapshot | null): T | null {
+function docSnapshotToData<T>(snapshot: DocumentSnapshot | null): T | null {
   if (!snapshot?.exists) return null;
   return snapshot.data() as T;
 }
 
 async function collectionToArray<T>(
-  collectionRef: firestore.CollectionReference<firestore.DocumentData>,
+  collectionRef: CollectionReference<DocumentData>,
 ): Promise<T[]> {
   const snapshot = await collectionRef.orderBy('order', 'asc').get();
   if (snapshot.empty) return [];

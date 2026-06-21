@@ -108,7 +108,7 @@ export function ExperienceTimeline() {
                     </Typography>
 
                     <Typography
-                      variant="body"
+                      variant="p"
                       className="text-sm font-medium mb-3"
                       style={{ color: 'var(--color-primary)' }}
                     >
@@ -116,7 +116,7 @@ export function ExperienceTimeline() {
                     </Typography>
 
                     <Typography
-                      variant="body"
+                      variant="p"
                       className="text-sm leading-relaxed"
                       style={{ color: 'var(--color-muted-foreground)' }}
                     >
