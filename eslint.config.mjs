@@ -1,4 +1,5 @@
 import { createRequire } from 'module';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
 
 const require = createRequire(import.meta.url);
 
@@ -7,8 +8,14 @@ const nextConfig = require('eslint-config-next/core-web-vitals');
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 const eslintConfig = [
+  {
+    ignores: ['src/lib/generated/**'],
+  },
   ...nextConfig,
   {
+    plugins: {
+      '@typescript-eslint': typescriptEslint,
+    },
     settings: {
       react: { version: '19' },
     },
@@ -16,10 +23,6 @@ const eslintConfig = [
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
-      ],
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
       ],
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-non-null-assertion': 'error',

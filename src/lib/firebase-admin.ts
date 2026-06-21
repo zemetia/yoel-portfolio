@@ -48,7 +48,6 @@ export function getAdminApp(): App | null {
   if (!config) return null;
 
   // Dynamic import to avoid bundling firebase-admin into client bundles
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const admin = require('firebase-admin') as typeof import('firebase-admin');
 
   try {
@@ -83,7 +82,6 @@ export function getFirestore(): Firestore | null {
   const app = getAdminApp();
   if (!app) return null;
 
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { getFirestore: getAdminFirestore } = require('firebase-admin/firestore') as typeof import('firebase-admin/firestore');
   adminFirestore = getAdminFirestore(app);
   return adminFirestore;

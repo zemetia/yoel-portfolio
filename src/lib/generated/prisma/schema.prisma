@@ -8,53 +8,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// ─── User / Auth ─────────────────────────────────────────────────────────────
-
-model Account {
-  id        String  @id @default(cuid())
-  userId    String  @unique
-  email     String  @unique
-  name      String?
-  avatarUrl String?
-  role      Role    @default(USER)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  profile Profile?
-}
-
-enum Role {
-  USER
-  ADMIN
-}
-
-// ─── Profile ─────────────────────────────────────────────────────────────────
+// ─── Profile (standalone — no auth needed for portfolio) ────────────────────
 
 model Profile {
-  id        String  @id @default(cuid())
-  accountId String  @unique
-  account   Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  id   String @id @default(cuid())
+  slug String @unique @default("main")
 
   // Personal info
-  fullName String @default("")
-  headline String @default("") // e.g. "Full-Stack Developer & AI Engineer"
-  summary  String @default("") // short bio / about section
-  location String @default("")
-  phone    String @default("")
-  email    String @default("")
+  fullName  String    @default("")
+  headline  String    @default("")
+  summary   String    @default("")
+  location  String    @default("")
+  phone     String    @default("")
+  email     String    @default("")
+  birthDate DateTime?
 
   // Social / links
-  website     String?
-  linkedinUrl String?
-  githubUrl   String?
-  twitterUrl  String?
-  youtubeUrl  String?
-  mediumUrl   String?
+  website      String?
+  linkedinUrl  String?
+  githubUrl    String?
+  twitterUrl   String?
+  instagramUrl String?
+  youtubeUrl   String?
+  mediumUrl    String?
 
   // Media
   avatarUrl String?
   resumeUrl String?
+
+  // Portfolio config
+  heroSubtitle    String?
+  heroSequences   Json? // Array of animated text sequences
+  visibleSections String[] // Which sections to show
+  activeTheme     String? // Theme name
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -155,16 +141,22 @@ model Project {
   // Links
   liveUrl      String?
   githubUrl    String?
+  projectUrl   String?
   caseStudyUrl String?
 
   // Metadata
+  year             Int?
+  tags             String[]
+  images           String[]
+  collaborators    String[]
+  client           String?
   industry         String?
   duration         String?
   servicesProvided String[]
-  filterTag        String?
-  techStack        String[] // tech names for quick display
+  techStack        String[]
   isFeatured       Boolean       @default(false)
-  status           PublishStatus @default(DRAFT)
+  status           PublishStatus @default(PUBLISHED)
+  aiHint           String?
   publishedAt      DateTime?
   order            Int           @default(0)
 

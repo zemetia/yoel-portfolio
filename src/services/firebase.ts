@@ -224,9 +224,8 @@ function createCollectionService<T extends DocumentData>(
 let _db: FirebaseFirestore.Firestore | null = null;
 
 function getFirestore(): FirebaseFirestore.Firestore {
-  if (_db) return _db!;
+  if (_db) return _db;
 
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const admin = require('firebase-admin');
 
   // Check for service-account-based auth (preferred)

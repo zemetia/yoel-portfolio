@@ -121,34 +121,29 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.AccountScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  email: 'email',
-  name: 'name',
-  avatarUrl: 'avatarUrl',
-  role: 'role',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.ProfileScalarFieldEnum = {
   id: 'id',
-  accountId: 'accountId',
+  slug: 'slug',
   fullName: 'fullName',
   headline: 'headline',
   summary: 'summary',
   location: 'location',
   phone: 'phone',
   email: 'email',
+  birthDate: 'birthDate',
   website: 'website',
   linkedinUrl: 'linkedinUrl',
   githubUrl: 'githubUrl',
   twitterUrl: 'twitterUrl',
+  instagramUrl: 'instagramUrl',
   youtubeUrl: 'youtubeUrl',
   mediumUrl: 'mediumUrl',
   avatarUrl: 'avatarUrl',
   resumeUrl: 'resumeUrl',
+  heroSubtitle: 'heroSubtitle',
+  heroSequences: 'heroSequences',
+  visibleSections: 'visibleSections',
+  activeTheme: 'activeTheme',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -211,14 +206,20 @@ exports.Prisma.ProjectScalarFieldEnum = {
   body: 'body',
   liveUrl: 'liveUrl',
   githubUrl: 'githubUrl',
+  projectUrl: 'projectUrl',
   caseStudyUrl: 'caseStudyUrl',
+  year: 'year',
+  tags: 'tags',
+  images: 'images',
+  collaborators: 'collaborators',
+  client: 'client',
   industry: 'industry',
   duration: 'duration',
   servicesProvided: 'servicesProvided',
-  filterTag: 'filterTag',
   techStack: 'techStack',
   isFeatured: 'isFeatured',
   status: 'status',
+  aiHint: 'aiHint',
   publishedAt: 'publishedAt',
   order: 'order',
   createdAt: 'createdAt',
@@ -312,28 +313,22 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
-};
-
 exports.Prisma.JsonNullValueFilter = {
   DbNull: Prisma.DbNull,
   JsonNull: Prisma.JsonNull,
   AnyNull: Prisma.AnyNull
 };
-exports.Role = exports.$Enums.Role = {
-  USER: 'USER',
-  ADMIN: 'ADMIN'
-};
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
 exports.PublishStatus = exports.$Enums.PublishStatus = {
   DRAFT: 'DRAFT',
   PUBLISHED: 'PUBLISHED'
 };
 
 exports.Prisma.ModelName = {
-  Account: 'Account',
   Profile: 'Profile',
   Skill: 'Skill',
   Education: 'Education',
