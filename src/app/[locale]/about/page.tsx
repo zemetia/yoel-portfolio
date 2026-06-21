@@ -1,109 +1,113 @@
 import type { Metadata } from 'next';
 
-import { buildMetadata } from '@/lib/seo';
-import { serializeSchema, webPageSchema, breadcrumbSchema } from '@/lib/structured-data';
-import { siteConfig } from '@/config/site';
 import { Typography } from '@/components/ui/Typography';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { PageWrapper } from '@/components/layout/PageWrapper';
+import { fetchPortfolioData } from '@/lib/portfolio-adapter';
 
-interface Props {
-  params: Promise<{ locale: string }>;
-}
+export const metadata: Metadata = {
+  title: 'About',
+};
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const page = siteConfig.pages['about'];
-  return buildMetadata({
-    title: page?.title,
-    description: page?.description,
-    path: '/about',
-    locale,
-  });
-}
+export default async function AboutPage() {
+  const portfolio = await fetchPortfolioData();
+  const profile = portfolio.data?.profile ?? null;
+  const skills = portfolio.data?.skills ?? [];
+  const education = portfolio.data?.education ?? [];
 
-export default function AboutPage() {
   return (
     <>
-      <script
-        id="webpage-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: serializeSchema(
-            webPageSchema({
-              name: siteConfig.pages['about']?.title ?? 'About',
-              description: siteConfig.pages['about']?.description ?? siteConfig.description,
-              url: `${siteConfig.url}/about`,
-              datePublished: '2024-01-01',
-            }),
-          ),
-        }}
-      />
-      <script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: serializeSchema(
-            breadcrumbSchema([
-              { name: 'Home', url: siteConfig.url },
-              { name: 'About', url: `${siteConfig.url}/about` },
-            ]),
-          ),
-        }}
-      />
-      <Header />
-      <main>
-        <PageWrapper>
+      <Header profileName={profile?.name} />
+      <main className="container-page py-16">
+        <div className="mx-auto max-w-3xl">
           <Typography variant="h1" className="mb-4">
-            About This Template
-          </Typography>
-          <Typography variant="lead" className="mb-12 text-foreground-muted">
-            A strict, opinionated starting point for production Next.js applications.
+            About {profile?.name ?? 'Me'}
           </Typography>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Structure</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Typography variant="muted" className="font-mono text-xs leading-relaxed">
-                  {`src/
-  app/          ← App Router pages
-  components/
-    ui/         ← Primitive components
-    layout/     ← Header, Footer
-    shared/     ← Cross-feature components
-  hooks/        ← Custom React hooks
-  i18n/         ← Routing + request config
-  lib/          ← cn(), utils
-  services/     ← API client + services
-  stores/       ← Zustand stores
-  types/        ← Shared TypeScript types`}
-                </Typography>
-              </CardContent>
-            </Card>
+          {profile ? (
+            <>
+              <Typography variant="lead" className="mb-12 text-foreground-muted">
+                {profile.tagline}
+              </Typography>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Component Convention</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Typography variant="muted" className="font-mono text-xs leading-relaxed">
-                  {`ComponentName/
-  ComponentName.tsx      ← Implementation
-  ComponentName.stories  ← Storybook
-  ComponentName.test     ← Vitest + RTL
-  index.ts               ← Named re-export`}
-                </Typography>
-              </CardContent>
-            </Card>
-          </div>
-        </PageWrapper>
+              {/* Bio */}
+              <div className="mb-12 space-y-4">
+                {profile.bio.split('\n\n').map((paragraph: string, i: number) => (
+                  <Typography key={i} variant="p" className="text-foreground-muted leading-relaxed">
+                    {paragraph}
+                  </Typography>
+                ))}
+              </div>
+
+              {/* Quick facts */}
+              <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="rounded-lg border border-border bg-surface p-4">
+                  <p className="text-xs text-foreground-subtle mb-1">Location</p>
+                  <p className="text-sm font-medium">{profile.location}</p>
+                </div>
+                <div className="rounded-lg border border-border bg-surface p-4">
+                  <p className="text-xs text-foreground-subtle mb-1">Status</p>
+                  <p className="text-sm font-medium">
+                    {profile.available ? 'Open to opportunities' : 'Portfolio'}
+                  </p>
+                </div>
+                <div className="rounded-lg border border-border bg-surface p-4">
+                  <p className="text-xs text-foreground-subtle mb-1">Skills</p>
+                  <p className="text-sm font-medium">{skills.length} technologies</p>
+                </div>
+              </div>
+
+              {/* Skills summary */}
+              {skills.length > 0 && (
+                <div className="mb-12">
+                  <Typography variant="h2" className="mb-4 text-xl">
+                    Technologies
+                  </Typography>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map((skill: { id: string; name: string }) => (
+                      <Badge key={skill.id} variant="outline">
+                        {skill.name}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Education */}
+              {education.length > 0 && (
+                <div className="mb-12">
+                  <Typography variant="h2" className="mb-4 text-xl">
+                    Education
+                  </Typography>
+                  <div className="space-y-4">
+                    {education.map(
+                      (edu: { id: string; degree: string; major: string; school: string; period: string; gpa?: string }) => (
+                        <div key={edu.id} className="rounded-lg border border-border bg-surface p-4">
+                          <p className="font-semibold">{edu.degree} in {edu.major}</p>
+                          <p className="text-sm text-foreground-muted">{edu.school} &middot; {edu.period}</p>
+                          {edu.gpa && (
+                            <p className="text-xs text-foreground-subtle mt-1">GPA: {edu.gpa}</p>
+                          )}
+                        </div>
+                      ),
+                    )}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="rounded-lg border border-border bg-surface p-8 text-center">
+              <Typography variant="p" className="text-foreground-muted">
+                {portfolio.error
+                  ? 'Configure Firebase to load portfolio data. Check your .env.local file.'
+                  : 'Portfolio data not available yet.'}
+              </Typography>
+            </div>
+          )}
+        </div>
       </main>
-      <Footer />
+      <Footer profileName={profile?.name} />
     </>
   );
 }

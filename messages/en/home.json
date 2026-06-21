@@ -1,44 +1,142 @@
 {
   "meta": {
-    "title": "Next.js Template",
-    "description": "A strict, production-ready Next.js 15 template"
+    "title": "Yoel Sitorus — Data Science & AI Portfolio",
+    "description": "Data Scientist, ML Engineer & AI Agent Orchestrator. Building intelligent systems at Zemetia."
   },
   "hero": {
-    "badge": "Production-Ready Template",
-    "title": "Build fast.\nShip with confidence.",
-    "description": "A strict Next.js 15 template with TypeScript, i18n, component-based architecture, Storybook, and a clean service layer. Everything you need, nothing you don't.",
-    "ctaPrimary": "Get Started",
-    "ctaSecondary": "View Source"
+    "badge": "Data Scientist & ML Engineer",
+    "badge2": "Open to opportunities",
+    "title": "Turning Data into\nIntelligent Decisions",
+    "description": "Building production ML systems and autonomous AI agents. Founder of Zemetia Studio, Youdo POS, and Freshideas Agency.",
+    "ctaPrimary": "View Projects",
+    "ctaSecondary": "Get in Touch"
   },
-  "features": {
-    "heading": "Everything included",
-    "subheading": "A foundation you'll actually want to build on",
-    "i18n": {
-      "title": "Internationalization",
-      "description": "Type-safe i18n with next-intl. Server and client components both supported. Locale routing included."
-    },
-    "components": {
-      "title": "Strict Components",
-      "description": "Every component lives in its own directory with full TypeScript types, CVA variants, and Storybook stories."
-    },
-    "storybook": {
-      "title": "Storybook 8",
-      "description": "Develop and document components in isolation with a11y testing, interactions, and auto-generated docs."
-    },
-    "services": {
-      "title": "Service Layer",
-      "description": "A typed fetch client with error handling, caching hints, and request/response interceptors."
-    },
-    "testing": {
-      "title": "Vitest + RTL",
-      "description": "Component tests with Testing Library. Coverage reports. No Jest config headaches."
-    },
-    "typescript": {
-      "title": "Strict TypeScript",
-      "description": "noUncheckedIndexedAccess, noImplicitReturns, consistent-type-imports and more. No escape hatches."
+  "profile": {
+    "heading": "About Me",
+    "name": "Yoel Sitorus",
+    "bio": "Data Scientist and Machine Learning Engineer with deep expertise in building end-to-end ML pipelines, NLP systems, and AI-driven products. I architect intelligent systems that turn raw data into actionable insights — from predictive models to autonomous agents. Passionate about the intersection of data science, language AI, and production engineering.",
+    "skillsHeading": "Core Expertise"
+  },
+  "experience": {
+    "heading": "Experience",
+    "subheading": "Building intelligent systems that matter",
+    "entries": {
+      "0": {
+        "company": "Zemetia Studio",
+        "role": "Founder & AI Orchestrator",
+        "dates": "2024 — Present",
+        "description": "Building AI agent systems, full-stack applications, and data-driven products. Orchestrating multi-agent workflows for automation and intelligence."
+      },
+      "1": {
+        "company": "Youdo POS",
+        "role": "Founder & ML Engineer",
+        "dates": "2024 — Present",
+        "description": "Developing AI-powered POS analytics with demand forecasting, customer segmentation, and inventory optimization using ML models."
+      },
+      "2": {
+        "company": "Freshideas Agency",
+        "role": "Founder & Data Strategist",
+        "dates": "2023 — Present",
+        "description": "Data-driven marketing strategies, audience analytics, and campaign optimization. Applying statistical modeling to measure and improve ROI."
+      }
     }
   },
-  "stack": {
-    "heading": "The Stack"
+  "projects": {
+    "heading": "Projects",
+    "subheading": "Data Science & AI systems I've built",
+    "entries": {
+      "0": {
+        "title": "AI Agent Orchestrator",
+        "description": "Multi-agent system that decomposes complex goals into parallel workstreams, delegates to specialized agents, and synthesizes results.",
+        "tags": ["Python", "LangChain", "FastAPI", "PostgreSQL"]
+      },
+      "1": {
+        "title": "Point of Sale Analytics",
+        "description": "ML-powered analytics engine for retail with sales forecasting, customer segmentation, and anomaly detection.",
+        "tags": ["Python", "TensorFlow", "scikit-learn", "BigQuery"]
+      },
+      "2": {
+        "title": "NLP Pipeline for Bahasa",
+        "description": "End-to-end NLP pipeline for Indonesian language text classification, sentiment analysis, and named entity recognition.",
+        "tags": ["PyTorch", "Transformers", "spaCy", "FastText"]
+      },
+      "3": {
+        "title": "Real-time Dashboard Engine",
+        "description": "Streaming data pipeline powering real-time business intelligence dashboards with sub-second query latency.",
+        "tags": ["Apache Kafka", "ClickHouse", "Grafana", "Go"]
+      },
+      "4": {
+        "title": "Recommendation System",
+        "description": "Hybrid collaborative filtering and content-based recommendation engine serving personalized suggestions at scale.",
+        "tags": ["Python", "PyTorch", "Redis", "gRPC"]
+      },
+      "5": {
+        "title": "Autonomous Web Agent",
+        "description": "Browser-based autonomous agent capable of complex multi-step web tasks using computer vision and LLM reasoning.",
+        "tags": ["Python", "Playwright", "GPT-4", "Computer Vision"]
+      }
+    }
+  },
+  "volunteer": {
+    "heading": "Community & Volunteer",
+    "subheading": "Giving back to the data science community",
+    "entries": {
+      "0": {
+        "organization": "Data Science Indonesia",
+        "role": "Community Contributor",
+        "description": "Contributing to the Indonesian data science community through talks, workshops, and open-source projects."
+      },
+      "1": {
+        "organization": "AI for Social Good",
+        "role": "Technical Advisor",
+        "description": "Advising non-profit organizations on leveraging AI and data science for social impact initiatives."
+      },
+      "2": {
+        "organization": "Open Source ML",
+        "role": "Maintainer",
+        "description": "Maintaining open-source ML libraries and tools, reviewing contributions, and mentoring new contributors."
+      }
+    }
+  },
+  "publications": {
+    "heading": "Publications & Talks",
+    "subheading": "Research, presentations, and writing",
+    "entries": {
+      "0": {
+        "title": "Multi-Agent Orchestration for Complex Task Decomposition",
+        "venue": "AI Engineering Conference 2025",
+        "year": "2025",
+        "type": "Conference"
+      },
+      "1": {
+        "title": "Production ML Pipelines: Lessons from the Field",
+        "venue": "Journal of Machine Learning Engineering",
+        "year": "2025",
+        "type": "Journal"
+      },
+      "2": {
+        "title": "NLP for Under-Resourced Languages: A Case Study in Bahasa Indonesia",
+        "venue": "Workshop on Low-Resource NLP",
+        "year": "2024",
+        "type": "Workshop"
+      },
+      "3": {
+        "title": "Building Intelligent Agents with LLMs",
+        "venue": "DevOpsDays Jakarta 2024",
+        "year": "2024",
+        "type": "Conference"
+      },
+      "4": {
+        "title": "From Data to Decisions: A Practical Framework",
+        "venue": "Data Science Indonesia Meetup",
+        "year": "2024",
+        "type": "Talk"
+      }
+    }
+  },
+  "contact": {
+    "heading": "Get in Touch",
+    "description": "Interested in data science, AI, or collaboration? Let's talk.",
+    "footer": "Built with Next.js, Tailwind CSS & ❤️ for data science"
   }
 }

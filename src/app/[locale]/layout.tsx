@@ -8,6 +8,7 @@ import { routing } from '@/i18n/routing';
 import type { Locale } from '@/i18n/routing';
 import { Toaster } from '@/components/ui/Sonner';
 import { PostHogProvider } from '@/providers';
+import { fetchPortfolioData } from '@/lib/portfolio-adapter';
 
 import '../globals.css';
 
@@ -34,12 +35,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home.meta' });
 
+  // Try to read profile from Firebase for dynamic SEO
+  const portfolio = await fetchPortfolioData().catch(() => null);
+  const profile = portfolio?.data?.profile ?? null;
+
+  const defaultTitle = profile?.name
+    ? `${profile.name} — ${profile.tagline ?? 'Portfolio'}`
+    : t('title');
+
+  const defaultDescription = profile?.shortBio ?? t('description');
+
   return {
     title: {
-      template: `%s | ${t('title')}`,
-      default: t('title'),
+      template: `%s | ${profile?.name ?? 'Portfolio'}`,
+      default: defaultTitle,
     },
-    description: t('description'),
+    description: defaultDescription,
     metadataBase: new URL(process.env['NEXT_PUBLIC_APP_URL'] ?? 'http://localhost:3000'),
   };
 }

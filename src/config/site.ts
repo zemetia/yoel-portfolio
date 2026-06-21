@@ -2,6 +2,9 @@
  * Central "company brain" — single source of truth for all SEO, GEO, and LLMs.txt.
  * Edit this file first whenever you add a page or change brand/product details.
  * Every field here propagates to: metadata, sitemap, robots.txt, structured data, llms.txt.
+ *
+ * NOTE: For the portfolio, this serves as fallback defaults.
+ * When Firebase is configured, profile data from Firebase overrides these values.
  */
 
 import type { MetadataRoute } from 'next';
@@ -11,15 +14,10 @@ export type SitemapChangeFreq = NonNullable<
 >;
 
 export interface PageConfig {
-  /** URL path relative to root, e.g. '/about' */
   path: string;
-  /** <title> for this page */
   title: string;
-  /** Meta description — be specific: include what the visitor gains */
   description: string;
-  /** Sitemap change frequency hint */
   changeFreq: SitemapChangeFreq;
-  /** Sitemap priority 0.0–1.0 */
   priority: number;
 }
 
@@ -50,70 +48,67 @@ export interface SiteConfig {
     twitterHandle?: string;
     locale: string;
   };
-  /** Registry of all public pages — drives sitemap + LLMs.txt page index */
   pages: Record<string, PageConfig>;
 }
 
 export const siteConfig: SiteConfig = {
   // ─── Core Identity ───────────────────────────────────────────────────────────
-  name: 'Yoel — Developer & Tech Entrepreneur',
-  tagline: 'Building software that moves businesses forward — from POS systems to full-stack platforms.',
+  name: 'Yoel Sitorus',
+  tagline: 'Data Scientist & ML Engineer | AI Agent Orchestrator',
   description:
-    "Yoel is a full-stack developer and tech entrepreneur based in Indonesia. Building Zemetia Studio (software house), Youdo POS (restaurant POS), and Freshideas Agency (marketing) — turning complex problems into clean, scalable solutions.",
-  url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://zemetia.sh',
+    'Portfolio of Yoel Sitorus — Data Scientist, ML Engineer, and AI Agent Orchestrator. Building production ML systems, NLP pipelines, and autonomous AI agents. Founder of Zemetia Studio, Youdo POS, and Freshideas Agency.',
+  url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://yoelsitorus.com',
 
   // ─── Brand Assets ────────────────────────────────────────────────────────────
   ogImage: '/og.png',
 
-  // ─── Company Details (drives Organization schema + LLMs.txt) ─────────────────
+  // ─── Company Details ─────────────────────────────────────────────────────────
   company: {
-    legalName: 'Zemetia Studio',
+    legalName: 'Yoel Sitorus',
     foundedYear: 2024,
-    industry: 'Software Development / SaaS / Agency',
+    industry: 'Data Science / AI Engineering',
     targetAudience:
-      'Restaurant owners needing modern POS systems, businesses seeking custom software solutions, and brands wanting strategic marketing.',
+      'Startups and enterprises needing data science solutions, ML pipeline engineering, AI agent orchestration, and intelligent systems development.',
     problemSolved:
-      'Most small-to-medium businesses in Indonesia struggle with outdated, disconnected tools — clunky POS systems, bespoke software that never ships, and marketing that doesn\'t convert.',
+      'Most organizations struggle to turn raw data into production ML systems. Yoel combines data science expertise with AI engineering to build intelligent, scalable solutions that drive real business outcomes.',
     solution:
-      'Yoel builds end-to-end solutions — Youdo POS for modern restaurant management, Zemetia Studio for custom software, and Freshideas Agency for data-driven marketing — all backed by clean architecture and AI-augmented workflows.',
+      'Data Science portfolio showcasing projects including NLP pipelines, ML-powered POS analytics, recommendation systems, real-time dashboards, and autonomous AI agents built with modern ML stacks.',
     keyBenefits: [
-      'Full-stack expertise — from React/Next.js frontends to Go/Express backends and PostgreSQL',
-      'Product-minded engineering — every project ships with SEO, analytics, monitoring, and documentation',
-      'AI-augmented delivery — workflows optimized with AI tooling for speed without sacrificing quality',
+      'End-to-end ML pipeline engineering — from data ingestion to model deployment',
+      'NLP and language AI systems for under-resourced languages',
+      'Autonomous AI agents and multi-agent orchestration',
+      'Bilingual (EN/ID) — serves both local and international clients',
     ],
-    contactEmail: 'yoel@zemetia.sh',
+    contactEmail: 'yoel@zemetia.id',
     socialLinks: {
-      twitter: 'https://twitter.com/zemetia',
-      github: 'https://github.com/zemetia',
-      linkedin: 'https://linkedin.com/in/yoel',
+      github: 'https://github.com/yoelsitorus',
+      linkedin: 'https://linkedin.com/in/yoelsitorus',
     },
   },
 
   // ─── SEO Settings ────────────────────────────────────────────────────────────
   seo: {
-    titleTemplate: '%s | Yoel',
-    defaultTitle: 'Yoel — Full-Stack Developer & Tech Entrepreneur',
-    twitterHandle: '@zemetia',
+    titleTemplate: '%s | Yoel Sitorus',
+    defaultTitle: 'Yoel Sitorus — Data Scientist & ML Engineer',
+    twitterHandle: '@yoelsitorus',
     locale: 'en_US',
   },
 
   // ─── Pages Registry ──────────────────────────────────────────────────────────
-  // Add a new entry here every time you create a new public page.
-  // Path is locale-stripped (the sitemap helper adds locale prefixes).
   pages: {
     home: {
       path: '/',
-      title: 'Yoel — Full-Stack Developer & Tech Entrepreneur',
+      title: 'Yoel Sitorus — Data Scientist & ML Engineer',
       description:
-        'Yoel is a full-stack developer building Zemetia Studio, Youdo POS, and Freshideas Agency. Turning complex problems into clean, scalable solutions.',
+        'Portfolio of Yoel Sitorus — Data Scientist, ML Engineer, and AI Agent Orchestrator. Explore data science projects, ML pipelines, AI systems, and professional experience.',
       changeFreq: 'weekly',
       priority: 1.0,
     },
     about: {
       path: '/about',
-      title: 'About Yoel',
+      title: 'About Yoel Sitorus',
       description:
-        'Learn about Yoel\'s journey — from coding the first line to building multiple tech businesses in Indonesia.',
+        'Learn about Yoel Sitorus — Data Scientist, ML Engineer, AI Agent Orchestrator, and founder of multiple tech ventures including Zemetia Studio, Youdo POS, and Freshideas Agency.',
       changeFreq: 'monthly',
       priority: 0.8,
     },
