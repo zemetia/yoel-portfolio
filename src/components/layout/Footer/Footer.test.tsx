@@ -17,10 +17,8 @@ describe('Footer', () => {
 
   it('renders all footer links', () => {
     render(<Footer />);
-    expect(screen.getByRole('link', { name: 'Next.js' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Storybook' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'next-intl' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Tailwind CSS' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'GitHub' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'LinkedIn' })).toBeInTheDocument();
   });
 
   it('opens links in a new tab with rel=noopener', () => {
