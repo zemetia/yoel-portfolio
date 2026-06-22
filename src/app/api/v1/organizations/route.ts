@@ -39,7 +39,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const parsed = parseBody(createSchema, body);
     if (parsed.error) return bad(parsed.error);
-    const data = await prisma.organization.create({ data: parsed.data! });
+    const data = await prisma.organization.create({ data: // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    parsed.data! });
     return created(data);
   } catch (error) {
     return serverError(error);

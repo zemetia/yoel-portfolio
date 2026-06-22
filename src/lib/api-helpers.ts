@@ -90,7 +90,10 @@ export function parseFilters(
 
 // ─── Body validation ─────────────────────────────────────────────────────────
 
-export function parseBody<T>(schema: z.ZodType<T>, body: unknown): { data?: T; error?: string } {
+export function parseBody<T>(
+  schema: z.ZodType<T>,
+  body: unknown,
+): { data?: T; error?: string } {
   const result = schema.safeParse(body);
   if (!result.success) {
     const first = result.error.issues[0];

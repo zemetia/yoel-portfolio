@@ -75,7 +75,7 @@ export type ListResult = {
   url: string;
 };
 
-type Folder = 'avatars' | 'projects' | 'experiences' | 'general';
+export type Folder = 'avatars' | 'projects' | 'experiences' | 'general';
 
 /**
  * Ensure the bucket exists — call once at startup.
@@ -101,7 +101,7 @@ export async function ensureBucket(): Promise<void> {
       BUCKET,
       JSON.stringify(policy),
     );
-    console.log(`✅ Bucket "${BUCKET}" created with public-read policy`);
+    console.warn(`✅ Bucket "${BUCKET}" created with public-read policy`);
   }
 }
 

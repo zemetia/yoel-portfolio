@@ -4,6 +4,7 @@ import {
   uploadFile,
   ensureBucket,
   fileExists,
+  type Folder,
 } from '@/lib/storage';
 
 /**
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
       const name = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`;
 
       const result = await uploadFile(
-        folder as any,
+        folder as Folder,
         name,
         buffer,
         file.type || 'application/octet-stream',
@@ -79,16 +80,17 @@ export async function POST(req: NextRequest) {
     }
 
     const result = await uploadBase64(
-      folder as any,
+      folder as Folder,
       name,
       base64,
     );
 
     return NextResponse.json(result);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Upload error:', error);
+    const msg = error instanceof Error ? error.message : 'Upload failed';
     return NextResponse.json(
-      { error: error?.message || 'Upload failed' },
+      { error: msg },
       { status: 500 },
     );
   }
@@ -115,9 +117,10 @@ export async function GET(req: NextRequest) {
 
     const exists = await fileExists(key);
     return NextResponse.json({ key, exists });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Check failed';
     return NextResponse.json(
-      { error: error?.message || 'Check failed' },
+      { error: msg },
       { status: 500 },
     );
   }

@@ -68,7 +68,8 @@ export async function PATCH(
 
     const data = await prisma.profile.update({
       where: { id },
-      data: parsed.data!,
+      data: // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    parsed.data!,
     });
     return ok(data);
   } catch (error) {

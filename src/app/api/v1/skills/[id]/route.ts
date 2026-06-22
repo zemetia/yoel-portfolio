@@ -37,7 +37,8 @@ export async function PATCH(
     const body = await request.json();
     const parsed = parseBody(updateSchema, body);
     if (parsed.error) return bad(parsed.error);
-    const data = await prisma.skill.update({ where: { id }, data: parsed.data! });
+    const data = await prisma.skill.update({ where: { id }, data: // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    parsed.data! });
     return ok(data);
   } catch (error) {
     return serverError(error);
