@@ -1,0 +1,36 @@
+{
+  "heading": "Projects",
+  "subheading": "A selection of data science and machine learning projects I have worked on.",
+  "entries": {
+    "0": {
+      "title": "Customer Churn Predictor",
+      "description": "Built an end-to-end machine learning pipeline to predict customer churn with 94% accuracy. Deployed as a REST API with real-time scoring and automated retraining.",
+      "tags": ["Python", "XGBoost", "FastAPI", "Docker"]
+    },
+    "1": {
+      "title": "Sentiment Analysis Engine",
+      "description": "Developed a deep learning-based sentiment analysis system processing 50K+ reviews daily. Achieved 87% F1-score using fine-tuned transformer models.",
+      "tags": ["PyTorch", "Transformers", "NLP", "AWS"]
+    },
+    "2": {
+      "title": "Sales Forecasting Dashboard",
+      "description": "Created an interactive time-series forecasting dashboard with Prophet and Streamlit. Reduced forecast error by 22% through feature engineering and ensemble methods.",
+      "tags": ["Python", "Prophet", "Streamlit", "SQL"]
+    },
+    "3": {
+      "title": "Recommendation System",
+      "description": "Designed a hybrid collaborative filtering and content-based recommendation engine serving 100K+ users. Improved click-through rate by 35% with personalized suggestions.",
+      "tags": ["Python", "TensorFlow", "Spark", "Kubernetes"]
+    },
+    "4": {
+      "title": "Fraud Detection Pipeline",
+      "description": "Built a real-time fraud detection system processing 10K transactions/second using gradient boosting and anomaly detection. Reduced false positives by 40% while maintaining 99% recall.",
+      "tags": ["Python", "LightGBM", "Kafka", "PostgreSQL"]
+    },
+    "5": {
+      "title": "Data Pipeline Automation",
+      "description": "Designed and deployed automated data pipelines using Apache Airflow and dbt. Orchestrated ETL workflows across 15+ data sources, reducing manual effort by 80%.",
+      "tags": ["Python", "Airflow", "dbt", "BigQuery"]
+    }
+  }
+}

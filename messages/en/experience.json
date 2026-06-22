@@ -1,0 +1,23 @@
+{
+  "heading": "Experience",
+  "entries": {
+    "0": {
+      "company": "Zemetia Studio",
+      "role": "Founder & AI Orchestrator",
+      "dates": "2024 — Present",
+      "description": "Building AI agent systems, full-stack applications, and data-driven products. Orchestrating multi-agent workflows for automation and intelligence."
+    },
+    "1": {
+      "company": "Youdo POS",
+      "role": "Founder & ML Engineer",
+      "dates": "2024 — Present",
+      "description": "Developing AI-powered POS analytics with demand forecasting, customer segmentation, and inventory optimization using ML models."
+    },
+    "2": {
+      "company": "Freshideas Agency",
+      "role": "Founder & Data Strategist",
+      "dates": "2023 — Present",
+      "description": "Data-driven marketing strategies, audience analytics, and campaign optimization. Applying statistical modeling to measure and improve ROI."
+    }
+  }
+}
