@@ -1,6 +1,8 @@
 {
   "home": "Home",
   "about": "About",
+  "projects": "Projects",
+  "contact": "Contact",
   "signIn": "Sign In",
   "getStarted": "Get Started",
   "openMenu": "Open menu",

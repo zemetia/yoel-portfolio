@@ -5,14 +5,16 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/cn';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
-import { Button } from '@/components/ui/Button';
 
 export interface HeaderProps {
   className?: string;
+  profileName?: string | null;
 }
 
-export function Header({ className }: HeaderProps) {
+export function Header({ className, profileName }: HeaderProps) {
   const t = useTranslations('navigation');
+  const displayName = profileName ?? 'Portfolio';
+  const initial = displayName.charAt(0).toUpperCase();
 
   return (
     <header
@@ -27,9 +29,9 @@ export function Header({ className }: HeaderProps) {
             className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-black"
             aria-hidden="true"
           >
-            N
+            {initial}
           </span>
-          <span>NextTemplate</span>
+          <span>{displayName}</span>
         </Link>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-6 md:flex">
@@ -49,10 +51,6 @@ export function Header({ className }: HeaderProps) {
 
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
-          <Button size="sm" variant="ghost">
-            {t('signIn')}
-          </Button>
-          <Button size="sm">{t('getStarted')}</Button>
         </div>
       </div>
     </header>

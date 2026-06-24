@@ -2,6 +2,9 @@
  * Central "company brain" — single source of truth for all SEO, GEO, and LLMs.txt.
  * Edit this file first whenever you add a page or change brand/product details.
  * Every field here propagates to: metadata, sitemap, robots.txt, structured data, llms.txt.
+ *
+ * NOTE: For the portfolio, this serves as fallback defaults.
+ * When Firebase is configured, profile data from Firebase overrides these values.
  */
 
 import type { MetadataRoute } from 'next';
@@ -11,15 +14,10 @@ export type SitemapChangeFreq = NonNullable<
 >;
 
 export interface PageConfig {
-  /** URL path relative to root, e.g. '/about' */
   path: string;
-  /** <title> for this page */
   title: string;
-  /** Meta description — be specific: include what the visitor gains */
   description: string;
-  /** Sitemap change frequency hint */
   changeFreq: SitemapChangeFreq;
-  /** Sitemap priority 0.0–1.0 */
   priority: number;
 }
 
@@ -50,70 +48,67 @@ export interface SiteConfig {
     twitterHandle?: string;
     locale: string;
   };
-  /** Registry of all public pages — drives sitemap + LLMs.txt page index */
   pages: Record<string, PageConfig>;
 }
 
 export const siteConfig: SiteConfig = {
   // ─── Core Identity ───────────────────────────────────────────────────────────
-  name: 'My Product',
-  tagline: 'One sentence that nails the value proposition.',
+  name: 'Yoel Sitorus',
+  tagline: 'Data Scientist & ML Engineer | AI Agent Orchestrator',
   description:
-    'Two-sentence pitch: what the product does, who it is for, and what makes it different from alternatives.',
-  url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://example.com',
+    'Portfolio of Yoel Sitorus — Data Scientist, ML Engineer, and AI Agent Orchestrator. Building production ML systems, NLP pipelines, and autonomous AI agents. Founder of Zemetia Studio, Youdo POS, and Freshideas Agency.',
+  url: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://yoelsitorus.com',
 
   // ─── Brand Assets ────────────────────────────────────────────────────────────
   ogImage: '/og.png',
 
-  // ─── Company Details (drives Organization schema + LLMs.txt) ─────────────────
+  // ─── Company Details ─────────────────────────────────────────────────────────
   company: {
-    legalName: 'My Company, Inc.',
+    legalName: 'Yoel Sitorus',
     foundedYear: 2024,
-    industry: 'Software / SaaS',
+    industry: 'Data Science / AI Engineering',
     targetAudience:
-      'Developers and product teams building modern web applications who need …',
+      'Startups and enterprises needing data science solutions, ML pipeline engineering, AI agent orchestration, and intelligent systems development.',
     problemSolved:
-      'Most teams waste weeks bootstrapping the same infrastructure decisions — auth, state, i18n, design system — before they can ship any real product value.',
+      'Most organizations struggle to turn raw data into production ML systems. Yoel combines data science expertise with AI engineering to build intelligent, scalable solutions that drive real business outcomes.',
     solution:
-      'My Product is a production-ready Next.js template with every architectural decision pre-made, documented, and tested, so teams can ship features from day one.',
+      'Data Science portfolio showcasing projects including NLP pipelines, ML-powered POS analytics, recommendation systems, real-time dashboards, and autonomous AI agents built with modern ML stacks.',
     keyBenefits: [
-      'Zero config — works out of the box with TypeScript, Tailwind v4, and next-intl',
-      'Opinionated patterns that scale — CVA components, Zustand stores, Zod validation',
-      'AI-agent friendly — every pattern is documented in machine-readable blueprint docs',
+      'End-to-end ML pipeline engineering — from data ingestion to model deployment',
+      'NLP and language AI systems for under-resourced languages',
+      'Autonomous AI agents and multi-agent orchestration',
+      'Bilingual (EN/ID) — serves both local and international clients',
     ],
-    contactEmail: 'contact@example.com',
+    contactEmail: 'yoel@zemetia.id',
     socialLinks: {
-      twitter: 'https://twitter.com/handle',
-      github: 'https://github.com/org/repo',
-      linkedin: 'https://linkedin.com/company/my-company',
+      github: 'https://github.com/yoelsitorus',
+      linkedin: 'https://linkedin.com/in/yoelsitorus',
     },
   },
 
   // ─── SEO Settings ────────────────────────────────────────────────────────────
   seo: {
-    titleTemplate: '%s | My Product',
-    defaultTitle: 'My Product — One sentence value prop',
-    twitterHandle: '@handle',
+    titleTemplate: '%s | Yoel Sitorus',
+    defaultTitle: 'Yoel Sitorus — Data Scientist & ML Engineer',
+    twitterHandle: '@yoelsitorus',
     locale: 'en_US',
   },
 
   // ─── Pages Registry ──────────────────────────────────────────────────────────
-  // Add a new entry here every time you create a new public page.
-  // Path is locale-stripped (the sitemap helper adds locale prefixes).
   pages: {
     home: {
       path: '/',
-      title: 'My Product — One sentence value prop',
+      title: 'Yoel Sitorus — Data Scientist & ML Engineer',
       description:
-        'My Product is a production-ready Next.js 16 template. Ship features from day one with TypeScript, Tailwind v4, next-intl, Zustand, and full SEO / GEO / LLMs.txt support.',
+        'Portfolio of Yoel Sitorus — Data Scientist, ML Engineer, and AI Agent Orchestrator. Explore data science projects, ML pipelines, AI systems, and professional experience.',
       changeFreq: 'weekly',
       priority: 1.0,
     },
     about: {
       path: '/about',
-      title: 'About My Product',
+      title: 'About Yoel Sitorus',
       description:
-        'Learn the story, team, and mission behind My Product — the opinionated Next.js template built for teams who want to skip the boilerplate and focus on shipping.',
+        'Learn about Yoel Sitorus — Data Scientist, ML Engineer, AI Agent Orchestrator, and founder of multiple tech ventures including Zemetia Studio, Youdo POS, and Freshideas Agency.',
       changeFreq: 'monthly',
       priority: 0.8,
     },

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { JetBrains_Mono, Outfit } from 'next/font/google';
+import { Fira_Code, Noto_Sans, Space_Grotesk } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
@@ -8,19 +8,27 @@ import { routing } from '@/i18n/routing';
 import type { Locale } from '@/i18n/routing';
 import { Toaster } from '@/components/ui/Sonner';
 import { PostHogProvider } from '@/providers';
+import { fetchPortfolioData } from '@/lib/portfolio-adapter';
 
 import '../globals.css';
 
-const outfit = Outfit({
+const notoSans = Noto_Sans({
   subsets: ['latin'],
-  variable: '--font-outfit',
+  variable: '--font-noto-sans',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-space-grotesk',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
   display: 'swap',
   weight: ['400', '500', '600'],
 });
@@ -34,12 +42,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home.meta' });
 
+  // Try to read profile from Firebase for dynamic SEO
+  const portfolio = await fetchPortfolioData().catch(() => null);
+  const profile = portfolio?.data?.profile ?? null;
+
+  const defaultTitle = profile?.name
+    ? `${profile.name} — ${profile.tagline ?? 'Portfolio'}`
+    : t('title');
+
+  const defaultDescription = profile?.shortBio ?? t('description');
+
   return {
     title: {
-      template: `%s | ${t('title')}`,
-      default: t('title'),
+      template: `%s | ${profile?.name ?? 'Portfolio'}`,
+      default: defaultTitle,
     },
-    description: t('description'),
+    description: defaultDescription,
     metadataBase: new URL(process.env['NEXT_PUBLIC_APP_URL'] ?? 'http://localhost:3000'),
   };
 }
@@ -60,7 +78,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${outfit.variable} ${jetbrainsMono.variable}`}
+      className={`${notoSans.variable} ${spaceGrotesk.variable} ${firaCode.variable}`}
       suppressHydrationWarning
     >
       <body>

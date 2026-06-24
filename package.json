@@ -1,5 +1,5 @@
 {
-  "name": "template-nextjs",
+  "name": "yoel-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,15 +16,27 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "db:generate": "prisma generate --schema prisma/schema",
+    "db:push": "prisma db push --schema prisma/schema",
+    "db:migrate": "prisma migrate dev --schema prisma/schema",
+    "db:migrate:deploy": "prisma migrate deploy --schema prisma/schema",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio --schema prisma/schema"
   },
   "dependencies": {
+    "@prisma/client": "^6.9.0",
+    "@rolldown/binding-win32-x64-msvc": "^1.1.2",
     "@sentry/nextjs": "^10.56.0",
     "@tanstack/react-query": "^5.101.0",
     "@tanstack/react-query-devtools": "^5.101.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "firebase": "^11.6.0",
+    "firebase-admin": "^14.0.0",
+    "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
+    "minio": "^8.0.7",
     "next": "^16.2.7",
     "next-intl": "^4.13.0",
     "next-limitr": "^0.1.5",
@@ -56,6 +68,7 @@
     "jsdom": "^29.1.1",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.8.0",
+    "prisma": "^6.9.0",
     "storybook": "^10.4.2",
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",

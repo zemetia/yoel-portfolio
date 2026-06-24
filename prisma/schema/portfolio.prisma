@@ -1,0 +1,172 @@
+// ─── Portfolio: Projects ─────────────────────────────────────────────────────
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  content     String?  // Rich content / markdown body
+  thumbnail   String?  // URL
+  images      ProjectImage[]
+  tags        String[] // Simple string tags for filtering
+  liveUrl     String?  @map("live_url")
+  repoUrl     String?  @map("repo_url")
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  status      String   @default("PUBLISHED") // DRAFT | PUBLISHED | ARCHIVED
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([status, order])
+  @@index([featured])
+  @@index([slug])
+  @@map("projects")
+}
+
+model ProjectImage {
+  id        String @id @default(cuid())
+  url       String
+  alt       String?
+  order     Int    @default(0)
+  projectId String @map("project_id")
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId, order])
+  @@map("project_images")
+}
+
+// ─── Portfolio: Skills ───────────────────────────────────────────────────────
+
+model Skill {
+  id       String @id @default(cuid())
+  name     String
+  category String // "frontend" | "backend" | "devops" | "design" | "soft"
+  level    Int    @default(50) // 1-100 proficiency
+  icon     String? // URL or icon name
+  order    Int    @default(0)
+
+  @@index([category, order])
+  @@map("skills")
+}
+
+// ─── Portfolio: Experience (work history) ────────────────────────────────────
+
+model Experience {
+  id          String   @id @default(cuid())
+  company     String
+  role        String
+  location    String?
+  description String?  // Markdown summary
+  highlights  String[] // Bullet-point achievements
+  startDate   DateTime @map("start_date")
+  endDate     DateTime? @map("end_date") // null = current position
+  order       Int      @default(0)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([order])
+  @@map("experiences")
+}
+
+// ─── Portfolio: Education ────────────────────────────────────────────────────
+
+model Education {
+  id          String   @id @default(cuid())
+  institution String
+  degree      String
+  field       String?
+  gpa         String?
+  startDate   DateTime @map("start_date")
+  endDate     DateTime? @map("end_date")
+  description String?
+  order       Int      @default(0)
+
+  @@index([order])
+  @@map("education")
+}
+
+// ─── Portfolio: Certifications ───────────────────────────────────────────────
+
+model Certificate {
+  id          String   @id @default(cuid())
+  name        String
+  issuer      String
+  issueDate   DateTime @map("issue_date")
+  expiryDate  DateTime? @map("expiry_date")
+  credentialUrl String? @map("credential_url")
+  description String?
+  order       Int      @default(0)
+
+  @@index([order])
+  @@map("certificates")
+}
+
+// ─── Portfolio: Testimonials ─────────────────────────────────────────────────
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  role      String?
+  company   String?
+  avatar    String?
+  content   String
+  rating    Int?     @default(5)
+  featured  Boolean  @default(false)
+  order     Int      @default(0)
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([featured, order])
+  @@map("testimonials")
+}
+
+// ─── Portfolio: Contact Messages ─────────────────────────────────────────────
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+  replied   Boolean  @default(false)
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([read, createdAt])
+  @@map("contact_messages")
+}
+
+// ─── Auth (from Express template pattern) ────────────────────────────────────
+
+model User {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String
+  passwordHash String         @map("password_hash")
+  role         String         @default("USER")
+  avatar       String?
+  bio          String?
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @updatedAt @map("updated_at")
+
+  refreshTokens RefreshToken[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String   @map("user_id")
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}

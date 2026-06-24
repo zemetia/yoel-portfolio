@@ -1,121 +1,158 @@
-import { useTranslations } from 'next-intl';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Typography } from '@/components/ui/Typography';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { DataSciTheme } from '@/components/themes/datasci-theme';
+import { portfolioService } from '@/services';
+import type { PortfolioData } from '@/types/zemetia-portfolio';
 
-const STACK_ITEMS = [
-  { label: 'Next.js 15', color: 'text-white' },
-  { label: 'React 19', color: 'text-cyan-400' },
-  { label: 'TypeScript', color: 'text-blue-400' },
-  { label: 'Tailwind v4', color: 'text-teal-400' },
-  { label: 'next-intl', color: 'text-violet-400' },
-  { label: 'Zustand', color: 'text-orange-400' },
-  { label: 'Storybook 8', color: 'text-pink-400' },
-  { label: 'Vitest', color: 'text-green-400' },
-] as const;
+const ACCOUNT_ID = process.env['NEXT_PUBLIC_PORTFOLIO_ACCOUNT_ID'] ?? 'default';
 
-export default function HomePage() {
-  const t = useTranslations('home');
+type Props = {
+  params: Promise<{ locale: string }>;
+};
 
-  const features = [
-    { key: 'i18n', badge: 'next-intl v3' },
-    { key: 'components', badge: 'CVA + Tailwind' },
-    { key: 'storybook', badge: 'Storybook 8' },
-    { key: 'services', badge: 'Typed Fetch' },
-    { key: 'testing', badge: 'Vitest + RTL' },
-    { key: 'typescript', badge: 'Strict Mode' },
-  ] as const;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'home.meta' });
 
-  return (
-    <>
-      <Header />
-      <main>
-        {/* Hero */}
-        <section className="container-page flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-24 text-center">
-          <Badge variant="secondary" className="mb-6">
-            {t('hero.badge')}
-          </Badge>
+  const raw = await portfolioService.getPortfolioData(ACCOUNT_ID).catch(() => null);
+  const name = (raw?.profile as Record<string, unknown> | null)?.['fullName'] as string | undefined;
 
-          <Typography
-            variant="h1"
-            className="mb-6 max-w-3xl text-balance bg-gradient-to-b from-foreground to-foreground-muted bg-clip-text text-transparent"
-            style={{ whiteSpace: 'pre-line' }}
-          >
-            {t('hero.title')}
-          </Typography>
+  return {
+    title: {
+      template: `%s | ${name ?? 'Portfolio'}`,
+      default: name ? `${name} — Data Science Portfolio` : t('title'),
+    },
+    description: t('description'),
+    metadataBase: new URL(process.env['NEXT_PUBLIC_APP_URL'] ?? 'http://localhost:3000'),
+  };
+}
 
-          <Typography variant="lead" className="mb-10 max-w-xl text-foreground-muted">
-            {t('hero.description')}
-          </Typography>
+export default async function HomePage() {
+  const raw = await portfolioService.getPortfolioData(ACCOUNT_ID).catch(() => null);
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg">{t('hero.ctaPrimary')}</Button>
-            <Button size="lg" variant="outline">
-              {t('hero.ctaSecondary')}
-            </Button>
-          </div>
+  const data: PortfolioData = mapToZemetiaPortfolioData(raw);
 
-          {/* Ambient glow */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-          >
-            <div
-              className="absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 blur-3xl"
-              style={{ background: 'var(--color-primary)' }}
-            />
-          </div>
-        </section>
+  return <DataSciTheme {...data} />;
+}
 
-        {/* Features */}
-        <section className="container-page py-24">
-          <div className="mb-12 text-center">
-            <Typography variant="h2" className="mb-3">
-              {t('features.heading')}
-            </Typography>
-            <Typography variant="lead" className="text-foreground-muted">
-              {t('features.subheading')}
-            </Typography>
-          </div>
+function mapToZemetiaPortfolioData(raw: Awaited<ReturnType<typeof portfolioService.getPortfolioData>>): PortfolioData {
+  type R = Record<string, unknown>;
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map(({ key, badge }) => (
-              <Card key={key} className="border-gradient transition-shadow hover:shadow-lg">
-                <CardHeader>
-                  <Badge variant="outline" className="mb-2 w-fit text-xs">
-                    {badge}
-                  </Badge>
-                  <CardTitle>{t(`features.${key}.title`)}</CardTitle>
-                  <CardDescription>{t(`features.${key}.description`)}</CardDescription>
-                </CardHeader>
-                <CardContent />
-              </Card>
-            ))}
-          </div>
-        </section>
+  const p = (raw?.profile ?? {}) as R;
 
-        {/* Stack */}
-        <section className="container-page pb-24">
-          <Typography variant="h3" className="mb-8 text-center text-foreground-muted">
-            {t('stack.heading')}
-          </Typography>
-          <div className="flex flex-wrap justify-center gap-3">
-            {STACK_ITEMS.map(({ label, color }) => (
-              <span
-                key={label}
-                className={`rounded-full border border-border bg-surface px-4 py-1.5 font-mono text-sm font-medium ${color}`}
-              >
-                {label}
-              </span>
-            ))}
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
+  const profile = {
+    name: (p['fullName'] as string) ?? 'Portfolio',
+    bio: (p['summary'] as string) ?? '',
+    email: (p['email'] as string) ?? '',
+    phone: (p['phone'] as string) ?? undefined,
+    linkedin: (p['linkedinUrl'] as string) ?? undefined,
+    github: (p['githubUrl'] as string) ?? undefined,
+    website: (p['website'] as string) ?? undefined,
+    photoUrl: (p['avatarUrl'] as string) ?? (p['photoUrl'] as string) ?? undefined,
+    heroSubtitle: (p['heroSubtitle'] as string) ?? undefined,
+    heroSequences: (p['heroSequences'] as string[]) ?? undefined,
+    activeTheme: 'datasci' as const,
+  };
+
+  const groupedSkills = ((raw?.skills ?? []) as unknown as R[]).reduce<Record<string, string[]>>((acc, s) => {
+    const cat = (s['category'] as string) ?? 'Other';
+    const name = (s['name'] as string) ?? '';
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(name);
+    return acc;
+  }, {});
+
+  const skills = Object.entries(groupedSkills).map(([category, list], i) => ({
+    id: `skill-cat-${i}`,
+    category,
+    list: list.join(', '),
+    order: i,
+  }));
+
+  const educations = ((raw?.education ?? []) as unknown as R[]).map((e, i) => ({
+    id: (e['id'] as string) ?? `edu-${i}`,
+    degree: (e['degree'] as string) ?? '',
+    institution: (e['institution'] as string) ?? '',
+    startDate: (e['startDate'] as string) ?? '',
+    endDate: (e['endDate'] as string) ?? 'Present',
+    isCurrent: (e['isCurrent'] as boolean) ?? false,
+    description: (e['description'] as string) ?? undefined,
+    order: (e['order'] as number) ?? i,
+  }));
+
+  const experiences = ((raw?.experience ?? []) as unknown as R[]).map((e, i) => ({
+    id: (e['id'] as string) ?? `exp-${i}`,
+    title: (e['position'] as string) ?? (e['title'] as string) ?? '',
+    company: (e['company'] as string) ?? '',
+    employmentType: (e['employmentType'] as string) ?? '',
+    location: (e['location'] as string) ?? '',
+    locationType: (e['locationType'] as string) ?? '',
+    startDate: (e['startDate'] as string) ?? '',
+    endDate: (e['isCurrent'] ? 'Present' : (e['endDate'] as string)) ?? 'Present',
+    description: (e['description'] as string) ?? '',
+    skills: (e['skills'] as string[]) ?? [],
+    images: (e['images'] as string[]) ?? [],
+    isPublic: true,
+    order: (e['order'] as number) ?? i,
+  }));
+
+  const projects = ((raw?.projects ?? []) as unknown as R[]).map((p, i) => ({
+    id: (p['id'] as string) ?? `proj-${i}`,
+    title: (p['title'] as string) ?? '',
+    description: (p['summary'] as string) ?? (p['description'] as string) ?? '',
+    projectUrl: (p['liveUrl'] as string) ?? undefined,
+    repoUrl: (p['githubUrl'] as string) ?? undefined,
+    status: (p['status'] as string) ?? 'PUBLISHED',
+    images: (p['images'] as string[]) ?? (p['coverImage'] ? [p['coverImage'] as string] : []),
+    tags: (p['techStack'] as string[]) ?? (p['tags'] as string[]) ?? [],
+    order: (p['order'] as number) ?? i,
+  }));
+
+  const publications = ((raw?.publications ?? []) as unknown as R[]).map((pub, i) => ({
+    id: (pub['id'] as string) ?? `pub-${i}`,
+    title: (pub['title'] as string) ?? '',
+    authors: (pub['authors'] as string) ?? '',
+    publicationType: ((pub['type'] as string) ?? (pub['publicationType'] as string) ?? 'Journal') as 'Journal' | 'Conference' | 'Book' | 'Article' | 'Other',
+    publisher: (pub['publisher'] as string) ?? '',
+    year: (pub['year'] as string) ?? '',
+    doi: (pub['doi'] as string) ?? undefined,
+    link: (pub['link'] as string) ?? undefined,
+    order: (pub['order'] as number) ?? i,
+  }));
+
+  const licenses = ((raw?.licenses ?? []) as unknown as R[]).map((l, i) => ({
+    id: (l['id'] as string) ?? `lic-${i}`,
+    name: (l['name'] as string) ?? '',
+    issuer: (l['issuer'] as string) ?? '',
+    date: (l['date'] as string) ?? '',
+    credentialId: (l['credentialId'] as string) ?? undefined,
+    images: (l['images'] as string[]) ?? [],
+    order: (l['order'] as number) ?? i,
+  }));
+
+  const volunteerExperiences = ((raw?.volunteerExperience ?? []) as unknown as R[]).map((v, i) => ({
+    id: (v['id'] as string) ?? `vol-${i}`,
+    role: (v['role'] as string) ?? '',
+    organization: (v['organization'] as string) ?? '',
+    startDate: (v['startDate'] as string) ?? '',
+    endDate: (v['isCurrent'] ? 'Present' : (v['endDate'] as string)) ?? 'Present',
+    isCurrent: (v['isCurrent'] as boolean) ?? false,
+    description: (v['description'] as string) ?? '',
+    location: (v['location'] as string) ?? undefined,
+    order: (v['order'] as number) ?? i,
+  }));
+
+  return {
+    profile,
+    skills,
+    educations,
+    experiences,
+    projects,
+    publications,
+    licenses,
+    volunteerExperiences,
+    personalStories: [],
+    organizations: [],
+  };
 }
