@@ -12,6 +12,8 @@ const createSchema = z.object({
   description: z.string().optional().nullable(),
   authors: z.array(z.string()).optional().default([]),
   doi: z.string().optional().nullable(),
+  publicationType: z.string().optional().nullable(),
+  order: z.number().int().optional().default(0),
 });
 
 // GET /api/v1/publications?profileId=xxx&search=...

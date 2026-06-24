@@ -136,6 +136,8 @@ exports.Prisma.ProfileScalarFieldEnum = {
   githubUrl: 'githubUrl',
   twitterUrl: 'twitterUrl',
   instagramUrl: 'instagramUrl',
+  tiktokUrl: 'tiktokUrl',
+  facebookUrl: 'facebookUrl',
   youtubeUrl: 'youtubeUrl',
   mediumUrl: 'mediumUrl',
   avatarUrl: 'avatarUrl',
@@ -144,6 +146,7 @@ exports.Prisma.ProfileScalarFieldEnum = {
   heroSequences: 'heroSequences',
   visibleSections: 'visibleSections',
   activeTheme: 'activeTheme',
+  showPhoto: 'showPhoto',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -152,6 +155,7 @@ exports.Prisma.SkillScalarFieldEnum = {
   id: 'id',
   profileId: 'profileId',
   name: 'name',
+  list: 'list',
   category: 'category',
   proficiency: 'proficiency',
   iconSlug: 'iconSlug',
@@ -182,6 +186,7 @@ exports.Prisma.ExperienceScalarFieldEnum = {
   company: 'company',
   position: 'position',
   location: 'location',
+  locationType: 'locationType',
   startDate: 'startDate',
   endDate: 'endDate',
   isCurrent: 'isCurrent',
@@ -190,6 +195,10 @@ exports.Prisma.ExperienceScalarFieldEnum = {
   companyUrl: 'companyUrl',
   companyLogo: 'companyLogo',
   employmentType: 'employmentType',
+  images: 'images',
+  aiHint: 'aiHint',
+  isPublic: 'isPublic',
+  order: 'order',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -236,6 +245,8 @@ exports.Prisma.PublicationScalarFieldEnum = {
   description: 'description',
   authors: 'authors',
   doi: 'doi',
+  publicationType: 'publicationType',
+  order: 'order',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -252,6 +263,9 @@ exports.Prisma.LicenseScalarFieldEnum = {
   credentialId: 'credentialId',
   credentialUrl: 'credentialUrl',
   logoUrl: 'logoUrl',
+  images: 'images',
+  aiHint: 'aiHint',
+  order: 'order',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -262,11 +276,13 @@ exports.Prisma.VolunteerExperienceScalarFieldEnum = {
   organization: 'organization',
   role: 'role',
   cause: 'cause',
+  location: 'location',
   startDate: 'startDate',
   endDate: 'endDate',
   isCurrent: 'isCurrent',
   description: 'description',
   achievements: 'achievements',
+  order: 'order',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -278,10 +294,12 @@ exports.Prisma.OrganizationScalarFieldEnum = {
   role: 'role',
   url: 'url',
   logoUrl: 'logoUrl',
+  location: 'location',
   startDate: 'startDate',
   endDate: 'endDate',
   isCurrent: 'isCurrent',
   description: 'description',
+  order: 'order',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

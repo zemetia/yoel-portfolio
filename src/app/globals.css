@@ -2,8 +2,22 @@
 
 @theme {
   /* ─── Typography ─────────────────────────────────────────────── */
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, "Cascadia Code", monospace;
+  --font-sans: var(--font-noto-sans), "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), "Space Grotesk", ui-sans-serif, sans-serif;
+  --font-mono: var(--font-fira-code), "Fira Code", ui-monospace, monospace;
+
+  /* ─── DataSci Theme Tokens (from zemetia-portofolio) ─────────── */
+  --color-tech-bg: #0E0F12;
+  --color-tech-primary: #E6E6E6;
+  --color-tech-secondary: #9A9A9A;
+  --color-tech-accent: #3B82F6;
+  --color-tech-border: #333333;
+  --color-electric-blue: #3B82F6;
+
+  /* Layout */
+  --spacing-page-margin: 96px;
+  --spacing-gutter: 24px;
+  --max-desktop: 1440px;
 
   /* ─── Data Science Themed Colors (oklch) ─────────────────────── */
 
@@ -255,4 +269,31 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─── DataSci Theme Utilities ─────────────────────────────────── */
+.vanta-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes animationIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  animation-play-state: paused !important;
+}
+
+.animate-on-scroll.animate {
+  animation-play-state: running !important;
 }

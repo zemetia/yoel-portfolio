@@ -8,11 +8,13 @@ const createSchema = z.object({
   organization: z.string(),
   role: z.string(),
   cause: z.string().optional().nullable(),
+  location: z.string().optional().nullable(),
   startDate: z.string().datetime().optional().nullable(),
   endDate: z.string().datetime().optional().nullable(),
   isCurrent: z.boolean().optional().default(false),
   description: z.string().optional().nullable(),
   achievements: z.array(z.string()).optional().default([]),
+  order: z.number().int().optional().default(0),
 });
 
 // GET /api/v1/volunteer-experiences?profileId=xxx&search=...

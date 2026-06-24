@@ -9,10 +9,12 @@ const updateSchema = z.object({
   role: z.string().optional().nullable(),
   url: z.string().optional().nullable(),
   logoUrl: z.string().optional().nullable(),
+  location: z.string().optional().nullable(),
   startDate: z.string().datetime().optional().nullable(),
   endDate: z.string().datetime().optional().nullable(),
   isCurrent: z.boolean().optional(),
   description: z.string().optional().nullable(),
+  order: z.number().int().optional(),
 });
 
 // GET /api/v1/organizations/:id
@@ -25,6 +27,20 @@ export async function GET(
     const data = await prisma.organization.findUnique({ where: { id } });
     if (!data) return notFound("Organization not found");
     return ok(data);
+  } catch (error) {
+    return serverError(error);
+  }
+}
+
+// DELETE /api/v1/organizations/:id
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    await prisma.organization.delete({ where: { id } });
+    return ok({ id });
   } catch (error) {
     return serverError(error);
   }

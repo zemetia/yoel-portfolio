@@ -14,6 +14,9 @@ const createSchema = z.object({
   credentialId: z.string().optional().nullable(),
   credentialUrl: z.string().optional().nullable(),
   logoUrl: z.string().optional().nullable(),
+  images: z.array(z.string()).optional().default([]),
+  aiHint: z.string().optional().nullable(),
+  order: z.number().int().optional().default(0),
 });
 
 // GET /api/v1/licenses?profileId=xxx&search=...

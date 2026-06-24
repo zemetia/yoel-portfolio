@@ -31,6 +31,20 @@ export async function GET(
   }
 }
 
+// DELETE /api/v1/education/:id
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    await prisma.education.delete({ where: { id } });
+    return ok({ id });
+  } catch (error) {
+    return serverError(error);
+  }
+}
+
 // PATCH /api/v1/education/:id
 export async function PATCH(
   request: NextRequest,

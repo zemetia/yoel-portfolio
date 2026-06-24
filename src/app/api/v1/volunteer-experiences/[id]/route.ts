@@ -8,11 +8,13 @@ const updateSchema = z.object({
   organization: z.string().optional(),
   role: z.string().optional(),
   cause: z.string().optional().nullable(),
+  location: z.string().optional().nullable(),
   startDate: z.string().datetime().optional().nullable(),
   endDate: z.string().datetime().optional().nullable(),
   isCurrent: z.boolean().optional(),
   description: z.string().optional().nullable(),
   achievements: z.array(z.string()).optional(),
+  order: z.number().int().optional(),
 });
 
 // GET /api/v1/volunteer-experiences/:id
@@ -25,6 +27,20 @@ export async function GET(
     const data = await prisma.volunteerExperience.findUnique({ where: { id } });
     if (!data) return notFound("Volunteer experience not found");
     return ok(data);
+  } catch (error) {
+    return serverError(error);
+  }
+}
+
+// DELETE /api/v1/volunteer-experiences/:id
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    await prisma.volunteerExperience.delete({ where: { id } });
+    return ok({ id });
   } catch (error) {
     return serverError(error);
   }

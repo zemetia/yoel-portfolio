@@ -12,6 +12,8 @@ const updateSchema = z.object({
   description: z.string().optional().nullable(),
   authors: z.array(z.string()).optional(),
   doi: z.string().optional().nullable(),
+  publicationType: z.string().optional().nullable(),
+  order: z.number().int().optional(),
 });
 
 // GET /api/v1/publications/:id
@@ -24,6 +26,20 @@ export async function GET(
     const data = await prisma.publication.findUnique({ where: { id } });
     if (!data) return notFound("Publication not found");
     return ok(data);
+  } catch (error) {
+    return serverError(error);
+  }
+}
+
+// DELETE /api/v1/publications/:id
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    await prisma.publication.delete({ where: { id } });
+    return ok({ id });
   } catch (error) {
     return serverError(error);
   }

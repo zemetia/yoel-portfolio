@@ -17,6 +17,8 @@ const updateSchema = z.object({
   githubUrl: z.string().optional().nullable(),
   twitterUrl: z.string().optional().nullable(),
   instagramUrl: z.string().optional().nullable(),
+  tiktokUrl: z.string().optional().nullable(),
+  facebookUrl: z.string().optional().nullable(),
   youtubeUrl: z.string().optional().nullable(),
   mediumUrl: z.string().optional().nullable(),
   avatarUrl: z.string().optional().nullable(),
@@ -25,6 +27,7 @@ const updateSchema = z.object({
   heroSequences: z.any().optional().nullable(),
   visibleSections: z.array(z.string()).optional(),
   activeTheme: z.string().optional().nullable(),
+  showPhoto: z.boolean().optional(),
 });
 
 // GET /api/v1/profiles/:id
@@ -50,6 +53,20 @@ export async function GET(
     });
     if (!data) return notFound("Profile not found");
     return ok(data);
+  } catch (error) {
+    return serverError(error);
+  }
+}
+
+// DELETE /api/v1/profiles/:id
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    await prisma.profile.delete({ where: { id } });
+    return ok({ id });
   } catch (error) {
     return serverError(error);
   }

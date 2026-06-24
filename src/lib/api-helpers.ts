@@ -20,6 +20,10 @@ export function notFound(message = "Resource not found") {
 }
 
 export function serverError(error: unknown) {
+  // Prisma P2025: record required for operation not found (e.g. delete non-existent)
+  if (typeof error === "object" && error !== null && "code" in error && (error as { code: string }).code === "P2025") {
+    return NextResponse.json({ success: false, error: "Resource not found" }, { status: 404 });
+  }
   const message = error instanceof Error ? error.message : "Internal server error";
   console.error("[API Error]", error);
   return NextResponse.json({ success: false, error: message }, { status: 500 });

@@ -9,10 +9,12 @@ const createSchema = z.object({
   role: z.string().optional().nullable(),
   url: z.string().optional().nullable(),
   logoUrl: z.string().optional().nullable(),
+  location: z.string().optional().nullable(),
   startDate: z.string().datetime().optional().nullable(),
   endDate: z.string().datetime().optional().nullable(),
   isCurrent: z.boolean().optional().default(false),
   description: z.string().optional().nullable(),
+  order: z.number().int().optional().default(0),
 });
 
 // GET /api/v1/organizations?profileId=xxx&search=...

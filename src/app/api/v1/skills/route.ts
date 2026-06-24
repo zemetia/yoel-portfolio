@@ -6,6 +6,7 @@ import { z } from "zod";
 const createSchema = z.object({
   profileId: z.string(),
   name: z.string(),
+  list: z.string().optional().nullable(),
   category: z.string().optional().nullable(),
   proficiency: z.number().int().min(1).max(5).optional().nullable(),
   iconSlug: z.string().optional().nullable(),

@@ -29,6 +29,8 @@ model Profile {
   githubUrl         String?
   twitterUrl        String?
   instagramUrl      String?
+  tiktokUrl         String?
+  facebookUrl       String?
   youtubeUrl        String?
   mediumUrl         String?
 
@@ -41,6 +43,7 @@ model Profile {
   heroSequences     Json?     // Array of animated text sequences
   visibleSections   String[]  // Which sections to show
   activeTheme       String?   // Theme name
+  showPhoto         Boolean   @default(true)
 
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
@@ -64,6 +67,7 @@ model Skill {
   profile           Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   name              String
+  list              String?  // comma-separated skill names, e.g. "React, Vue, Angular"
   category          String?  // "Frontend", "Backend", "DevOps", "Language", etc.
   proficiency       Int?     // 1-5 scale
   iconSlug          String?  // icon identifier (devicon, simple-icons)
@@ -108,6 +112,7 @@ model Experience {
   company           String
   position          String
   location          String?
+  locationType      String?  // "On-site", "Remote", "Hybrid"
   startDate         DateTime?
   endDate           DateTime?
   isCurrent         Boolean  @default(false)
@@ -116,6 +121,10 @@ model Experience {
   companyUrl        String?
   companyLogo       String?
   employmentType    String?  // "Full-time", "Contract", "Freelance", "Internship"
+  images            String[]
+  aiHint            String?
+  isPublic          Boolean  @default(true)
+  order             Int      @default(0)
 
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
@@ -182,6 +191,8 @@ model Publication {
   description       String?  @db.Text
   authors           String[]
   doi               String?
+  publicationType   String?  // "Journal", "Conference", "Book", "Article", "Other"
+  order             Int      @default(0)
 
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
@@ -205,6 +216,9 @@ model License {
   credentialId      String?
   credentialUrl     String?
   logoUrl           String?
+  images            String[]
+  aiHint            String?
+  order             Int      @default(0)
 
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
@@ -222,11 +236,13 @@ model VolunteerExperience {
   organization      String
   role              String
   cause             String?
+  location          String?
   startDate         DateTime?
   endDate           DateTime?
   isCurrent         Boolean  @default(false)
   description       String?  @db.Text
   achievements      String[]
+  order             Int      @default(0)
 
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
@@ -245,10 +261,12 @@ model Organization {
   role              String?
   url               String?
   logoUrl           String?
+  location          String?
   startDate         DateTime?
   endDate           DateTime?
   isCurrent         Boolean  @default(false)
   description       String?  @db.Text
+  order             Int      @default(0)
 
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt

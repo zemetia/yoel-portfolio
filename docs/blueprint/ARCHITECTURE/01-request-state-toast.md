@@ -10,32 +10,35 @@
 Browser Request
     │
     ▼
-proxy.ts  (Next.js 16 — replaces middleware.ts)
+src/middleware.ts  (Next.js — stable; never use root proxy.ts)
     ├── applyRateLimit     → 429 if /api/* exceeds 60 req/min per IP
     ├── /api/* routes      → applySecurityHeaders → Route Handler
     └── page routes        → intlMiddleware (next-intl) → applySecurityHeaders
             next-intl: reads Accept-Language, sets locale cookie,
-                       redirects /path → /id/path
+                       always prefixes /en/ (localePrefix: 'always')
     │
     ▼
 src/app/[locale]/layout.tsx  ← RSC
     ├── validates locale param
-    ├── loads Outfit + JetBrains Mono via next/font
+    ├── loads Noto Sans + Space Grotesk + Fira Code via next/font
     ├── calls getTranslations() for generateMetadata
     ├── calls getRequestConfig() → loads messages JSON
     └── renders provider tree:
-        <html lang={locale}>
-          <NextIntlClientProvider messages={messages}>
-            <PostHogProvider>
-              {children}         ← pages (RSC by default)
-            </PostHogProvider>
-            <Toaster />          ← Sonner portal, ONE instance only
-          </NextIntlClientProvider>
+        <html lang={locale} className="--font-noto-sans --font-space-grotesk --font-fira-code">
+          <body>
+            <NextIntlClientProvider messages={messages}>
+              <PostHogProvider>
+                {children}         ← pages (RSC by default)
+              </PostHogProvider>
+              <Toaster />          ← Sonner portal, ONE instance only
+            </NextIntlClientProvider>
+          </body>
         </html>
     │
     ▼
 src/app/[locale]/page.tsx  ← Server Component
-    └── no 'use client', no hooks, no event handlers
+    └── fetches portfolioService.getPortfolioData(accountId)
+        → maps to PortfolioData → renders <DataSciTheme>
 ```
 
 ---
@@ -59,12 +62,12 @@ src/app/[locale]/page.tsx  ← Server Component
 ```
 src/i18n/routing.ts
     defineRouting({
-      locales: ['en', 'id'],
+      locales: ['en'],
       defaultLocale: 'en',
-      localePrefix: 'as-needed'   // /about (en), /id/about (id)
+      localePrefix: 'always'   // /en/about (always prefixed)
     })
         │
-        ├── proxy.ts
+        ├── src/middleware.ts
         │       createMiddleware(routing) + rate limit + security headers
         │       matcher: excludes _next/*, static assets (includes /api)
         │

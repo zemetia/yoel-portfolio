@@ -36,6 +36,9 @@ export interface ProfileData {
   linkedinUrl?: string | null;
   githubUrl?: string | null;
   twitterUrl?: string | null;
+  instagramUrl?: string | null;
+  tiktokUrl?: string | null;
+  facebookUrl?: string | null;
   youtubeUrl?: string | null;
   mediumUrl?: string | null;
   avatarUrl?: string | null;

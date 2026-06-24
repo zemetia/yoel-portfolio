@@ -14,6 +14,9 @@ const updateSchema = z.object({
   credentialId: z.string().optional().nullable(),
   credentialUrl: z.string().optional().nullable(),
   logoUrl: z.string().optional().nullable(),
+  images: z.array(z.string()).optional(),
+  aiHint: z.string().optional().nullable(),
+  order: z.number().int().optional(),
 });
 
 // GET /api/v1/licenses/:id
@@ -26,6 +29,20 @@ export async function GET(
     const data = await prisma.license.findUnique({ where: { id } });
     if (!data) return notFound("License not found");
     return ok(data);
+  } catch (error) {
+    return serverError(error);
+  }
+}
+
+// DELETE /api/v1/licenses/:id
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    await prisma.license.delete({ where: { id } });
+    return ok({ id });
   } catch (error) {
     return serverError(error);
   }

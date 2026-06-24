@@ -1824,12 +1824,15 @@ export namespace Prisma {
     githubUrl: string | null
     twitterUrl: string | null
     instagramUrl: string | null
+    tiktokUrl: string | null
+    facebookUrl: string | null
     youtubeUrl: string | null
     mediumUrl: string | null
     avatarUrl: string | null
     resumeUrl: string | null
     heroSubtitle: string | null
     activeTheme: string | null
+    showPhoto: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1849,12 +1852,15 @@ export namespace Prisma {
     githubUrl: string | null
     twitterUrl: string | null
     instagramUrl: string | null
+    tiktokUrl: string | null
+    facebookUrl: string | null
     youtubeUrl: string | null
     mediumUrl: string | null
     avatarUrl: string | null
     resumeUrl: string | null
     heroSubtitle: string | null
     activeTheme: string | null
+    showPhoto: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1874,6 +1880,8 @@ export namespace Prisma {
     githubUrl: number
     twitterUrl: number
     instagramUrl: number
+    tiktokUrl: number
+    facebookUrl: number
     youtubeUrl: number
     mediumUrl: number
     avatarUrl: number
@@ -1882,6 +1890,7 @@ export namespace Prisma {
     heroSequences: number
     visibleSections: number
     activeTheme: number
+    showPhoto: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1903,12 +1912,15 @@ export namespace Prisma {
     githubUrl?: true
     twitterUrl?: true
     instagramUrl?: true
+    tiktokUrl?: true
+    facebookUrl?: true
     youtubeUrl?: true
     mediumUrl?: true
     avatarUrl?: true
     resumeUrl?: true
     heroSubtitle?: true
     activeTheme?: true
+    showPhoto?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1928,12 +1940,15 @@ export namespace Prisma {
     githubUrl?: true
     twitterUrl?: true
     instagramUrl?: true
+    tiktokUrl?: true
+    facebookUrl?: true
     youtubeUrl?: true
     mediumUrl?: true
     avatarUrl?: true
     resumeUrl?: true
     heroSubtitle?: true
     activeTheme?: true
+    showPhoto?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1953,6 +1968,8 @@ export namespace Prisma {
     githubUrl?: true
     twitterUrl?: true
     instagramUrl?: true
+    tiktokUrl?: true
+    facebookUrl?: true
     youtubeUrl?: true
     mediumUrl?: true
     avatarUrl?: true
@@ -1961,6 +1978,7 @@ export namespace Prisma {
     heroSequences?: true
     visibleSections?: true
     activeTheme?: true
+    showPhoto?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2053,6 +2071,8 @@ export namespace Prisma {
     githubUrl: string | null
     twitterUrl: string | null
     instagramUrl: string | null
+    tiktokUrl: string | null
+    facebookUrl: string | null
     youtubeUrl: string | null
     mediumUrl: string | null
     avatarUrl: string | null
@@ -2061,6 +2081,7 @@ export namespace Prisma {
     heroSequences: JsonValue | null
     visibleSections: string[]
     activeTheme: string | null
+    showPhoto: boolean
     createdAt: Date
     updatedAt: Date
     _count: ProfileCountAggregateOutputType | null
@@ -2097,6 +2118,8 @@ export namespace Prisma {
     githubUrl?: boolean
     twitterUrl?: boolean
     instagramUrl?: boolean
+    tiktokUrl?: boolean
+    facebookUrl?: boolean
     youtubeUrl?: boolean
     mediumUrl?: boolean
     avatarUrl?: boolean
@@ -2105,6 +2128,7 @@ export namespace Prisma {
     heroSequences?: boolean
     visibleSections?: boolean
     activeTheme?: boolean
+    showPhoto?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     skills?: boolean | Profile$skillsArgs<ExtArgs>
@@ -2134,6 +2158,8 @@ export namespace Prisma {
     githubUrl?: boolean
     twitterUrl?: boolean
     instagramUrl?: boolean
+    tiktokUrl?: boolean
+    facebookUrl?: boolean
     youtubeUrl?: boolean
     mediumUrl?: boolean
     avatarUrl?: boolean
@@ -2142,6 +2168,7 @@ export namespace Prisma {
     heroSequences?: boolean
     visibleSections?: boolean
     activeTheme?: boolean
+    showPhoto?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["profile"]>
@@ -2161,6 +2188,8 @@ export namespace Prisma {
     githubUrl?: boolean
     twitterUrl?: boolean
     instagramUrl?: boolean
+    tiktokUrl?: boolean
+    facebookUrl?: boolean
     youtubeUrl?: boolean
     mediumUrl?: boolean
     avatarUrl?: boolean
@@ -2169,6 +2198,7 @@ export namespace Prisma {
     heroSequences?: boolean
     visibleSections?: boolean
     activeTheme?: boolean
+    showPhoto?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["profile"]>
@@ -2188,6 +2218,8 @@ export namespace Prisma {
     githubUrl?: boolean
     twitterUrl?: boolean
     instagramUrl?: boolean
+    tiktokUrl?: boolean
+    facebookUrl?: boolean
     youtubeUrl?: boolean
     mediumUrl?: boolean
     avatarUrl?: boolean
@@ -2196,11 +2228,12 @@ export namespace Prisma {
     heroSequences?: boolean
     visibleSections?: boolean
     activeTheme?: boolean
+    showPhoto?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "fullName" | "headline" | "summary" | "location" | "phone" | "email" | "birthDate" | "website" | "linkedinUrl" | "githubUrl" | "twitterUrl" | "instagramUrl" | "youtubeUrl" | "mediumUrl" | "avatarUrl" | "resumeUrl" | "heroSubtitle" | "heroSequences" | "visibleSections" | "activeTheme" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
+  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "fullName" | "headline" | "summary" | "location" | "phone" | "email" | "birthDate" | "website" | "linkedinUrl" | "githubUrl" | "twitterUrl" | "instagramUrl" | "tiktokUrl" | "facebookUrl" | "youtubeUrl" | "mediumUrl" | "avatarUrl" | "resumeUrl" | "heroSubtitle" | "heroSequences" | "visibleSections" | "activeTheme" | "showPhoto" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
   export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     skills?: boolean | Profile$skillsArgs<ExtArgs>
     education?: boolean | Profile$educationArgs<ExtArgs>
@@ -2244,6 +2277,8 @@ export namespace Prisma {
       githubUrl: string | null
       twitterUrl: string | null
       instagramUrl: string | null
+      tiktokUrl: string | null
+      facebookUrl: string | null
       youtubeUrl: string | null
       mediumUrl: string | null
       avatarUrl: string | null
@@ -2252,6 +2287,7 @@ export namespace Prisma {
       heroSequences: Prisma.JsonValue | null
       visibleSections: string[]
       activeTheme: string | null
+      showPhoto: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["profile"]>
@@ -2700,6 +2736,8 @@ export namespace Prisma {
     readonly githubUrl: FieldRef<"Profile", 'String'>
     readonly twitterUrl: FieldRef<"Profile", 'String'>
     readonly instagramUrl: FieldRef<"Profile", 'String'>
+    readonly tiktokUrl: FieldRef<"Profile", 'String'>
+    readonly facebookUrl: FieldRef<"Profile", 'String'>
     readonly youtubeUrl: FieldRef<"Profile", 'String'>
     readonly mediumUrl: FieldRef<"Profile", 'String'>
     readonly avatarUrl: FieldRef<"Profile", 'String'>
@@ -2708,6 +2746,7 @@ export namespace Prisma {
     readonly heroSequences: FieldRef<"Profile", 'Json'>
     readonly visibleSections: FieldRef<"Profile", 'String[]'>
     readonly activeTheme: FieldRef<"Profile", 'String'>
+    readonly showPhoto: FieldRef<"Profile", 'Boolean'>
     readonly createdAt: FieldRef<"Profile", 'DateTime'>
     readonly updatedAt: FieldRef<"Profile", 'DateTime'>
   }
@@ -3358,6 +3397,7 @@ export namespace Prisma {
     id: string | null
     profileId: string | null
     name: string | null
+    list: string | null
     category: string | null
     proficiency: number | null
     iconSlug: string | null
@@ -3370,6 +3410,7 @@ export namespace Prisma {
     id: string | null
     profileId: string | null
     name: string | null
+    list: string | null
     category: string | null
     proficiency: number | null
     iconSlug: string | null
@@ -3382,6 +3423,7 @@ export namespace Prisma {
     id: number
     profileId: number
     name: number
+    list: number
     category: number
     proficiency: number
     iconSlug: number
@@ -3406,6 +3448,7 @@ export namespace Prisma {
     id?: true
     profileId?: true
     name?: true
+    list?: true
     category?: true
     proficiency?: true
     iconSlug?: true
@@ -3418,6 +3461,7 @@ export namespace Prisma {
     id?: true
     profileId?: true
     name?: true
+    list?: true
     category?: true
     proficiency?: true
     iconSlug?: true
@@ -3430,6 +3474,7 @@ export namespace Prisma {
     id?: true
     profileId?: true
     name?: true
+    list?: true
     category?: true
     proficiency?: true
     iconSlug?: true
@@ -3529,6 +3574,7 @@ export namespace Prisma {
     id: string
     profileId: string
     name: string
+    list: string | null
     category: string | null
     proficiency: number | null
     iconSlug: string | null
@@ -3560,6 +3606,7 @@ export namespace Prisma {
     id?: boolean
     profileId?: boolean
     name?: boolean
+    list?: boolean
     category?: boolean
     proficiency?: boolean
     iconSlug?: boolean
@@ -3573,6 +3620,7 @@ export namespace Prisma {
     id?: boolean
     profileId?: boolean
     name?: boolean
+    list?: boolean
     category?: boolean
     proficiency?: boolean
     iconSlug?: boolean
@@ -3586,6 +3634,7 @@ export namespace Prisma {
     id?: boolean
     profileId?: boolean
     name?: boolean
+    list?: boolean
     category?: boolean
     proficiency?: boolean
     iconSlug?: boolean
@@ -3599,6 +3648,7 @@ export namespace Prisma {
     id?: boolean
     profileId?: boolean
     name?: boolean
+    list?: boolean
     category?: boolean
     proficiency?: boolean
     iconSlug?: boolean
@@ -3607,7 +3657,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type SkillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "name" | "category" | "proficiency" | "iconSlug" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
+  export type SkillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "name" | "list" | "category" | "proficiency" | "iconSlug" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
   export type SkillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
@@ -3627,6 +3677,7 @@ export namespace Prisma {
       id: string
       profileId: string
       name: string
+      list: string | null
       category: string | null
       proficiency: number | null
       iconSlug: string | null
@@ -4060,6 +4111,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Skill", 'String'>
     readonly profileId: FieldRef<"Skill", 'String'>
     readonly name: FieldRef<"Skill", 'String'>
+    readonly list: FieldRef<"Skill", 'String'>
     readonly category: FieldRef<"Skill", 'String'>
     readonly proficiency: FieldRef<"Skill", 'Int'>
     readonly iconSlug: FieldRef<"Skill", 'String'>
@@ -5648,8 +5700,18 @@ export namespace Prisma {
 
   export type AggregateExperience = {
     _count: ExperienceCountAggregateOutputType | null
+    _avg: ExperienceAvgAggregateOutputType | null
+    _sum: ExperienceSumAggregateOutputType | null
     _min: ExperienceMinAggregateOutputType | null
     _max: ExperienceMaxAggregateOutputType | null
+  }
+
+  export type ExperienceAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ExperienceSumAggregateOutputType = {
+    order: number | null
   }
 
   export type ExperienceMinAggregateOutputType = {
@@ -5658,6 +5720,7 @@ export namespace Prisma {
     company: string | null
     position: string | null
     location: string | null
+    locationType: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean | null
@@ -5665,6 +5728,9 @@ export namespace Prisma {
     companyUrl: string | null
     companyLogo: string | null
     employmentType: string | null
+    aiHint: string | null
+    isPublic: boolean | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5675,6 +5741,7 @@ export namespace Prisma {
     company: string | null
     position: string | null
     location: string | null
+    locationType: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean | null
@@ -5682,6 +5749,9 @@ export namespace Prisma {
     companyUrl: string | null
     companyLogo: string | null
     employmentType: string | null
+    aiHint: string | null
+    isPublic: boolean | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5692,6 +5762,7 @@ export namespace Prisma {
     company: number
     position: number
     location: number
+    locationType: number
     startDate: number
     endDate: number
     isCurrent: number
@@ -5700,11 +5771,23 @@ export namespace Prisma {
     companyUrl: number
     companyLogo: number
     employmentType: number
+    images: number
+    aiHint: number
+    isPublic: number
+    order: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
+
+  export type ExperienceAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type ExperienceSumAggregateInputType = {
+    order?: true
+  }
 
   export type ExperienceMinAggregateInputType = {
     id?: true
@@ -5712,6 +5795,7 @@ export namespace Prisma {
     company?: true
     position?: true
     location?: true
+    locationType?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
@@ -5719,6 +5803,9 @@ export namespace Prisma {
     companyUrl?: true
     companyLogo?: true
     employmentType?: true
+    aiHint?: true
+    isPublic?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5729,6 +5816,7 @@ export namespace Prisma {
     company?: true
     position?: true
     location?: true
+    locationType?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
@@ -5736,6 +5824,9 @@ export namespace Prisma {
     companyUrl?: true
     companyLogo?: true
     employmentType?: true
+    aiHint?: true
+    isPublic?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5746,6 +5837,7 @@ export namespace Prisma {
     company?: true
     position?: true
     location?: true
+    locationType?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
@@ -5754,6 +5846,10 @@ export namespace Prisma {
     companyUrl?: true
     companyLogo?: true
     employmentType?: true
+    images?: true
+    aiHint?: true
+    isPublic?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -5797,6 +5893,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: ExperienceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ExperienceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: ExperienceMinAggregateInputType
@@ -5827,6 +5935,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: ExperienceCountAggregateInputType | true
+    _avg?: ExperienceAvgAggregateInputType
+    _sum?: ExperienceSumAggregateInputType
     _min?: ExperienceMinAggregateInputType
     _max?: ExperienceMaxAggregateInputType
   }
@@ -5837,6 +5947,7 @@ export namespace Prisma {
     company: string
     position: string
     location: string | null
+    locationType: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean
@@ -5845,9 +5956,15 @@ export namespace Prisma {
     companyUrl: string | null
     companyLogo: string | null
     employmentType: string | null
+    images: string[]
+    aiHint: string | null
+    isPublic: boolean
+    order: number
     createdAt: Date
     updatedAt: Date
     _count: ExperienceCountAggregateOutputType | null
+    _avg: ExperienceAvgAggregateOutputType | null
+    _sum: ExperienceSumAggregateOutputType | null
     _min: ExperienceMinAggregateOutputType | null
     _max: ExperienceMaxAggregateOutputType | null
   }
@@ -5872,6 +5989,7 @@ export namespace Prisma {
     company?: boolean
     position?: boolean
     location?: boolean
+    locationType?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
@@ -5880,6 +5998,10 @@ export namespace Prisma {
     companyUrl?: boolean
     companyLogo?: boolean
     employmentType?: boolean
+    images?: boolean
+    aiHint?: boolean
+    isPublic?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -5891,6 +6013,7 @@ export namespace Prisma {
     company?: boolean
     position?: boolean
     location?: boolean
+    locationType?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
@@ -5899,6 +6022,10 @@ export namespace Prisma {
     companyUrl?: boolean
     companyLogo?: boolean
     employmentType?: boolean
+    images?: boolean
+    aiHint?: boolean
+    isPublic?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -5910,6 +6037,7 @@ export namespace Prisma {
     company?: boolean
     position?: boolean
     location?: boolean
+    locationType?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
@@ -5918,6 +6046,10 @@ export namespace Prisma {
     companyUrl?: boolean
     companyLogo?: boolean
     employmentType?: boolean
+    images?: boolean
+    aiHint?: boolean
+    isPublic?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -5929,6 +6061,7 @@ export namespace Prisma {
     company?: boolean
     position?: boolean
     location?: boolean
+    locationType?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
@@ -5937,11 +6070,15 @@ export namespace Prisma {
     companyUrl?: boolean
     companyLogo?: boolean
     employmentType?: boolean
+    images?: boolean
+    aiHint?: boolean
+    isPublic?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "company" | "position" | "location" | "startDate" | "endDate" | "isCurrent" | "description" | "achievements" | "companyUrl" | "companyLogo" | "employmentType" | "createdAt" | "updatedAt", ExtArgs["result"]["experience"]>
+  export type ExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "company" | "position" | "location" | "locationType" | "startDate" | "endDate" | "isCurrent" | "description" | "achievements" | "companyUrl" | "companyLogo" | "employmentType" | "images" | "aiHint" | "isPublic" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["experience"]>
   export type ExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
@@ -5963,6 +6100,7 @@ export namespace Prisma {
       company: string
       position: string
       location: string | null
+      locationType: string | null
       startDate: Date | null
       endDate: Date | null
       isCurrent: boolean
@@ -5971,6 +6109,10 @@ export namespace Prisma {
       companyUrl: string | null
       companyLogo: string | null
       employmentType: string | null
+      images: string[]
+      aiHint: string | null
+      isPublic: boolean
+      order: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["experience"]>
@@ -6402,6 +6544,7 @@ export namespace Prisma {
     readonly company: FieldRef<"Experience", 'String'>
     readonly position: FieldRef<"Experience", 'String'>
     readonly location: FieldRef<"Experience", 'String'>
+    readonly locationType: FieldRef<"Experience", 'String'>
     readonly startDate: FieldRef<"Experience", 'DateTime'>
     readonly endDate: FieldRef<"Experience", 'DateTime'>
     readonly isCurrent: FieldRef<"Experience", 'Boolean'>
@@ -6410,6 +6553,10 @@ export namespace Prisma {
     readonly companyUrl: FieldRef<"Experience", 'String'>
     readonly companyLogo: FieldRef<"Experience", 'String'>
     readonly employmentType: FieldRef<"Experience", 'String'>
+    readonly images: FieldRef<"Experience", 'String[]'>
+    readonly aiHint: FieldRef<"Experience", 'String'>
+    readonly isPublic: FieldRef<"Experience", 'Boolean'>
+    readonly order: FieldRef<"Experience", 'Int'>
     readonly createdAt: FieldRef<"Experience", 'DateTime'>
     readonly updatedAt: FieldRef<"Experience", 'DateTime'>
   }
@@ -8212,8 +8359,18 @@ export namespace Prisma {
 
   export type AggregatePublication = {
     _count: PublicationCountAggregateOutputType | null
+    _avg: PublicationAvgAggregateOutputType | null
+    _sum: PublicationSumAggregateOutputType | null
     _min: PublicationMinAggregateOutputType | null
     _max: PublicationMaxAggregateOutputType | null
+  }
+
+  export type PublicationAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type PublicationSumAggregateOutputType = {
+    order: number | null
   }
 
   export type PublicationMinAggregateOutputType = {
@@ -8225,6 +8382,8 @@ export namespace Prisma {
     publishedDate: Date | null
     description: string | null
     doi: string | null
+    publicationType: string | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -8238,6 +8397,8 @@ export namespace Prisma {
     publishedDate: Date | null
     description: string | null
     doi: string | null
+    publicationType: string | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -8252,11 +8413,21 @@ export namespace Prisma {
     description: number
     authors: number
     doi: number
+    publicationType: number
+    order: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
+
+  export type PublicationAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type PublicationSumAggregateInputType = {
+    order?: true
+  }
 
   export type PublicationMinAggregateInputType = {
     id?: true
@@ -8267,6 +8438,8 @@ export namespace Prisma {
     publishedDate?: true
     description?: true
     doi?: true
+    publicationType?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -8280,6 +8453,8 @@ export namespace Prisma {
     publishedDate?: true
     description?: true
     doi?: true
+    publicationType?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -8294,6 +8469,8 @@ export namespace Prisma {
     description?: true
     authors?: true
     doi?: true
+    publicationType?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -8337,6 +8514,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: PublicationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PublicationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: PublicationMinAggregateInputType
@@ -8367,6 +8556,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: PublicationCountAggregateInputType | true
+    _avg?: PublicationAvgAggregateInputType
+    _sum?: PublicationSumAggregateInputType
     _min?: PublicationMinAggregateInputType
     _max?: PublicationMaxAggregateInputType
   }
@@ -8381,9 +8572,13 @@ export namespace Prisma {
     description: string | null
     authors: string[]
     doi: string | null
+    publicationType: string | null
+    order: number
     createdAt: Date
     updatedAt: Date
     _count: PublicationCountAggregateOutputType | null
+    _avg: PublicationAvgAggregateOutputType | null
+    _sum: PublicationSumAggregateOutputType | null
     _min: PublicationMinAggregateOutputType | null
     _max: PublicationMaxAggregateOutputType | null
   }
@@ -8412,6 +8607,8 @@ export namespace Prisma {
     description?: boolean
     authors?: boolean
     doi?: boolean
+    publicationType?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -8427,6 +8624,8 @@ export namespace Prisma {
     description?: boolean
     authors?: boolean
     doi?: boolean
+    publicationType?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -8442,6 +8641,8 @@ export namespace Prisma {
     description?: boolean
     authors?: boolean
     doi?: boolean
+    publicationType?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -8457,11 +8658,13 @@ export namespace Prisma {
     description?: boolean
     authors?: boolean
     doi?: boolean
+    publicationType?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PublicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "title" | "publisher" | "url" | "publishedDate" | "description" | "authors" | "doi" | "createdAt" | "updatedAt", ExtArgs["result"]["publication"]>
+  export type PublicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "title" | "publisher" | "url" | "publishedDate" | "description" | "authors" | "doi" | "publicationType" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["publication"]>
   export type PublicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
@@ -8487,6 +8690,8 @@ export namespace Prisma {
       description: string | null
       authors: string[]
       doi: string | null
+      publicationType: string | null
+      order: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["publication"]>
@@ -8922,6 +9127,8 @@ export namespace Prisma {
     readonly description: FieldRef<"Publication", 'String'>
     readonly authors: FieldRef<"Publication", 'String[]'>
     readonly doi: FieldRef<"Publication", 'String'>
+    readonly publicationType: FieldRef<"Publication", 'String'>
+    readonly order: FieldRef<"Publication", 'Int'>
     readonly createdAt: FieldRef<"Publication", 'DateTime'>
     readonly updatedAt: FieldRef<"Publication", 'DateTime'>
   }
@@ -9344,8 +9551,18 @@ export namespace Prisma {
 
   export type AggregateLicense = {
     _count: LicenseCountAggregateOutputType | null
+    _avg: LicenseAvgAggregateOutputType | null
+    _sum: LicenseSumAggregateOutputType | null
     _min: LicenseMinAggregateOutputType | null
     _max: LicenseMaxAggregateOutputType | null
+  }
+
+  export type LicenseAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LicenseSumAggregateOutputType = {
+    order: number | null
   }
 
   export type LicenseMinAggregateOutputType = {
@@ -9360,6 +9577,8 @@ export namespace Prisma {
     credentialId: string | null
     credentialUrl: string | null
     logoUrl: string | null
+    aiHint: string | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -9376,6 +9595,8 @@ export namespace Prisma {
     credentialId: string | null
     credentialUrl: string | null
     logoUrl: string | null
+    aiHint: string | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -9392,11 +9613,22 @@ export namespace Prisma {
     credentialId: number
     credentialUrl: number
     logoUrl: number
+    images: number
+    aiHint: number
+    order: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
+
+  export type LicenseAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type LicenseSumAggregateInputType = {
+    order?: true
+  }
 
   export type LicenseMinAggregateInputType = {
     id?: true
@@ -9410,6 +9642,8 @@ export namespace Prisma {
     credentialId?: true
     credentialUrl?: true
     logoUrl?: true
+    aiHint?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -9426,6 +9660,8 @@ export namespace Prisma {
     credentialId?: true
     credentialUrl?: true
     logoUrl?: true
+    aiHint?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -9442,6 +9678,9 @@ export namespace Prisma {
     credentialId?: true
     credentialUrl?: true
     logoUrl?: true
+    images?: true
+    aiHint?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -9485,6 +9724,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: LicenseAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LicenseSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: LicenseMinAggregateInputType
@@ -9515,6 +9766,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: LicenseCountAggregateInputType | true
+    _avg?: LicenseAvgAggregateInputType
+    _sum?: LicenseSumAggregateInputType
     _min?: LicenseMinAggregateInputType
     _max?: LicenseMaxAggregateInputType
   }
@@ -9531,9 +9784,14 @@ export namespace Prisma {
     credentialId: string | null
     credentialUrl: string | null
     logoUrl: string | null
+    images: string[]
+    aiHint: string | null
+    order: number
     createdAt: Date
     updatedAt: Date
     _count: LicenseCountAggregateOutputType | null
+    _avg: LicenseAvgAggregateOutputType | null
+    _sum: LicenseSumAggregateOutputType | null
     _min: LicenseMinAggregateOutputType | null
     _max: LicenseMaxAggregateOutputType | null
   }
@@ -9564,6 +9822,9 @@ export namespace Prisma {
     credentialId?: boolean
     credentialUrl?: boolean
     logoUrl?: boolean
+    images?: boolean
+    aiHint?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -9581,6 +9842,9 @@ export namespace Prisma {
     credentialId?: boolean
     credentialUrl?: boolean
     logoUrl?: boolean
+    images?: boolean
+    aiHint?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -9598,6 +9862,9 @@ export namespace Prisma {
     credentialId?: boolean
     credentialUrl?: boolean
     logoUrl?: boolean
+    images?: boolean
+    aiHint?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -9615,11 +9882,14 @@ export namespace Prisma {
     credentialId?: boolean
     credentialUrl?: boolean
     logoUrl?: boolean
+    images?: boolean
+    aiHint?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type LicenseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "name" | "issuer" | "url" | "issueDate" | "expiryDate" | "doesNotExpire" | "credentialId" | "credentialUrl" | "logoUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["license"]>
+  export type LicenseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "name" | "issuer" | "url" | "issueDate" | "expiryDate" | "doesNotExpire" | "credentialId" | "credentialUrl" | "logoUrl" | "images" | "aiHint" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["license"]>
   export type LicenseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
@@ -9647,6 +9917,9 @@ export namespace Prisma {
       credentialId: string | null
       credentialUrl: string | null
       logoUrl: string | null
+      images: string[]
+      aiHint: string | null
+      order: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["license"]>
@@ -10084,6 +10357,9 @@ export namespace Prisma {
     readonly credentialId: FieldRef<"License", 'String'>
     readonly credentialUrl: FieldRef<"License", 'String'>
     readonly logoUrl: FieldRef<"License", 'String'>
+    readonly images: FieldRef<"License", 'String[]'>
+    readonly aiHint: FieldRef<"License", 'String'>
+    readonly order: FieldRef<"License", 'Int'>
     readonly createdAt: FieldRef<"License", 'DateTime'>
     readonly updatedAt: FieldRef<"License", 'DateTime'>
   }
@@ -10506,8 +10782,18 @@ export namespace Prisma {
 
   export type AggregateVolunteerExperience = {
     _count: VolunteerExperienceCountAggregateOutputType | null
+    _avg: VolunteerExperienceAvgAggregateOutputType | null
+    _sum: VolunteerExperienceSumAggregateOutputType | null
     _min: VolunteerExperienceMinAggregateOutputType | null
     _max: VolunteerExperienceMaxAggregateOutputType | null
+  }
+
+  export type VolunteerExperienceAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type VolunteerExperienceSumAggregateOutputType = {
+    order: number | null
   }
 
   export type VolunteerExperienceMinAggregateOutputType = {
@@ -10516,10 +10802,12 @@ export namespace Prisma {
     organization: string | null
     role: string | null
     cause: string | null
+    location: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean | null
     description: string | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10530,10 +10818,12 @@ export namespace Prisma {
     organization: string | null
     role: string | null
     cause: string | null
+    location: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean | null
     description: string | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10544,16 +10834,26 @@ export namespace Prisma {
     organization: number
     role: number
     cause: number
+    location: number
     startDate: number
     endDate: number
     isCurrent: number
     description: number
     achievements: number
+    order: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
+
+  export type VolunteerExperienceAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type VolunteerExperienceSumAggregateInputType = {
+    order?: true
+  }
 
   export type VolunteerExperienceMinAggregateInputType = {
     id?: true
@@ -10561,10 +10861,12 @@ export namespace Prisma {
     organization?: true
     role?: true
     cause?: true
+    location?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
     description?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10575,10 +10877,12 @@ export namespace Prisma {
     organization?: true
     role?: true
     cause?: true
+    location?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
     description?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10589,11 +10893,13 @@ export namespace Prisma {
     organization?: true
     role?: true
     cause?: true
+    location?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
     description?: true
     achievements?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -10637,6 +10943,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: VolunteerExperienceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: VolunteerExperienceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: VolunteerExperienceMinAggregateInputType
@@ -10667,6 +10985,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: VolunteerExperienceCountAggregateInputType | true
+    _avg?: VolunteerExperienceAvgAggregateInputType
+    _sum?: VolunteerExperienceSumAggregateInputType
     _min?: VolunteerExperienceMinAggregateInputType
     _max?: VolunteerExperienceMaxAggregateInputType
   }
@@ -10677,14 +10997,18 @@ export namespace Prisma {
     organization: string
     role: string
     cause: string | null
+    location: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean
     description: string | null
     achievements: string[]
+    order: number
     createdAt: Date
     updatedAt: Date
     _count: VolunteerExperienceCountAggregateOutputType | null
+    _avg: VolunteerExperienceAvgAggregateOutputType | null
+    _sum: VolunteerExperienceSumAggregateOutputType | null
     _min: VolunteerExperienceMinAggregateOutputType | null
     _max: VolunteerExperienceMaxAggregateOutputType | null
   }
@@ -10709,11 +11033,13 @@ export namespace Prisma {
     organization?: boolean
     role?: boolean
     cause?: boolean
+    location?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
     description?: boolean
     achievements?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -10725,11 +11051,13 @@ export namespace Prisma {
     organization?: boolean
     role?: boolean
     cause?: boolean
+    location?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
     description?: boolean
     achievements?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -10741,11 +11069,13 @@ export namespace Prisma {
     organization?: boolean
     role?: boolean
     cause?: boolean
+    location?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
     description?: boolean
     achievements?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -10757,16 +11087,18 @@ export namespace Prisma {
     organization?: boolean
     role?: boolean
     cause?: boolean
+    location?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
     description?: boolean
     achievements?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type VolunteerExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "organization" | "role" | "cause" | "startDate" | "endDate" | "isCurrent" | "description" | "achievements" | "createdAt" | "updatedAt", ExtArgs["result"]["volunteerExperience"]>
+  export type VolunteerExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "organization" | "role" | "cause" | "location" | "startDate" | "endDate" | "isCurrent" | "description" | "achievements" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["volunteerExperience"]>
   export type VolunteerExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
@@ -10788,11 +11120,13 @@ export namespace Prisma {
       organization: string
       role: string
       cause: string | null
+      location: string | null
       startDate: Date | null
       endDate: Date | null
       isCurrent: boolean
       description: string | null
       achievements: string[]
+      order: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["volunteerExperience"]>
@@ -11224,11 +11558,13 @@ export namespace Prisma {
     readonly organization: FieldRef<"VolunteerExperience", 'String'>
     readonly role: FieldRef<"VolunteerExperience", 'String'>
     readonly cause: FieldRef<"VolunteerExperience", 'String'>
+    readonly location: FieldRef<"VolunteerExperience", 'String'>
     readonly startDate: FieldRef<"VolunteerExperience", 'DateTime'>
     readonly endDate: FieldRef<"VolunteerExperience", 'DateTime'>
     readonly isCurrent: FieldRef<"VolunteerExperience", 'Boolean'>
     readonly description: FieldRef<"VolunteerExperience", 'String'>
     readonly achievements: FieldRef<"VolunteerExperience", 'String[]'>
+    readonly order: FieldRef<"VolunteerExperience", 'Int'>
     readonly createdAt: FieldRef<"VolunteerExperience", 'DateTime'>
     readonly updatedAt: FieldRef<"VolunteerExperience", 'DateTime'>
   }
@@ -11651,8 +11987,18 @@ export namespace Prisma {
 
   export type AggregateOrganization = {
     _count: OrganizationCountAggregateOutputType | null
+    _avg: OrganizationAvgAggregateOutputType | null
+    _sum: OrganizationSumAggregateOutputType | null
     _min: OrganizationMinAggregateOutputType | null
     _max: OrganizationMaxAggregateOutputType | null
+  }
+
+  export type OrganizationAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type OrganizationSumAggregateOutputType = {
+    order: number | null
   }
 
   export type OrganizationMinAggregateOutputType = {
@@ -11662,10 +12008,12 @@ export namespace Prisma {
     role: string | null
     url: string | null
     logoUrl: string | null
+    location: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean | null
     description: string | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -11677,10 +12025,12 @@ export namespace Prisma {
     role: string | null
     url: string | null
     logoUrl: string | null
+    location: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean | null
     description: string | null
+    order: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -11692,15 +12042,25 @@ export namespace Prisma {
     role: number
     url: number
     logoUrl: number
+    location: number
     startDate: number
     endDate: number
     isCurrent: number
     description: number
+    order: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
+
+  export type OrganizationAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type OrganizationSumAggregateInputType = {
+    order?: true
+  }
 
   export type OrganizationMinAggregateInputType = {
     id?: true
@@ -11709,10 +12069,12 @@ export namespace Prisma {
     role?: true
     url?: true
     logoUrl?: true
+    location?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
     description?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -11724,10 +12086,12 @@ export namespace Prisma {
     role?: true
     url?: true
     logoUrl?: true
+    location?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
     description?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -11739,10 +12103,12 @@ export namespace Prisma {
     role?: true
     url?: true
     logoUrl?: true
+    location?: true
     startDate?: true
     endDate?: true
     isCurrent?: true
     description?: true
+    order?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -11786,6 +12152,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: OrganizationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OrganizationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: OrganizationMinAggregateInputType
@@ -11816,6 +12194,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: OrganizationCountAggregateInputType | true
+    _avg?: OrganizationAvgAggregateInputType
+    _sum?: OrganizationSumAggregateInputType
     _min?: OrganizationMinAggregateInputType
     _max?: OrganizationMaxAggregateInputType
   }
@@ -11827,13 +12207,17 @@ export namespace Prisma {
     role: string | null
     url: string | null
     logoUrl: string | null
+    location: string | null
     startDate: Date | null
     endDate: Date | null
     isCurrent: boolean
     description: string | null
+    order: number
     createdAt: Date
     updatedAt: Date
     _count: OrganizationCountAggregateOutputType | null
+    _avg: OrganizationAvgAggregateOutputType | null
+    _sum: OrganizationSumAggregateOutputType | null
     _min: OrganizationMinAggregateOutputType | null
     _max: OrganizationMaxAggregateOutputType | null
   }
@@ -11859,10 +12243,12 @@ export namespace Prisma {
     role?: boolean
     url?: boolean
     logoUrl?: boolean
+    location?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
     description?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -11875,10 +12261,12 @@ export namespace Prisma {
     role?: boolean
     url?: boolean
     logoUrl?: boolean
+    location?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
     description?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -11891,10 +12279,12 @@ export namespace Prisma {
     role?: boolean
     url?: boolean
     logoUrl?: boolean
+    location?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
     description?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
@@ -11907,15 +12297,17 @@ export namespace Prisma {
     role?: boolean
     url?: boolean
     logoUrl?: boolean
+    location?: boolean
     startDate?: boolean
     endDate?: boolean
     isCurrent?: boolean
     description?: boolean
+    order?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type OrganizationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "name" | "role" | "url" | "logoUrl" | "startDate" | "endDate" | "isCurrent" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["organization"]>
+  export type OrganizationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "name" | "role" | "url" | "logoUrl" | "location" | "startDate" | "endDate" | "isCurrent" | "description" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["organization"]>
   export type OrganizationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
@@ -11938,10 +12330,12 @@ export namespace Prisma {
       role: string | null
       url: string | null
       logoUrl: string | null
+      location: string | null
       startDate: Date | null
       endDate: Date | null
       isCurrent: boolean
       description: string | null
+      order: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["organization"]>
@@ -12374,10 +12768,12 @@ export namespace Prisma {
     readonly role: FieldRef<"Organization", 'String'>
     readonly url: FieldRef<"Organization", 'String'>
     readonly logoUrl: FieldRef<"Organization", 'String'>
+    readonly location: FieldRef<"Organization", 'String'>
     readonly startDate: FieldRef<"Organization", 'DateTime'>
     readonly endDate: FieldRef<"Organization", 'DateTime'>
     readonly isCurrent: FieldRef<"Organization", 'Boolean'>
     readonly description: FieldRef<"Organization", 'String'>
+    readonly order: FieldRef<"Organization", 'Int'>
     readonly createdAt: FieldRef<"Organization", 'DateTime'>
     readonly updatedAt: FieldRef<"Organization", 'DateTime'>
   }
@@ -13952,6 +14348,8 @@ export namespace Prisma {
     githubUrl: 'githubUrl',
     twitterUrl: 'twitterUrl',
     instagramUrl: 'instagramUrl',
+    tiktokUrl: 'tiktokUrl',
+    facebookUrl: 'facebookUrl',
     youtubeUrl: 'youtubeUrl',
     mediumUrl: 'mediumUrl',
     avatarUrl: 'avatarUrl',
@@ -13960,6 +14358,7 @@ export namespace Prisma {
     heroSequences: 'heroSequences',
     visibleSections: 'visibleSections',
     activeTheme: 'activeTheme',
+    showPhoto: 'showPhoto',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -13971,6 +14370,7 @@ export namespace Prisma {
     id: 'id',
     profileId: 'profileId',
     name: 'name',
+    list: 'list',
     category: 'category',
     proficiency: 'proficiency',
     iconSlug: 'iconSlug',
@@ -14007,6 +14407,7 @@ export namespace Prisma {
     company: 'company',
     position: 'position',
     location: 'location',
+    locationType: 'locationType',
     startDate: 'startDate',
     endDate: 'endDate',
     isCurrent: 'isCurrent',
@@ -14015,6 +14416,10 @@ export namespace Prisma {
     companyUrl: 'companyUrl',
     companyLogo: 'companyLogo',
     employmentType: 'employmentType',
+    images: 'images',
+    aiHint: 'aiHint',
+    isPublic: 'isPublic',
+    order: 'order',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -14067,6 +14472,8 @@ export namespace Prisma {
     description: 'description',
     authors: 'authors',
     doi: 'doi',
+    publicationType: 'publicationType',
+    order: 'order',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -14086,6 +14493,9 @@ export namespace Prisma {
     credentialId: 'credentialId',
     credentialUrl: 'credentialUrl',
     logoUrl: 'logoUrl',
+    images: 'images',
+    aiHint: 'aiHint',
+    order: 'order',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -14099,11 +14509,13 @@ export namespace Prisma {
     organization: 'organization',
     role: 'role',
     cause: 'cause',
+    location: 'location',
     startDate: 'startDate',
     endDate: 'endDate',
     isCurrent: 'isCurrent',
     description: 'description',
     achievements: 'achievements',
+    order: 'order',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -14118,10 +14530,12 @@ export namespace Prisma {
     role: 'role',
     url: 'url',
     logoUrl: 'logoUrl',
+    location: 'location',
     startDate: 'startDate',
     endDate: 'endDate',
     isCurrent: 'isCurrent',
     description: 'description',
+    order: 'order',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -14233,6 +14647,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -14243,13 +14664,6 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -14302,6 +14716,8 @@ export namespace Prisma {
     githubUrl?: StringNullableFilter<"Profile"> | string | null
     twitterUrl?: StringNullableFilter<"Profile"> | string | null
     instagramUrl?: StringNullableFilter<"Profile"> | string | null
+    tiktokUrl?: StringNullableFilter<"Profile"> | string | null
+    facebookUrl?: StringNullableFilter<"Profile"> | string | null
     youtubeUrl?: StringNullableFilter<"Profile"> | string | null
     mediumUrl?: StringNullableFilter<"Profile"> | string | null
     avatarUrl?: StringNullableFilter<"Profile"> | string | null
@@ -14310,6 +14726,7 @@ export namespace Prisma {
     heroSequences?: JsonNullableFilter<"Profile">
     visibleSections?: StringNullableListFilter<"Profile">
     activeTheme?: StringNullableFilter<"Profile"> | string | null
+    showPhoto?: BoolFilter<"Profile"> | boolean
     createdAt?: DateTimeFilter<"Profile"> | Date | string
     updatedAt?: DateTimeFilter<"Profile"> | Date | string
     skills?: SkillListRelationFilter
@@ -14338,6 +14755,8 @@ export namespace Prisma {
     githubUrl?: SortOrderInput | SortOrder
     twitterUrl?: SortOrderInput | SortOrder
     instagramUrl?: SortOrderInput | SortOrder
+    tiktokUrl?: SortOrderInput | SortOrder
+    facebookUrl?: SortOrderInput | SortOrder
     youtubeUrl?: SortOrderInput | SortOrder
     mediumUrl?: SortOrderInput | SortOrder
     avatarUrl?: SortOrderInput | SortOrder
@@ -14346,6 +14765,7 @@ export namespace Prisma {
     heroSequences?: SortOrderInput | SortOrder
     visibleSections?: SortOrder
     activeTheme?: SortOrderInput | SortOrder
+    showPhoto?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     skills?: SkillOrderByRelationAggregateInput
@@ -14377,6 +14797,8 @@ export namespace Prisma {
     githubUrl?: StringNullableFilter<"Profile"> | string | null
     twitterUrl?: StringNullableFilter<"Profile"> | string | null
     instagramUrl?: StringNullableFilter<"Profile"> | string | null
+    tiktokUrl?: StringNullableFilter<"Profile"> | string | null
+    facebookUrl?: StringNullableFilter<"Profile"> | string | null
     youtubeUrl?: StringNullableFilter<"Profile"> | string | null
     mediumUrl?: StringNullableFilter<"Profile"> | string | null
     avatarUrl?: StringNullableFilter<"Profile"> | string | null
@@ -14385,6 +14807,7 @@ export namespace Prisma {
     heroSequences?: JsonNullableFilter<"Profile">
     visibleSections?: StringNullableListFilter<"Profile">
     activeTheme?: StringNullableFilter<"Profile"> | string | null
+    showPhoto?: BoolFilter<"Profile"> | boolean
     createdAt?: DateTimeFilter<"Profile"> | Date | string
     updatedAt?: DateTimeFilter<"Profile"> | Date | string
     skills?: SkillListRelationFilter
@@ -14413,6 +14836,8 @@ export namespace Prisma {
     githubUrl?: SortOrderInput | SortOrder
     twitterUrl?: SortOrderInput | SortOrder
     instagramUrl?: SortOrderInput | SortOrder
+    tiktokUrl?: SortOrderInput | SortOrder
+    facebookUrl?: SortOrderInput | SortOrder
     youtubeUrl?: SortOrderInput | SortOrder
     mediumUrl?: SortOrderInput | SortOrder
     avatarUrl?: SortOrderInput | SortOrder
@@ -14421,6 +14846,7 @@ export namespace Prisma {
     heroSequences?: SortOrderInput | SortOrder
     visibleSections?: SortOrder
     activeTheme?: SortOrderInput | SortOrder
+    showPhoto?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProfileCountOrderByAggregateInput
@@ -14446,6 +14872,8 @@ export namespace Prisma {
     githubUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
     twitterUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
     instagramUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    tiktokUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    facebookUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
     youtubeUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
     mediumUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
     avatarUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
@@ -14454,6 +14882,7 @@ export namespace Prisma {
     heroSequences?: JsonNullableWithAggregatesFilter<"Profile">
     visibleSections?: StringNullableListFilter<"Profile">
     activeTheme?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    showPhoto?: BoolWithAggregatesFilter<"Profile"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
   }
@@ -14465,6 +14894,7 @@ export namespace Prisma {
     id?: StringFilter<"Skill"> | string
     profileId?: StringFilter<"Skill"> | string
     name?: StringFilter<"Skill"> | string
+    list?: StringNullableFilter<"Skill"> | string | null
     category?: StringNullableFilter<"Skill"> | string | null
     proficiency?: IntNullableFilter<"Skill"> | number | null
     iconSlug?: StringNullableFilter<"Skill"> | string | null
@@ -14478,6 +14908,7 @@ export namespace Prisma {
     id?: SortOrder
     profileId?: SortOrder
     name?: SortOrder
+    list?: SortOrderInput | SortOrder
     category?: SortOrderInput | SortOrder
     proficiency?: SortOrderInput | SortOrder
     iconSlug?: SortOrderInput | SortOrder
@@ -14494,6 +14925,7 @@ export namespace Prisma {
     NOT?: SkillWhereInput | SkillWhereInput[]
     profileId?: StringFilter<"Skill"> | string
     name?: StringFilter<"Skill"> | string
+    list?: StringNullableFilter<"Skill"> | string | null
     category?: StringNullableFilter<"Skill"> | string | null
     proficiency?: IntNullableFilter<"Skill"> | number | null
     iconSlug?: StringNullableFilter<"Skill"> | string | null
@@ -14507,6 +14939,7 @@ export namespace Prisma {
     id?: SortOrder
     profileId?: SortOrder
     name?: SortOrder
+    list?: SortOrderInput | SortOrder
     category?: SortOrderInput | SortOrder
     proficiency?: SortOrderInput | SortOrder
     iconSlug?: SortOrderInput | SortOrder
@@ -14527,6 +14960,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Skill"> | string
     profileId?: StringWithAggregatesFilter<"Skill"> | string
     name?: StringWithAggregatesFilter<"Skill"> | string
+    list?: StringNullableWithAggregatesFilter<"Skill"> | string | null
     category?: StringNullableWithAggregatesFilter<"Skill"> | string | null
     proficiency?: IntNullableWithAggregatesFilter<"Skill"> | number | null
     iconSlug?: StringNullableWithAggregatesFilter<"Skill"> | string | null
@@ -14639,6 +15073,7 @@ export namespace Prisma {
     company?: StringFilter<"Experience"> | string
     position?: StringFilter<"Experience"> | string
     location?: StringNullableFilter<"Experience"> | string | null
+    locationType?: StringNullableFilter<"Experience"> | string | null
     startDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
     endDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
     isCurrent?: BoolFilter<"Experience"> | boolean
@@ -14647,6 +15082,10 @@ export namespace Prisma {
     companyUrl?: StringNullableFilter<"Experience"> | string | null
     companyLogo?: StringNullableFilter<"Experience"> | string | null
     employmentType?: StringNullableFilter<"Experience"> | string | null
+    images?: StringNullableListFilter<"Experience">
+    aiHint?: StringNullableFilter<"Experience"> | string | null
+    isPublic?: BoolFilter<"Experience"> | boolean
+    order?: IntFilter<"Experience"> | number
     createdAt?: DateTimeFilter<"Experience"> | Date | string
     updatedAt?: DateTimeFilter<"Experience"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -14658,6 +15097,7 @@ export namespace Prisma {
     company?: SortOrder
     position?: SortOrder
     location?: SortOrderInput | SortOrder
+    locationType?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
     endDate?: SortOrderInput | SortOrder
     isCurrent?: SortOrder
@@ -14666,6 +15106,10 @@ export namespace Prisma {
     companyUrl?: SortOrderInput | SortOrder
     companyLogo?: SortOrderInput | SortOrder
     employmentType?: SortOrderInput | SortOrder
+    images?: SortOrder
+    aiHint?: SortOrderInput | SortOrder
+    isPublic?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     profile?: ProfileOrderByWithRelationInput
@@ -14680,6 +15124,7 @@ export namespace Prisma {
     company?: StringFilter<"Experience"> | string
     position?: StringFilter<"Experience"> | string
     location?: StringNullableFilter<"Experience"> | string | null
+    locationType?: StringNullableFilter<"Experience"> | string | null
     startDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
     endDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
     isCurrent?: BoolFilter<"Experience"> | boolean
@@ -14688,6 +15133,10 @@ export namespace Prisma {
     companyUrl?: StringNullableFilter<"Experience"> | string | null
     companyLogo?: StringNullableFilter<"Experience"> | string | null
     employmentType?: StringNullableFilter<"Experience"> | string | null
+    images?: StringNullableListFilter<"Experience">
+    aiHint?: StringNullableFilter<"Experience"> | string | null
+    isPublic?: BoolFilter<"Experience"> | boolean
+    order?: IntFilter<"Experience"> | number
     createdAt?: DateTimeFilter<"Experience"> | Date | string
     updatedAt?: DateTimeFilter<"Experience"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -14699,6 +15148,7 @@ export namespace Prisma {
     company?: SortOrder
     position?: SortOrder
     location?: SortOrderInput | SortOrder
+    locationType?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
     endDate?: SortOrderInput | SortOrder
     isCurrent?: SortOrder
@@ -14707,11 +15157,17 @@ export namespace Prisma {
     companyUrl?: SortOrderInput | SortOrder
     companyLogo?: SortOrderInput | SortOrder
     employmentType?: SortOrderInput | SortOrder
+    images?: SortOrder
+    aiHint?: SortOrderInput | SortOrder
+    isPublic?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ExperienceCountOrderByAggregateInput
+    _avg?: ExperienceAvgOrderByAggregateInput
     _max?: ExperienceMaxOrderByAggregateInput
     _min?: ExperienceMinOrderByAggregateInput
+    _sum?: ExperienceSumOrderByAggregateInput
   }
 
   export type ExperienceScalarWhereWithAggregatesInput = {
@@ -14723,6 +15179,7 @@ export namespace Prisma {
     company?: StringWithAggregatesFilter<"Experience"> | string
     position?: StringWithAggregatesFilter<"Experience"> | string
     location?: StringNullableWithAggregatesFilter<"Experience"> | string | null
+    locationType?: StringNullableWithAggregatesFilter<"Experience"> | string | null
     startDate?: DateTimeNullableWithAggregatesFilter<"Experience"> | Date | string | null
     endDate?: DateTimeNullableWithAggregatesFilter<"Experience"> | Date | string | null
     isCurrent?: BoolWithAggregatesFilter<"Experience"> | boolean
@@ -14731,6 +15188,10 @@ export namespace Prisma {
     companyUrl?: StringNullableWithAggregatesFilter<"Experience"> | string | null
     companyLogo?: StringNullableWithAggregatesFilter<"Experience"> | string | null
     employmentType?: StringNullableWithAggregatesFilter<"Experience"> | string | null
+    images?: StringNullableListFilter<"Experience">
+    aiHint?: StringNullableWithAggregatesFilter<"Experience"> | string | null
+    isPublic?: BoolWithAggregatesFilter<"Experience"> | boolean
+    order?: IntWithAggregatesFilter<"Experience"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Experience"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Experience"> | Date | string
   }
@@ -14925,6 +15386,8 @@ export namespace Prisma {
     description?: StringNullableFilter<"Publication"> | string | null
     authors?: StringNullableListFilter<"Publication">
     doi?: StringNullableFilter<"Publication"> | string | null
+    publicationType?: StringNullableFilter<"Publication"> | string | null
+    order?: IntFilter<"Publication"> | number
     createdAt?: DateTimeFilter<"Publication"> | Date | string
     updatedAt?: DateTimeFilter<"Publication"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -14940,6 +15403,8 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     authors?: SortOrder
     doi?: SortOrderInput | SortOrder
+    publicationType?: SortOrderInput | SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     profile?: ProfileOrderByWithRelationInput
@@ -14958,6 +15423,8 @@ export namespace Prisma {
     description?: StringNullableFilter<"Publication"> | string | null
     authors?: StringNullableListFilter<"Publication">
     doi?: StringNullableFilter<"Publication"> | string | null
+    publicationType?: StringNullableFilter<"Publication"> | string | null
+    order?: IntFilter<"Publication"> | number
     createdAt?: DateTimeFilter<"Publication"> | Date | string
     updatedAt?: DateTimeFilter<"Publication"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -14973,11 +15440,15 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     authors?: SortOrder
     doi?: SortOrderInput | SortOrder
+    publicationType?: SortOrderInput | SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PublicationCountOrderByAggregateInput
+    _avg?: PublicationAvgOrderByAggregateInput
     _max?: PublicationMaxOrderByAggregateInput
     _min?: PublicationMinOrderByAggregateInput
+    _sum?: PublicationSumOrderByAggregateInput
   }
 
   export type PublicationScalarWhereWithAggregatesInput = {
@@ -14993,6 +15464,8 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"Publication"> | string | null
     authors?: StringNullableListFilter<"Publication">
     doi?: StringNullableWithAggregatesFilter<"Publication"> | string | null
+    publicationType?: StringNullableWithAggregatesFilter<"Publication"> | string | null
+    order?: IntWithAggregatesFilter<"Publication"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Publication"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Publication"> | Date | string
   }
@@ -15012,6 +15485,9 @@ export namespace Prisma {
     credentialId?: StringNullableFilter<"License"> | string | null
     credentialUrl?: StringNullableFilter<"License"> | string | null
     logoUrl?: StringNullableFilter<"License"> | string | null
+    images?: StringNullableListFilter<"License">
+    aiHint?: StringNullableFilter<"License"> | string | null
+    order?: IntFilter<"License"> | number
     createdAt?: DateTimeFilter<"License"> | Date | string
     updatedAt?: DateTimeFilter<"License"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -15029,6 +15505,9 @@ export namespace Prisma {
     credentialId?: SortOrderInput | SortOrder
     credentialUrl?: SortOrderInput | SortOrder
     logoUrl?: SortOrderInput | SortOrder
+    images?: SortOrder
+    aiHint?: SortOrderInput | SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     profile?: ProfileOrderByWithRelationInput
@@ -15049,6 +15528,9 @@ export namespace Prisma {
     credentialId?: StringNullableFilter<"License"> | string | null
     credentialUrl?: StringNullableFilter<"License"> | string | null
     logoUrl?: StringNullableFilter<"License"> | string | null
+    images?: StringNullableListFilter<"License">
+    aiHint?: StringNullableFilter<"License"> | string | null
+    order?: IntFilter<"License"> | number
     createdAt?: DateTimeFilter<"License"> | Date | string
     updatedAt?: DateTimeFilter<"License"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -15066,11 +15548,16 @@ export namespace Prisma {
     credentialId?: SortOrderInput | SortOrder
     credentialUrl?: SortOrderInput | SortOrder
     logoUrl?: SortOrderInput | SortOrder
+    images?: SortOrder
+    aiHint?: SortOrderInput | SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: LicenseCountOrderByAggregateInput
+    _avg?: LicenseAvgOrderByAggregateInput
     _max?: LicenseMaxOrderByAggregateInput
     _min?: LicenseMinOrderByAggregateInput
+    _sum?: LicenseSumOrderByAggregateInput
   }
 
   export type LicenseScalarWhereWithAggregatesInput = {
@@ -15088,6 +15575,9 @@ export namespace Prisma {
     credentialId?: StringNullableWithAggregatesFilter<"License"> | string | null
     credentialUrl?: StringNullableWithAggregatesFilter<"License"> | string | null
     logoUrl?: StringNullableWithAggregatesFilter<"License"> | string | null
+    images?: StringNullableListFilter<"License">
+    aiHint?: StringNullableWithAggregatesFilter<"License"> | string | null
+    order?: IntWithAggregatesFilter<"License"> | number
     createdAt?: DateTimeWithAggregatesFilter<"License"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"License"> | Date | string
   }
@@ -15101,11 +15591,13 @@ export namespace Prisma {
     organization?: StringFilter<"VolunteerExperience"> | string
     role?: StringFilter<"VolunteerExperience"> | string
     cause?: StringNullableFilter<"VolunteerExperience"> | string | null
+    location?: StringNullableFilter<"VolunteerExperience"> | string | null
     startDate?: DateTimeNullableFilter<"VolunteerExperience"> | Date | string | null
     endDate?: DateTimeNullableFilter<"VolunteerExperience"> | Date | string | null
     isCurrent?: BoolFilter<"VolunteerExperience"> | boolean
     description?: StringNullableFilter<"VolunteerExperience"> | string | null
     achievements?: StringNullableListFilter<"VolunteerExperience">
+    order?: IntFilter<"VolunteerExperience"> | number
     createdAt?: DateTimeFilter<"VolunteerExperience"> | Date | string
     updatedAt?: DateTimeFilter<"VolunteerExperience"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -15117,11 +15609,13 @@ export namespace Prisma {
     organization?: SortOrder
     role?: SortOrder
     cause?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
     endDate?: SortOrderInput | SortOrder
     isCurrent?: SortOrder
     description?: SortOrderInput | SortOrder
     achievements?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     profile?: ProfileOrderByWithRelationInput
@@ -15136,11 +15630,13 @@ export namespace Prisma {
     organization?: StringFilter<"VolunteerExperience"> | string
     role?: StringFilter<"VolunteerExperience"> | string
     cause?: StringNullableFilter<"VolunteerExperience"> | string | null
+    location?: StringNullableFilter<"VolunteerExperience"> | string | null
     startDate?: DateTimeNullableFilter<"VolunteerExperience"> | Date | string | null
     endDate?: DateTimeNullableFilter<"VolunteerExperience"> | Date | string | null
     isCurrent?: BoolFilter<"VolunteerExperience"> | boolean
     description?: StringNullableFilter<"VolunteerExperience"> | string | null
     achievements?: StringNullableListFilter<"VolunteerExperience">
+    order?: IntFilter<"VolunteerExperience"> | number
     createdAt?: DateTimeFilter<"VolunteerExperience"> | Date | string
     updatedAt?: DateTimeFilter<"VolunteerExperience"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -15152,16 +15648,20 @@ export namespace Prisma {
     organization?: SortOrder
     role?: SortOrder
     cause?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
     endDate?: SortOrderInput | SortOrder
     isCurrent?: SortOrder
     description?: SortOrderInput | SortOrder
     achievements?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: VolunteerExperienceCountOrderByAggregateInput
+    _avg?: VolunteerExperienceAvgOrderByAggregateInput
     _max?: VolunteerExperienceMaxOrderByAggregateInput
     _min?: VolunteerExperienceMinOrderByAggregateInput
+    _sum?: VolunteerExperienceSumOrderByAggregateInput
   }
 
   export type VolunteerExperienceScalarWhereWithAggregatesInput = {
@@ -15173,11 +15673,13 @@ export namespace Prisma {
     organization?: StringWithAggregatesFilter<"VolunteerExperience"> | string
     role?: StringWithAggregatesFilter<"VolunteerExperience"> | string
     cause?: StringNullableWithAggregatesFilter<"VolunteerExperience"> | string | null
+    location?: StringNullableWithAggregatesFilter<"VolunteerExperience"> | string | null
     startDate?: DateTimeNullableWithAggregatesFilter<"VolunteerExperience"> | Date | string | null
     endDate?: DateTimeNullableWithAggregatesFilter<"VolunteerExperience"> | Date | string | null
     isCurrent?: BoolWithAggregatesFilter<"VolunteerExperience"> | boolean
     description?: StringNullableWithAggregatesFilter<"VolunteerExperience"> | string | null
     achievements?: StringNullableListFilter<"VolunteerExperience">
+    order?: IntWithAggregatesFilter<"VolunteerExperience"> | number
     createdAt?: DateTimeWithAggregatesFilter<"VolunteerExperience"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"VolunteerExperience"> | Date | string
   }
@@ -15192,10 +15694,12 @@ export namespace Prisma {
     role?: StringNullableFilter<"Organization"> | string | null
     url?: StringNullableFilter<"Organization"> | string | null
     logoUrl?: StringNullableFilter<"Organization"> | string | null
+    location?: StringNullableFilter<"Organization"> | string | null
     startDate?: DateTimeNullableFilter<"Organization"> | Date | string | null
     endDate?: DateTimeNullableFilter<"Organization"> | Date | string | null
     isCurrent?: BoolFilter<"Organization"> | boolean
     description?: StringNullableFilter<"Organization"> | string | null
+    order?: IntFilter<"Organization"> | number
     createdAt?: DateTimeFilter<"Organization"> | Date | string
     updatedAt?: DateTimeFilter<"Organization"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -15208,10 +15712,12 @@ export namespace Prisma {
     role?: SortOrderInput | SortOrder
     url?: SortOrderInput | SortOrder
     logoUrl?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
     endDate?: SortOrderInput | SortOrder
     isCurrent?: SortOrder
     description?: SortOrderInput | SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     profile?: ProfileOrderByWithRelationInput
@@ -15227,10 +15733,12 @@ export namespace Prisma {
     role?: StringNullableFilter<"Organization"> | string | null
     url?: StringNullableFilter<"Organization"> | string | null
     logoUrl?: StringNullableFilter<"Organization"> | string | null
+    location?: StringNullableFilter<"Organization"> | string | null
     startDate?: DateTimeNullableFilter<"Organization"> | Date | string | null
     endDate?: DateTimeNullableFilter<"Organization"> | Date | string | null
     isCurrent?: BoolFilter<"Organization"> | boolean
     description?: StringNullableFilter<"Organization"> | string | null
+    order?: IntFilter<"Organization"> | number
     createdAt?: DateTimeFilter<"Organization"> | Date | string
     updatedAt?: DateTimeFilter<"Organization"> | Date | string
     profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
@@ -15243,15 +15751,19 @@ export namespace Prisma {
     role?: SortOrderInput | SortOrder
     url?: SortOrderInput | SortOrder
     logoUrl?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
     endDate?: SortOrderInput | SortOrder
     isCurrent?: SortOrder
     description?: SortOrderInput | SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: OrganizationCountOrderByAggregateInput
+    _avg?: OrganizationAvgOrderByAggregateInput
     _max?: OrganizationMaxOrderByAggregateInput
     _min?: OrganizationMinOrderByAggregateInput
+    _sum?: OrganizationSumOrderByAggregateInput
   }
 
   export type OrganizationScalarWhereWithAggregatesInput = {
@@ -15264,10 +15776,12 @@ export namespace Prisma {
     role?: StringNullableWithAggregatesFilter<"Organization"> | string | null
     url?: StringNullableWithAggregatesFilter<"Organization"> | string | null
     logoUrl?: StringNullableWithAggregatesFilter<"Organization"> | string | null
+    location?: StringNullableWithAggregatesFilter<"Organization"> | string | null
     startDate?: DateTimeNullableWithAggregatesFilter<"Organization"> | Date | string | null
     endDate?: DateTimeNullableWithAggregatesFilter<"Organization"> | Date | string | null
     isCurrent?: BoolWithAggregatesFilter<"Organization"> | boolean
     description?: StringNullableWithAggregatesFilter<"Organization"> | string | null
+    order?: IntWithAggregatesFilter<"Organization"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Organization"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Organization"> | Date | string
   }
@@ -15362,6 +15876,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -15370,6 +15886,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -15398,6 +15915,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -15406,6 +15925,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -15434,6 +15954,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15442,6 +15964,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -15470,6 +15993,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15478,6 +16003,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -15506,6 +16032,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -15514,6 +16042,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15533,6 +16062,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15541,6 +16072,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15560,6 +16092,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15568,6 +16102,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15575,6 +16110,7 @@ export namespace Prisma {
   export type SkillCreateInput = {
     id?: string
     name: string
+    list?: string | null
     category?: string | null
     proficiency?: number | null
     iconSlug?: string | null
@@ -15588,6 +16124,7 @@ export namespace Prisma {
     id?: string
     profileId: string
     name: string
+    list?: string | null
     category?: string | null
     proficiency?: number | null
     iconSlug?: string | null
@@ -15599,6 +16136,7 @@ export namespace Prisma {
   export type SkillUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    list?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     proficiency?: NullableIntFieldUpdateOperationsInput | number | null
     iconSlug?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15612,6 +16150,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     profileId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    list?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     proficiency?: NullableIntFieldUpdateOperationsInput | number | null
     iconSlug?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15624,6 +16163,7 @@ export namespace Prisma {
     id?: string
     profileId: string
     name: string
+    list?: string | null
     category?: string | null
     proficiency?: number | null
     iconSlug?: string | null
@@ -15635,6 +16175,7 @@ export namespace Prisma {
   export type SkillUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    list?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     proficiency?: NullableIntFieldUpdateOperationsInput | number | null
     iconSlug?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15647,6 +16188,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     profileId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    list?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     proficiency?: NullableIntFieldUpdateOperationsInput | number | null
     iconSlug?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15771,6 +16313,7 @@ export namespace Prisma {
     company: string
     position: string
     location?: string | null
+    locationType?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
@@ -15779,6 +16322,10 @@ export namespace Prisma {
     companyUrl?: string | null
     companyLogo?: string | null
     employmentType?: string | null
+    images?: ExperienceCreateimagesInput | string[]
+    aiHint?: string | null
+    isPublic?: boolean
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     profile: ProfileCreateNestedOneWithoutExperienceInput
@@ -15790,6 +16337,7 @@ export namespace Prisma {
     company: string
     position: string
     location?: string | null
+    locationType?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
@@ -15798,6 +16346,10 @@ export namespace Prisma {
     companyUrl?: string | null
     companyLogo?: string | null
     employmentType?: string | null
+    images?: ExperienceCreateimagesInput | string[]
+    aiHint?: string | null
+    isPublic?: boolean
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15807,6 +16359,7 @@ export namespace Prisma {
     company?: StringFieldUpdateOperationsInput | string
     position?: StringFieldUpdateOperationsInput | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    locationType?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
@@ -15815,6 +16368,10 @@ export namespace Prisma {
     companyUrl?: NullableStringFieldUpdateOperationsInput | string | null
     companyLogo?: NullableStringFieldUpdateOperationsInput | string | null
     employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: ExperienceUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profile?: ProfileUpdateOneRequiredWithoutExperienceNestedInput
@@ -15826,6 +16383,7 @@ export namespace Prisma {
     company?: StringFieldUpdateOperationsInput | string
     position?: StringFieldUpdateOperationsInput | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    locationType?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
@@ -15834,6 +16392,10 @@ export namespace Prisma {
     companyUrl?: NullableStringFieldUpdateOperationsInput | string | null
     companyLogo?: NullableStringFieldUpdateOperationsInput | string | null
     employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: ExperienceUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15844,6 +16406,7 @@ export namespace Prisma {
     company: string
     position: string
     location?: string | null
+    locationType?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
@@ -15852,6 +16415,10 @@ export namespace Prisma {
     companyUrl?: string | null
     companyLogo?: string | null
     employmentType?: string | null
+    images?: ExperienceCreateimagesInput | string[]
+    aiHint?: string | null
+    isPublic?: boolean
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15861,6 +16428,7 @@ export namespace Prisma {
     company?: StringFieldUpdateOperationsInput | string
     position?: StringFieldUpdateOperationsInput | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    locationType?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
@@ -15869,6 +16437,10 @@ export namespace Prisma {
     companyUrl?: NullableStringFieldUpdateOperationsInput | string | null
     companyLogo?: NullableStringFieldUpdateOperationsInput | string | null
     employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: ExperienceUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15879,6 +16451,7 @@ export namespace Prisma {
     company?: StringFieldUpdateOperationsInput | string
     position?: StringFieldUpdateOperationsInput | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    locationType?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
@@ -15887,6 +16460,10 @@ export namespace Prisma {
     companyUrl?: NullableStringFieldUpdateOperationsInput | string | null
     companyLogo?: NullableStringFieldUpdateOperationsInput | string | null
     employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: ExperienceUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16123,6 +16700,8 @@ export namespace Prisma {
     description?: string | null
     authors?: PublicationCreateauthorsInput | string[]
     doi?: string | null
+    publicationType?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     profile: ProfileCreateNestedOneWithoutPublicationsInput
@@ -16138,6 +16717,8 @@ export namespace Prisma {
     description?: string | null
     authors?: PublicationCreateauthorsInput | string[]
     doi?: string | null
+    publicationType?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16151,6 +16732,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     authors?: PublicationUpdateauthorsInput | string[]
     doi?: NullableStringFieldUpdateOperationsInput | string | null
+    publicationType?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profile?: ProfileUpdateOneRequiredWithoutPublicationsNestedInput
@@ -16166,6 +16749,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     authors?: PublicationUpdateauthorsInput | string[]
     doi?: NullableStringFieldUpdateOperationsInput | string | null
+    publicationType?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16180,6 +16765,8 @@ export namespace Prisma {
     description?: string | null
     authors?: PublicationCreateauthorsInput | string[]
     doi?: string | null
+    publicationType?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16193,6 +16780,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     authors?: PublicationUpdateauthorsInput | string[]
     doi?: NullableStringFieldUpdateOperationsInput | string | null
+    publicationType?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16207,6 +16796,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     authors?: PublicationUpdateauthorsInput | string[]
     doi?: NullableStringFieldUpdateOperationsInput | string | null
+    publicationType?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16222,6 +16813,9 @@ export namespace Prisma {
     credentialId?: string | null
     credentialUrl?: string | null
     logoUrl?: string | null
+    images?: LicenseCreateimagesInput | string[]
+    aiHint?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     profile: ProfileCreateNestedOneWithoutLicensesInput
@@ -16239,6 +16833,9 @@ export namespace Prisma {
     credentialId?: string | null
     credentialUrl?: string | null
     logoUrl?: string | null
+    images?: LicenseCreateimagesInput | string[]
+    aiHint?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16254,6 +16851,9 @@ export namespace Prisma {
     credentialId?: NullableStringFieldUpdateOperationsInput | string | null
     credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: LicenseUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profile?: ProfileUpdateOneRequiredWithoutLicensesNestedInput
@@ -16271,6 +16871,9 @@ export namespace Prisma {
     credentialId?: NullableStringFieldUpdateOperationsInput | string | null
     credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: LicenseUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16287,6 +16890,9 @@ export namespace Prisma {
     credentialId?: string | null
     credentialUrl?: string | null
     logoUrl?: string | null
+    images?: LicenseCreateimagesInput | string[]
+    aiHint?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16302,6 +16908,9 @@ export namespace Prisma {
     credentialId?: NullableStringFieldUpdateOperationsInput | string | null
     credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: LicenseUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16318,6 +16927,9 @@ export namespace Prisma {
     credentialId?: NullableStringFieldUpdateOperationsInput | string | null
     credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: LicenseUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16327,11 +16939,13 @@ export namespace Prisma {
     organization: string
     role: string
     cause?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
     achievements?: VolunteerExperienceCreateachievementsInput | string[]
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     profile: ProfileCreateNestedOneWithoutVolunteerExpInput
@@ -16343,11 +16957,13 @@ export namespace Prisma {
     organization: string
     role: string
     cause?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
     achievements?: VolunteerExperienceCreateachievementsInput | string[]
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16357,11 +16973,13 @@ export namespace Prisma {
     organization?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     cause?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
     achievements?: VolunteerExperienceUpdateachievementsInput | string[]
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profile?: ProfileUpdateOneRequiredWithoutVolunteerExpNestedInput
@@ -16373,11 +16991,13 @@ export namespace Prisma {
     organization?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     cause?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
     achievements?: VolunteerExperienceUpdateachievementsInput | string[]
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16388,11 +17008,13 @@ export namespace Prisma {
     organization: string
     role: string
     cause?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
     achievements?: VolunteerExperienceCreateachievementsInput | string[]
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16402,11 +17024,13 @@ export namespace Prisma {
     organization?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     cause?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
     achievements?: VolunteerExperienceUpdateachievementsInput | string[]
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16417,11 +17041,13 @@ export namespace Prisma {
     organization?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     cause?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
     achievements?: VolunteerExperienceUpdateachievementsInput | string[]
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16432,10 +17058,12 @@ export namespace Prisma {
     role?: string | null
     url?: string | null
     logoUrl?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     profile: ProfileCreateNestedOneWithoutOrganizationsInput
@@ -16448,10 +17076,12 @@ export namespace Prisma {
     role?: string | null
     url?: string | null
     logoUrl?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16462,10 +17092,12 @@ export namespace Prisma {
     role?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profile?: ProfileUpdateOneRequiredWithoutOrganizationsNestedInput
@@ -16478,10 +17110,12 @@ export namespace Prisma {
     role?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16493,10 +17127,12 @@ export namespace Prisma {
     role?: string | null
     url?: string | null
     logoUrl?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16507,10 +17143,12 @@ export namespace Prisma {
     role?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16522,10 +17160,12 @@ export namespace Prisma {
     role?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16685,6 +17325,11 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -16806,6 +17451,8 @@ export namespace Prisma {
     githubUrl?: SortOrder
     twitterUrl?: SortOrder
     instagramUrl?: SortOrder
+    tiktokUrl?: SortOrder
+    facebookUrl?: SortOrder
     youtubeUrl?: SortOrder
     mediumUrl?: SortOrder
     avatarUrl?: SortOrder
@@ -16814,6 +17461,7 @@ export namespace Prisma {
     heroSequences?: SortOrder
     visibleSections?: SortOrder
     activeTheme?: SortOrder
+    showPhoto?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -16833,12 +17481,15 @@ export namespace Prisma {
     githubUrl?: SortOrder
     twitterUrl?: SortOrder
     instagramUrl?: SortOrder
+    tiktokUrl?: SortOrder
+    facebookUrl?: SortOrder
     youtubeUrl?: SortOrder
     mediumUrl?: SortOrder
     avatarUrl?: SortOrder
     resumeUrl?: SortOrder
     heroSubtitle?: SortOrder
     activeTheme?: SortOrder
+    showPhoto?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -16858,12 +17509,15 @@ export namespace Prisma {
     githubUrl?: SortOrder
     twitterUrl?: SortOrder
     instagramUrl?: SortOrder
+    tiktokUrl?: SortOrder
+    facebookUrl?: SortOrder
     youtubeUrl?: SortOrder
     mediumUrl?: SortOrder
     avatarUrl?: SortOrder
     resumeUrl?: SortOrder
     heroSubtitle?: SortOrder
     activeTheme?: SortOrder
+    showPhoto?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -16944,6 +17598,14 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -16989,6 +17651,7 @@ export namespace Prisma {
     id?: SortOrder
     profileId?: SortOrder
     name?: SortOrder
+    list?: SortOrder
     category?: SortOrder
     proficiency?: SortOrder
     iconSlug?: SortOrder
@@ -17006,6 +17669,7 @@ export namespace Prisma {
     id?: SortOrder
     profileId?: SortOrder
     name?: SortOrder
+    list?: SortOrder
     category?: SortOrder
     proficiency?: SortOrder
     iconSlug?: SortOrder
@@ -17018,6 +17682,7 @@ export namespace Prisma {
     id?: SortOrder
     profileId?: SortOrder
     name?: SortOrder
+    list?: SortOrder
     category?: SortOrder
     proficiency?: SortOrder
     iconSlug?: SortOrder
@@ -17061,11 +17726,6 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type EducationCountOrderByAggregateInput = {
@@ -17116,20 +17776,13 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type ExperienceCountOrderByAggregateInput = {
     id?: SortOrder
     profileId?: SortOrder
     company?: SortOrder
     position?: SortOrder
     location?: SortOrder
+    locationType?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
@@ -17138,8 +17791,16 @@ export namespace Prisma {
     companyUrl?: SortOrder
     companyLogo?: SortOrder
     employmentType?: SortOrder
+    images?: SortOrder
+    aiHint?: SortOrder
+    isPublic?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type ExperienceAvgOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type ExperienceMaxOrderByAggregateInput = {
@@ -17148,6 +17809,7 @@ export namespace Prisma {
     company?: SortOrder
     position?: SortOrder
     location?: SortOrder
+    locationType?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
@@ -17155,6 +17817,9 @@ export namespace Prisma {
     companyUrl?: SortOrder
     companyLogo?: SortOrder
     employmentType?: SortOrder
+    aiHint?: SortOrder
+    isPublic?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17165,6 +17830,7 @@ export namespace Prisma {
     company?: SortOrder
     position?: SortOrder
     location?: SortOrder
+    locationType?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
@@ -17172,8 +17838,15 @@ export namespace Prisma {
     companyUrl?: SortOrder
     companyLogo?: SortOrder
     employmentType?: SortOrder
+    aiHint?: SortOrder
+    isPublic?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type ExperienceSumOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type EnumPublishStatusFilter<$PrismaModel = never> = {
@@ -17295,8 +17968,14 @@ export namespace Prisma {
     description?: SortOrder
     authors?: SortOrder
     doi?: SortOrder
+    publicationType?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type PublicationAvgOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type PublicationMaxOrderByAggregateInput = {
@@ -17308,6 +17987,8 @@ export namespace Prisma {
     publishedDate?: SortOrder
     description?: SortOrder
     doi?: SortOrder
+    publicationType?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17321,8 +18002,14 @@ export namespace Prisma {
     publishedDate?: SortOrder
     description?: SortOrder
     doi?: SortOrder
+    publicationType?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type PublicationSumOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type LicenseCountOrderByAggregateInput = {
@@ -17337,8 +18024,15 @@ export namespace Prisma {
     credentialId?: SortOrder
     credentialUrl?: SortOrder
     logoUrl?: SortOrder
+    images?: SortOrder
+    aiHint?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type LicenseAvgOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type LicenseMaxOrderByAggregateInput = {
@@ -17353,6 +18047,8 @@ export namespace Prisma {
     credentialId?: SortOrder
     credentialUrl?: SortOrder
     logoUrl?: SortOrder
+    aiHint?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17369,8 +18065,14 @@ export namespace Prisma {
     credentialId?: SortOrder
     credentialUrl?: SortOrder
     logoUrl?: SortOrder
+    aiHint?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type LicenseSumOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type VolunteerExperienceCountOrderByAggregateInput = {
@@ -17379,13 +18081,19 @@ export namespace Prisma {
     organization?: SortOrder
     role?: SortOrder
     cause?: SortOrder
+    location?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
     description?: SortOrder
     achievements?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type VolunteerExperienceAvgOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type VolunteerExperienceMaxOrderByAggregateInput = {
@@ -17394,10 +18102,12 @@ export namespace Prisma {
     organization?: SortOrder
     role?: SortOrder
     cause?: SortOrder
+    location?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
     description?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17408,12 +18118,18 @@ export namespace Prisma {
     organization?: SortOrder
     role?: SortOrder
     cause?: SortOrder
+    location?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
     description?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type VolunteerExperienceSumOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type OrganizationCountOrderByAggregateInput = {
@@ -17423,12 +18139,18 @@ export namespace Prisma {
     role?: SortOrder
     url?: SortOrder
     logoUrl?: SortOrder
+    location?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
     description?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type OrganizationAvgOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type OrganizationMaxOrderByAggregateInput = {
@@ -17438,10 +18160,12 @@ export namespace Prisma {
     role?: SortOrder
     url?: SortOrder
     logoUrl?: SortOrder
+    location?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
     description?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17453,12 +18177,18 @@ export namespace Prisma {
     role?: SortOrder
     url?: SortOrder
     logoUrl?: SortOrder
+    location?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     isCurrent?: SortOrder
     description?: SortOrder
+    order?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type OrganizationSumOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type ProfileNullableScalarRelationFilter = {
@@ -17647,6 +18377,10 @@ export namespace Prisma {
   export type ProfileUpdatevisibleSectionsInput = {
     set?: string[]
     push?: string | string[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -17941,10 +18675,6 @@ export namespace Prisma {
     connect?: ProfileWhereUniqueInput
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type ProfileUpdateOneRequiredWithoutEducationNestedInput = {
     create?: XOR<ProfileCreateWithoutEducationInput, ProfileUncheckedCreateWithoutEducationInput>
     connectOrCreate?: ProfileCreateOrConnectWithoutEducationInput
@@ -17957,6 +18687,10 @@ export namespace Prisma {
     set: string[]
   }
 
+  export type ExperienceCreateimagesInput = {
+    set: string[]
+  }
+
   export type ProfileCreateNestedOneWithoutExperienceInput = {
     create?: XOR<ProfileCreateWithoutExperienceInput, ProfileUncheckedCreateWithoutExperienceInput>
     connectOrCreate?: ProfileCreateOrConnectWithoutExperienceInput
@@ -17964,6 +18698,11 @@ export namespace Prisma {
   }
 
   export type ExperienceUpdateachievementsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type ExperienceUpdateimagesInput = {
     set?: string[]
     push?: string | string[]
   }
@@ -18062,10 +18801,19 @@ export namespace Prisma {
     update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutPublicationsInput, ProfileUpdateWithoutPublicationsInput>, ProfileUncheckedUpdateWithoutPublicationsInput>
   }
 
+  export type LicenseCreateimagesInput = {
+    set: string[]
+  }
+
   export type ProfileCreateNestedOneWithoutLicensesInput = {
     create?: XOR<ProfileCreateWithoutLicensesInput, ProfileUncheckedCreateWithoutLicensesInput>
     connectOrCreate?: ProfileCreateOrConnectWithoutLicensesInput
     connect?: ProfileWhereUniqueInput
+  }
+
+  export type LicenseUpdateimagesInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type ProfileUpdateOneRequiredWithoutLicensesNestedInput = {
@@ -18166,6 +18914,11 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -18272,6 +19025,14 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -18340,19 +19101,6 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type NestedEnumPublishStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.PublishStatus | EnumPublishStatusFieldRefInput<$PrismaModel>
     in?: $Enums.PublishStatus[] | ListEnumPublishStatusFieldRefInput<$PrismaModel>
@@ -18373,6 +19121,7 @@ export namespace Prisma {
   export type SkillCreateWithoutProfileInput = {
     id?: string
     name: string
+    list?: string | null
     category?: string | null
     proficiency?: number | null
     iconSlug?: string | null
@@ -18384,6 +19133,7 @@ export namespace Prisma {
   export type SkillUncheckedCreateWithoutProfileInput = {
     id?: string
     name: string
+    list?: string | null
     category?: string | null
     proficiency?: number | null
     iconSlug?: string | null
@@ -18447,6 +19197,7 @@ export namespace Prisma {
     company: string
     position: string
     location?: string | null
+    locationType?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
@@ -18455,6 +19206,10 @@ export namespace Prisma {
     companyUrl?: string | null
     companyLogo?: string | null
     employmentType?: string | null
+    images?: ExperienceCreateimagesInput | string[]
+    aiHint?: string | null
+    isPublic?: boolean
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18464,6 +19219,7 @@ export namespace Prisma {
     company: string
     position: string
     location?: string | null
+    locationType?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
@@ -18472,6 +19228,10 @@ export namespace Prisma {
     companyUrl?: string | null
     companyLogo?: string | null
     employmentType?: string | null
+    images?: ExperienceCreateimagesInput | string[]
+    aiHint?: string | null
+    isPublic?: boolean
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18567,6 +19327,8 @@ export namespace Prisma {
     description?: string | null
     authors?: PublicationCreateauthorsInput | string[]
     doi?: string | null
+    publicationType?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18580,6 +19342,8 @@ export namespace Prisma {
     description?: string | null
     authors?: PublicationCreateauthorsInput | string[]
     doi?: string | null
+    publicationType?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18605,6 +19369,9 @@ export namespace Prisma {
     credentialId?: string | null
     credentialUrl?: string | null
     logoUrl?: string | null
+    images?: LicenseCreateimagesInput | string[]
+    aiHint?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18620,6 +19387,9 @@ export namespace Prisma {
     credentialId?: string | null
     credentialUrl?: string | null
     logoUrl?: string | null
+    images?: LicenseCreateimagesInput | string[]
+    aiHint?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18639,11 +19409,13 @@ export namespace Prisma {
     organization: string
     role: string
     cause?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
     achievements?: VolunteerExperienceCreateachievementsInput | string[]
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18653,11 +19425,13 @@ export namespace Prisma {
     organization: string
     role: string
     cause?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
     achievements?: VolunteerExperienceCreateachievementsInput | string[]
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18678,10 +19452,12 @@ export namespace Prisma {
     role?: string | null
     url?: string | null
     logoUrl?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18692,10 +19468,12 @@ export namespace Prisma {
     role?: string | null
     url?: string | null
     logoUrl?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18765,6 +19543,7 @@ export namespace Prisma {
     id?: StringFilter<"Skill"> | string
     profileId?: StringFilter<"Skill"> | string
     name?: StringFilter<"Skill"> | string
+    list?: StringNullableFilter<"Skill"> | string | null
     category?: StringNullableFilter<"Skill"> | string | null
     proficiency?: IntNullableFilter<"Skill"> | number | null
     iconSlug?: StringNullableFilter<"Skill"> | string | null
@@ -18833,6 +19612,7 @@ export namespace Prisma {
     company?: StringFilter<"Experience"> | string
     position?: StringFilter<"Experience"> | string
     location?: StringNullableFilter<"Experience"> | string | null
+    locationType?: StringNullableFilter<"Experience"> | string | null
     startDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
     endDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
     isCurrent?: BoolFilter<"Experience"> | boolean
@@ -18841,6 +19621,10 @@ export namespace Prisma {
     companyUrl?: StringNullableFilter<"Experience"> | string | null
     companyLogo?: StringNullableFilter<"Experience"> | string | null
     employmentType?: StringNullableFilter<"Experience"> | string | null
+    images?: StringNullableListFilter<"Experience">
+    aiHint?: StringNullableFilter<"Experience"> | string | null
+    isPublic?: BoolFilter<"Experience"> | boolean
+    order?: IntFilter<"Experience"> | number
     createdAt?: DateTimeFilter<"Experience"> | Date | string
     updatedAt?: DateTimeFilter<"Experience"> | Date | string
   }
@@ -18925,6 +19709,8 @@ export namespace Prisma {
     description?: StringNullableFilter<"Publication"> | string | null
     authors?: StringNullableListFilter<"Publication">
     doi?: StringNullableFilter<"Publication"> | string | null
+    publicationType?: StringNullableFilter<"Publication"> | string | null
+    order?: IntFilter<"Publication"> | number
     createdAt?: DateTimeFilter<"Publication"> | Date | string
     updatedAt?: DateTimeFilter<"Publication"> | Date | string
   }
@@ -18960,6 +19746,9 @@ export namespace Prisma {
     credentialId?: StringNullableFilter<"License"> | string | null
     credentialUrl?: StringNullableFilter<"License"> | string | null
     logoUrl?: StringNullableFilter<"License"> | string | null
+    images?: StringNullableListFilter<"License">
+    aiHint?: StringNullableFilter<"License"> | string | null
+    order?: IntFilter<"License"> | number
     createdAt?: DateTimeFilter<"License"> | Date | string
     updatedAt?: DateTimeFilter<"License"> | Date | string
   }
@@ -18989,11 +19778,13 @@ export namespace Prisma {
     organization?: StringFilter<"VolunteerExperience"> | string
     role?: StringFilter<"VolunteerExperience"> | string
     cause?: StringNullableFilter<"VolunteerExperience"> | string | null
+    location?: StringNullableFilter<"VolunteerExperience"> | string | null
     startDate?: DateTimeNullableFilter<"VolunteerExperience"> | Date | string | null
     endDate?: DateTimeNullableFilter<"VolunteerExperience"> | Date | string | null
     isCurrent?: BoolFilter<"VolunteerExperience"> | boolean
     description?: StringNullableFilter<"VolunteerExperience"> | string | null
     achievements?: StringNullableListFilter<"VolunteerExperience">
+    order?: IntFilter<"VolunteerExperience"> | number
     createdAt?: DateTimeFilter<"VolunteerExperience"> | Date | string
     updatedAt?: DateTimeFilter<"VolunteerExperience"> | Date | string
   }
@@ -19024,10 +19815,12 @@ export namespace Prisma {
     role?: StringNullableFilter<"Organization"> | string | null
     url?: StringNullableFilter<"Organization"> | string | null
     logoUrl?: StringNullableFilter<"Organization"> | string | null
+    location?: StringNullableFilter<"Organization"> | string | null
     startDate?: DateTimeNullableFilter<"Organization"> | Date | string | null
     endDate?: DateTimeNullableFilter<"Organization"> | Date | string | null
     isCurrent?: BoolFilter<"Organization"> | boolean
     description?: StringNullableFilter<"Organization"> | string | null
+    order?: IntFilter<"Organization"> | number
     createdAt?: DateTimeFilter<"Organization"> | Date | string
     updatedAt?: DateTimeFilter<"Organization"> | Date | string
   }
@@ -19078,6 +19871,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19086,6 +19881,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     education?: EducationCreateNestedManyWithoutProfileInput
@@ -19113,6 +19909,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19121,6 +19919,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     education?: EducationUncheckedCreateNestedManyWithoutProfileInput
@@ -19164,6 +19963,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19172,6 +19973,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     education?: EducationUpdateManyWithoutProfileNestedInput
@@ -19199,6 +20001,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19207,6 +20011,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     education?: EducationUncheckedUpdateManyWithoutProfileNestedInput
@@ -19234,6 +20039,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19242,6 +20049,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -19269,6 +20077,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19277,6 +20087,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -19320,6 +20131,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19328,6 +20141,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -19355,6 +20169,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19363,6 +20179,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -19390,6 +20207,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19398,6 +20217,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -19425,6 +20245,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19433,6 +20255,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -19476,6 +20299,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19484,6 +20309,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -19511,6 +20337,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19519,6 +20347,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -19546,6 +20375,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19554,6 +20385,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -19581,6 +20413,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19589,6 +20423,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -19632,6 +20467,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19640,6 +20477,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -19667,6 +20505,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19675,6 +20515,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -19702,6 +20543,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19710,6 +20553,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -19737,6 +20581,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19745,6 +20591,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -19788,6 +20635,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19796,6 +20645,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -19823,6 +20673,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19831,6 +20683,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -19858,6 +20711,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19866,6 +20721,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -19893,6 +20749,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -19901,6 +20759,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -19944,6 +20803,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19952,6 +20813,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -19979,6 +20841,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19987,6 +20851,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -20014,6 +20879,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -20022,6 +20889,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -20049,6 +20917,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -20057,6 +20927,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -20100,6 +20971,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20108,6 +20981,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -20135,6 +21009,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20143,6 +21019,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -20170,6 +21047,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -20178,6 +21057,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -20205,6 +21085,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -20213,6 +21095,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -20256,6 +21139,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20264,6 +21149,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -20291,6 +21177,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20299,6 +21187,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -20326,6 +21215,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -20334,6 +21225,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillCreateNestedManyWithoutProfileInput
@@ -20361,6 +21253,8 @@ export namespace Prisma {
     githubUrl?: string | null
     twitterUrl?: string | null
     instagramUrl?: string | null
+    tiktokUrl?: string | null
+    facebookUrl?: string | null
     youtubeUrl?: string | null
     mediumUrl?: string | null
     avatarUrl?: string | null
@@ -20369,6 +21263,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileCreatevisibleSectionsInput | string[]
     activeTheme?: string | null
+    showPhoto?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     skills?: SkillUncheckedCreateNestedManyWithoutProfileInput
@@ -20412,6 +21307,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20420,6 +21317,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUpdateManyWithoutProfileNestedInput
@@ -20447,6 +21345,8 @@ export namespace Prisma {
     githubUrl?: NullableStringFieldUpdateOperationsInput | string | null
     twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
     instagramUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeUrl?: NullableStringFieldUpdateOperationsInput | string | null
     mediumUrl?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20455,6 +21355,7 @@ export namespace Prisma {
     heroSequences?: NullableJsonNullValueInput | InputJsonValue
     visibleSections?: ProfileUpdatevisibleSectionsInput | string[]
     activeTheme?: NullableStringFieldUpdateOperationsInput | string | null
+    showPhoto?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     skills?: SkillUncheckedUpdateManyWithoutProfileNestedInput
@@ -20470,6 +21371,7 @@ export namespace Prisma {
   export type SkillCreateManyProfileInput = {
     id?: string
     name: string
+    list?: string | null
     category?: string | null
     proficiency?: number | null
     iconSlug?: string | null
@@ -20498,6 +21400,7 @@ export namespace Prisma {
     company: string
     position: string
     location?: string | null
+    locationType?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
@@ -20506,6 +21409,10 @@ export namespace Prisma {
     companyUrl?: string | null
     companyLogo?: string | null
     employmentType?: string | null
+    images?: ExperienceCreateimagesInput | string[]
+    aiHint?: string | null
+    isPublic?: boolean
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20550,6 +21457,8 @@ export namespace Prisma {
     description?: string | null
     authors?: PublicationCreateauthorsInput | string[]
     doi?: string | null
+    publicationType?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20565,6 +21474,9 @@ export namespace Prisma {
     credentialId?: string | null
     credentialUrl?: string | null
     logoUrl?: string | null
+    images?: LicenseCreateimagesInput | string[]
+    aiHint?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20574,11 +21486,13 @@ export namespace Prisma {
     organization: string
     role: string
     cause?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
     achievements?: VolunteerExperienceCreateachievementsInput | string[]
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20589,10 +21503,12 @@ export namespace Prisma {
     role?: string | null
     url?: string | null
     logoUrl?: string | null
+    location?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
     isCurrent?: boolean
     description?: string | null
+    order?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20611,6 +21527,7 @@ export namespace Prisma {
   export type SkillUpdateWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    list?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     proficiency?: NullableIntFieldUpdateOperationsInput | number | null
     iconSlug?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20622,6 +21539,7 @@ export namespace Prisma {
   export type SkillUncheckedUpdateWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    list?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     proficiency?: NullableIntFieldUpdateOperationsInput | number | null
     iconSlug?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20633,6 +21551,7 @@ export namespace Prisma {
   export type SkillUncheckedUpdateManyWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    list?: NullableStringFieldUpdateOperationsInput | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     proficiency?: NullableIntFieldUpdateOperationsInput | number | null
     iconSlug?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20691,6 +21610,7 @@ export namespace Prisma {
     company?: StringFieldUpdateOperationsInput | string
     position?: StringFieldUpdateOperationsInput | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    locationType?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
@@ -20699,6 +21619,10 @@ export namespace Prisma {
     companyUrl?: NullableStringFieldUpdateOperationsInput | string | null
     companyLogo?: NullableStringFieldUpdateOperationsInput | string | null
     employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: ExperienceUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20708,6 +21632,7 @@ export namespace Prisma {
     company?: StringFieldUpdateOperationsInput | string
     position?: StringFieldUpdateOperationsInput | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    locationType?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
@@ -20716,6 +21641,10 @@ export namespace Prisma {
     companyUrl?: NullableStringFieldUpdateOperationsInput | string | null
     companyLogo?: NullableStringFieldUpdateOperationsInput | string | null
     employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: ExperienceUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20725,6 +21654,7 @@ export namespace Prisma {
     company?: StringFieldUpdateOperationsInput | string
     position?: StringFieldUpdateOperationsInput | string
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    locationType?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
@@ -20733,6 +21663,10 @@ export namespace Prisma {
     companyUrl?: NullableStringFieldUpdateOperationsInput | string | null
     companyLogo?: NullableStringFieldUpdateOperationsInput | string | null
     employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: ExperienceUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20839,6 +21773,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     authors?: PublicationUpdateauthorsInput | string[]
     doi?: NullableStringFieldUpdateOperationsInput | string | null
+    publicationType?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20852,6 +21788,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     authors?: PublicationUpdateauthorsInput | string[]
     doi?: NullableStringFieldUpdateOperationsInput | string | null
+    publicationType?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20865,6 +21803,8 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     authors?: PublicationUpdateauthorsInput | string[]
     doi?: NullableStringFieldUpdateOperationsInput | string | null
+    publicationType?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20880,6 +21820,9 @@ export namespace Prisma {
     credentialId?: NullableStringFieldUpdateOperationsInput | string | null
     credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: LicenseUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20895,6 +21838,9 @@ export namespace Prisma {
     credentialId?: NullableStringFieldUpdateOperationsInput | string | null
     credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: LicenseUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20910,6 +21856,9 @@ export namespace Prisma {
     credentialId?: NullableStringFieldUpdateOperationsInput | string | null
     credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    images?: LicenseUpdateimagesInput | string[]
+    aiHint?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20919,11 +21868,13 @@ export namespace Prisma {
     organization?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     cause?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
     achievements?: VolunteerExperienceUpdateachievementsInput | string[]
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20933,11 +21884,13 @@ export namespace Prisma {
     organization?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     cause?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
     achievements?: VolunteerExperienceUpdateachievementsInput | string[]
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20947,11 +21900,13 @@ export namespace Prisma {
     organization?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     cause?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
     achievements?: VolunteerExperienceUpdateachievementsInput | string[]
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20962,10 +21917,12 @@ export namespace Prisma {
     role?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20976,10 +21933,12 @@ export namespace Prisma {
     role?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20990,10 +21949,12 @@ export namespace Prisma {
     role?: NullableStringFieldUpdateOperationsInput | string | null
     url?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

@@ -9,7 +9,7 @@ const nextConfig = require('eslint-config-next/core-web-vitals');
 /** @type {import('eslint').Linter.FlatConfig[]} */
 const eslintConfig = [
   {
-    ignores: ['src/lib/generated/**'],
+    ignores: ['src/lib/generated/**', 'src/generated/**'],
   },
   ...nextConfig,
   {

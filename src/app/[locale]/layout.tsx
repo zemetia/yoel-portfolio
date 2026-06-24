@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { JetBrains_Mono, Outfit } from 'next/font/google';
+import { Fira_Code, Noto_Sans, Space_Grotesk } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
@@ -12,16 +12,23 @@ import { fetchPortfolioData } from '@/lib/portfolio-adapter';
 
 import '../globals.css';
 
-const outfit = Outfit({
+const notoSans = Noto_Sans({
   subsets: ['latin'],
-  variable: '--font-outfit',
+  variable: '--font-noto-sans',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-space-grotesk',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
   display: 'swap',
   weight: ['400', '500', '600'],
 });
@@ -71,7 +78,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${outfit.variable} ${jetbrainsMono.variable}`}
+      className={`${notoSans.variable} ${spaceGrotesk.variable} ${firaCode.variable}`}
       suppressHydrationWarning
     >
       <body>

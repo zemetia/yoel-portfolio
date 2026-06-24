@@ -8,6 +8,7 @@ const createSchema = z.object({
   company: z.string(),
   position: z.string(),
   location: z.string().optional().nullable(),
+  locationType: z.string().optional().nullable(),
   startDate: z.string().datetime().optional().nullable(),
   endDate: z.string().datetime().optional().nullable(),
   isCurrent: z.boolean().optional().default(false),
@@ -16,6 +17,10 @@ const createSchema = z.object({
   companyUrl: z.string().optional().nullable(),
   companyLogo: z.string().optional().nullable(),
   employmentType: z.string().optional().nullable(),
+  images: z.array(z.string()).optional().default([]),
+  aiHint: z.string().optional().nullable(),
+  isPublic: z.boolean().optional().default(true),
+  order: z.number().int().optional().default(0),
 });
 
 // GET /api/v1/experiences?profileId=xxx&company=Google&search=...
