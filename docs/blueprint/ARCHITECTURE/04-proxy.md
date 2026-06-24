@@ -33,6 +33,15 @@ src/middleware.ts  (Node.js — runs before route rendering)
     │       applySecurityHeaders(NextResponse.next())
     │       → continue to Route Handler
     │
+    ├── /admin/login
+    │       applySecurityHeaders(NextResponse.next())   (no auth check on login page)
+    │       → continue to src/app/admin/login/page.tsx
+    │
+    ├── /admin/* routes
+    │       verifyAdminToken(cookie)  ← HMAC-signed token, Edge-compatible
+    │           invalid → redirect to /admin/login
+    │           valid   → applySecurityHeaders(NextResponse.next())
+    │
     └── page routes
             intlMiddleware(request)   ← createMiddleware(routing) from next-intl
                 reads Accept-Language, sets locale cookie,

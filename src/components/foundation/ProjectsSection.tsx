@@ -3,6 +3,7 @@
 import { ExpandableCarouselCard } from "@/components/ui/expandable-carousel-card"
 import { InfiniteCarousel } from "@/components/ui/infinite-carousel"
 import { Project } from "@/types/zemetia-portfolio"
+import { SectionHeading } from "./SectionHeading"
 
 interface ProjectsSectionProps {
   projects: Project[]
@@ -10,20 +11,16 @@ interface ProjectsSectionProps {
 
 const TYPING_WORDS = ["Projects", "Businesses", "Crafting", "Architecthing"];
 
-import { SectionHeading } from "./SectionHeading";
-
-
-
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   if (!projects || projects.length === 0) return null;
 
   return (
     <section className="relative w-screen left-[calc(-50vw+50%)] py-32 flex flex-col gap-12 overflow-hidden bg-transparent transition-colors">
-      
+
       <SectionHeading words={TYPING_WORDS} />
 
       {/* Top Carousel - Moving Right */}
-      <div className="w-full relative z-10"> 
+      <div className="w-full relative z-10">
          <InfiniteCarousel direction="right" speed={0.5} pauseOnHover={true}>
             {projects.map((project, i) => (
                 <ExpandableCarouselCard
@@ -31,16 +28,16 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     i={i}
                     title={project.title}
                     description={project.description}
-                    image={project.images?.[0]} 
+                    image={project.images?.[0]}
                     content={<ProjectContent project={project} />}
-                    className="w-[350px] h-[380px]" 
+                    className="w-[350px] h-[380px]"
                 />
             ))}
          </InfiniteCarousel>
       </div>
 
-      {/* Bottom Carousel - Moving Left - Different Speed */}
-      <div className="w-full relative z-10"> 
+      {/* Bottom Carousel - Moving Left */}
+      <div className="w-full relative z-10">
          <InfiniteCarousel direction="left" speed={0.8} pauseOnHover={true}>
             {projects.map((project, i) => (
                 <ExpandableCarouselCard
@@ -66,7 +63,6 @@ function ProjectContent({ project }: { project: Project }) {
             <p className="text-neutral-300 text-lg leading-relaxed">
                 {project.description}
             </p>
-            {/* Additional details like tech stack could go here */}
             {project.tags && project.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-4">
                     {project.tags.map(tag => (

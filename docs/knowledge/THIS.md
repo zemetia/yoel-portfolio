@@ -53,5 +53,6 @@
 <!-- Format: `[YYYY-MM-DD] insight` -->
 
 - [2026-06-06] Developer explicitly designed a two-tier learning system: THIS.md for general knowledge, LEARN.md for corrections — treat both as first-class project docs
-- [2026-06-23] This is a personal portfolio project, not a generic template — data is served from Firestore (live) with Prisma+PostgreSQL as the future migration target; MinIO handles media storage; the active public theme is DataSciTheme (datasci-theme.tsx)
+- [2026-06-23] This is a personal portfolio project, not a generic template — data layer is Prisma + PostgreSQL (fully committed, no Firebase); MinIO handles media storage; the active public theme is DataSciTheme (datasci-theme.tsx)
+- [2026-06-24] **Firebase/Firestore is BANNED** — project migrated fully to Prisma + PostgreSQL. Files `src/services/firebase.ts`, `src/lib/firebase-admin.ts`, and any `firestoreService` usage are legacy to be deleted. Never introduce Firebase in any form.
 - [2026-06-23] Blueprint updated to reflect full current stack: Prisma, Firestore, MinIO, framer-motion, lucide-react, foundation/ components, themes/ system, /api/v1/ CRUD routes, English-only i18n, and three Google Fonts (Noto Sans, Space Grotesk, Fira Code)

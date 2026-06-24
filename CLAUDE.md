@@ -2,16 +2,40 @@
 
 ## CRITICAL — Read Before Anything Else
 
-> These two files are the most important context in this project. Read them at the start of every task, before touching any blueprint section or code.
+> These two files are the most important context in this project. **Read BOTH at the start of EVERY task — no exceptions, no skipping.**
 
 | File | Purpose |
 |---|---|
 | [docs/knowledge/THIS.md](docs/knowledge/THIS.md) | Developer style, project identity, do's & don'ts, ongoing insights |
 | [docs/knowledge/LEARN.md](docs/knowledge/LEARN.md) | Past mistakes and corrections — read to avoid repeating them |
 
-**Writing rules:**
-- After any task where a new insight or preference is discovered → append to `THIS.md`
-- When the user corrects the AI, or the AI self-identifies a mistake → append to `LEARN.md` immediately using format: `[YYYY-MM-DD] - [problem] - [solution] - [lesson]`
+---
+
+## MANDATORY LEARNING PROTOCOL — NON-NEGOTIABLE
+
+**These are not suggestions. Violating these rules is the #1 failure mode in this project.**
+
+### Every single task — before writing one line of code:
+1. Read `docs/knowledge/LEARN.md` — internalize every entry, do not repeat any past mistake
+2. Read `docs/knowledge/THIS.md` — respect every Do and Don't listed there
+3. Identify which blueprint sections cover the affected area, read them, then plan
+
+### Every single task — after completing:
+1. If the user corrected you → **immediately** append to `LEARN.md`: `[YYYY-MM-DD] - [problem] - [solution] - [lesson]`
+2. If a new insight or preference was discovered → **immediately** append to `THIS.md`
+3. If a blueprint section was found to be stale or wrong → **immediately** update it
+
+### When the user corrects you:
+- Stop. Do not argue. Do not explain why you did it.
+- Write the correction to `LEARN.md` first, then fix the code.
+- Update the relevant blueprint section so the correction is permanent.
+- A correction that is not written to `LEARN.md` AND reflected in the blueprint **will be repeated** — that is unacceptable.
+
+### Hard ban — already learned, never repeat:
+- **NEVER use Firebase or Firestore** — data layer is Prisma + PostgreSQL only
+- **NEVER use root `proxy.ts`** — use `src/middleware.ts` + `src/proxy/` modules
+- **NEVER import from `next/navigation`** — always `@/i18n/navigation`
+- **NEVER use `localePrefix: 'as-needed'`** — must be `'always'`
 
 ---
 

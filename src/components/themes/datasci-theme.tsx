@@ -49,7 +49,7 @@ export function DataSciTheme({
         <PublicationsSection publications={publications} />
       </div>
 
-      <ContactSection />
+      <ContactSection profile={profile} />
       
     </div>
   );

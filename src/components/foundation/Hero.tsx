@@ -1,7 +1,7 @@
 import { H1, Body } from './Typography';
 import { Grid, Col } from './LayoutWrapper';
 import { cn } from '@/lib/cn';
-import { ArrowRight, FileText } from 'lucide-react'; // Basic icon, usually installed. If not, I'll fallback to text.
+import { ArrowRight, FileText } from 'lucide-react';
 import Link from 'next/link';
 
 import { VantaBackground } from '@/components/ui/VantaBackground';
@@ -14,7 +14,6 @@ interface HeroProps {
 }
 
 export function Hero({ name, subtitle, sequences }: HeroProps) {
-  // If no sequences provided, default to these
   const defaultSequences = [
     "System Architect",
     2000,
@@ -24,9 +23,8 @@ export function Hero({ name, subtitle, sequences }: HeroProps) {
     5000
   ];
 
-  // If sequences ARE provided (e.g. ["a", "b"]), interleave them with pauses
   const activeSequences = sequences && sequences.length > 0
-    ? sequences.flatMap(seq => [seq, 2000]) 
+    ? sequences.flatMap(seq => [seq, 2000])
     : defaultSequences;
 
   return (
@@ -39,11 +37,11 @@ export function Hero({ name, subtitle, sequences }: HeroProps) {
                <div className="block mb-4 text-tech-accent animate-in fade-in slide-in-from-bottom-4 duration-1000 font-mono text-sm tracking-widest uppercase">
                 <TypingAnimation sequences={activeSequences} />
               </div>
-              
+
               <H1 className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
                 {name || "Building robust digital foundations for complex data."}
               </H1>
-              
+
               <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
                 <Body>
                   {subtitle || "Specializing in high-performance infrastructure, distributed systems, and clean architecture. Prioritizing efficiency and maintainability over temporary trends."}
@@ -51,8 +49,8 @@ export function Hero({ name, subtitle, sequences }: HeroProps) {
               </div>
 
               <div className="pt-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 flex flex-wrap gap-6 items-center">
-                <a 
-                  href="#projects" 
+                <a
+                  href="#projects"
                   className={cn(
                       "group inline-flex items-center text-tech-primary hover:text-tech-accent transition-colors duration-300",
                       "border-b border-tech-secondary/30 pb-1 hover:border-tech-accent"
@@ -62,8 +60,8 @@ export function Hero({ name, subtitle, sequences }: HeroProps) {
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </a>
 
-                <Link 
-                  href="/cv-builder" 
+                <Link
+                  href="/cv-builder"
                   className={cn(
                       "group inline-flex items-center text-tech-primary hover:text-tech-accent transition-colors duration-300",
                       "border-b border-tech-secondary/30 pb-1 hover:border-tech-accent"

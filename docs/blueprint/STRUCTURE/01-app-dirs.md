@@ -67,6 +67,23 @@
 | [`src/app/api/upload/route.ts`](../../../src/app/api/upload/route.ts) | file | MinIO image upload — multipart or base64 JSON |
 | [`src/app/api/storage/route.ts`](../../../src/app/api/storage/route.ts) | file | MinIO storage listing / management |
 | [`src/app/api/v1/`](../../../src/app/api/v1/) | dir | Prisma-backed CRUD REST API → [DATA_LAYER/01-database.md](../DATA_LAYER/01-database.md) |
+| [`src/app/api/admin/auth/route.ts`](../../../src/app/api/admin/auth/route.ts) | file | POST login / DELETE logout — sets `admin_token` cookie |
+| [`src/app/admin/`](../../../src/app/admin/) | dir | Admin CMS — auth-gated, no intl routing; requires `ADMIN_PASSWORD` env var |
+| [`src/app/admin/layout.tsx`](../../../src/app/admin/layout.tsx) | file | Admin shell: provides `<html>`, fonts, `QueryProvider`, `AdminSidebar` |
+| [`src/app/admin/login/page.tsx`](../../../src/app/admin/login/page.tsx) | file | Login form (client component) |
+| [`src/app/admin/page.tsx`](../../../src/app/admin/page.tsx) | file | Dashboard: entity counts + recent contacts |
+| [`src/app/admin/profile/page.tsx`](../../../src/app/admin/profile/page.tsx) | file | Profile editor |
+| [`src/app/admin/experiences/`](../../../src/app/admin/experiences/) | dir | Experience CRUD |
+| [`src/app/admin/education/`](../../../src/app/admin/education/) | dir | Education CRUD |
+| [`src/app/admin/projects/`](../../../src/app/admin/projects/) | dir | Projects CRUD |
+| [`src/app/admin/skills/`](../../../src/app/admin/skills/) | dir | Skills CRUD |
+| [`src/app/admin/publications/`](../../../src/app/admin/publications/) | dir | Publications CRUD |
+| [`src/app/admin/licenses/`](../../../src/app/admin/licenses/) | dir | Licenses CRUD |
+| [`src/app/admin/volunteer/`](../../../src/app/admin/volunteer/) | dir | Volunteer experience CRUD |
+| [`src/app/admin/organizations/`](../../../src/app/admin/organizations/) | dir | Organizations CRUD |
+| [`src/app/admin/contacts/`](../../../src/app/admin/contacts/) | dir | Contact messages viewer (read + delete) |
+| [`src/app/admin/_components/`](../../../src/app/admin/_components/) | dir | Admin UI primitives: AdminSidebar, AdminTable, FormModal, FormField, PageHeader |
+| [`src/lib/admin-auth.ts`](../../../src/lib/admin-auth.ts) | file | Web Crypto HMAC token create/verify (Edge-compatible) |
 | [`src/app/sitemap.ts`](../../../src/app/sitemap.ts) | file | Auto-generated `/sitemap.xml` — driven by `siteConfig.pages` |
 | [`src/app/robots.ts`](../../../src/app/robots.ts) | file | Auto-generated `/robots.txt` |
 | [`src/app/llms.txt/route.ts`](../../../src/app/llms.txt/route.ts) | file | `/llms.txt` — LLM guidance file, generated from `siteConfig` |

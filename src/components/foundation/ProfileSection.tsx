@@ -72,8 +72,7 @@ export function ProfileSection({
   skills,
   educations
 }: ProfileSectionProps) {
-  
-  // Group skills by category for better display
+
   const groupedSkills = skills.reduce((acc, skill) => {
     acc[skill.category] = skill.list.split(',').map(s => s.trim());
     return acc;
@@ -82,8 +81,8 @@ export function ProfileSection({
   return (
     <section className="py-24 md:py-32 border-t border-tech-border/30 bg-tech-bg relative">
       <Grid>
-        {/* Left Column: Portrait & Identity - Desktop Sticky */}
-        <Col span={4} className="lg:col-span-5 mb-16 lg:mb-0">
+        {/* Left Column: Portrait & Identity */}
+        <Col span={12} className="lg:col-span-5 mb-16 lg:mb-0">
             <div className="lg:sticky lg:top-0 lg:pt-3">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -102,7 +101,7 @@ export function ProfileSection({
                             />
                         </div>
                     )}
-                    
+
                     <H2 className="mb-4">{profile.name}</H2>
                     <Meta className="block text-tech-secondary">
                         {profile.email}
@@ -112,9 +111,9 @@ export function ProfileSection({
         </Col>
 
         {/* Right Column: Metrics & Content */}
-        <Col span={8} className="lg:col-span-7 lg:col-start-6">
+        <Col span={12} className="lg:col-span-7 lg:col-start-6">
             <div className="space-y-24">
-                
+
                 {/* Metrics Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 border-b border-tech-border/30 pb-16">
                     <Counter value={projects.length} label="Projects" />
@@ -138,7 +137,7 @@ export function ProfileSection({
                                 <div className="font-heading text-lg text-tech-primary mb-3 font-semibold">
                                     {category}
                                 </div>
-                                <motion.div 
+                                <motion.div
                                   className="flex flex-wrap gap-x-3 gap-y-2"
                                   initial="hidden"
                                   whileInView="visible"
@@ -155,8 +154,8 @@ export function ProfileSection({
                                   }}
                                 >
                                     {skillList.map(skill => (
-                                        <motion.span 
-                                          key={skill} 
+                                        <motion.span
+                                          key={skill}
                                           className="font-mono text-sm text-tech-secondary inline-block"
                                           variants={{
                                             hidden: { opacity: 0, y: 10 },

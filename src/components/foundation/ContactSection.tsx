@@ -1,12 +1,17 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from 'react';
 import { Grid, Col } from './LayoutWrapper';
 import { H2, Body } from './Typography';
-import { Mail, Phone, MapPin, Send, Share2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ExternalLink, GitFork } from 'lucide-react';
+import type { Profile } from '@/types/zemetia-portfolio';
 
-export function ContactSection() {
-  
+interface ContactSectionProps {
+  profile: Profile;
+}
+
+export function ContactSection({ profile }: ContactSectionProps) {
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -107,47 +112,76 @@ export function ContactSection() {
                     </div>
 
                     <div className="space-y-8 pl-4 border-l border-white/10">
-                        <div className="group flex items-start gap-4 transition-colors">
-                            <div className="bg-white/5 p-3 rounded-lg group-hover:bg-tech-accent/20 transition-colors">
-                                <MapPin className="w-5 h-5 text-tech-accent" />
-                            </div>
-                            <div>
-                                <div className="text-xs font-mono uppercase tracking-wider text-tech-secondary/50 mb-1">Address</div>
-                                <Body className="text-base text-tech-primary">151 New Park Ave, Hartford, CT 06106<br />United States</Body>
-                            </div>
-                        </div>
-                        
-                        <div className="group flex items-center gap-4 transition-colors">
-                            <div className="bg-white/5 p-3 rounded-lg group-hover:bg-tech-accent/20 transition-colors">
-                                <Phone className="w-5 h-5 text-tech-accent" />
-                            </div>
-                            <div>
-                                <div className="text-xs font-mono uppercase tracking-wider text-tech-secondary/50 mb-1">Phone</div>
-                                <Body className="text-base text-tech-primary">+1 (203) 302-9545</Body>
-                            </div>
-                        </div>
+                        {profile.address && (
+                          <div className="group flex items-start gap-4 transition-colors">
+                              <div className="bg-white/5 p-3 rounded-lg group-hover:bg-tech-accent/20 transition-colors">
+                                  <MapPin className="w-5 h-5 text-tech-accent" />
+                              </div>
+                              <div>
+                                  <div className="text-xs font-mono uppercase tracking-wider text-tech-secondary/50 mb-1">Location</div>
+                                  <Body className="text-base text-tech-primary">{profile.address}</Body>
+                              </div>
+                          </div>
+                        )}
 
-                        <div className="group flex items-center gap-4 transition-colors">
-                            <div className="bg-white/5 p-3 rounded-lg group-hover:bg-tech-accent/20 transition-colors">
-                                <Mail className="w-5 h-5 text-tech-accent" />
-                            </div>
-                            <div>
-                                <div className="text-xs font-mono uppercase tracking-wider text-tech-secondary/50 mb-1">Email</div>
-                                <Body className="text-base text-tech-primary">contactus@inveritasoft.com</Body>
-                            </div>
-                        </div>
+                        {profile.phone && (
+                          <div className="group flex items-center gap-4 transition-colors">
+                              <div className="bg-white/5 p-3 rounded-lg group-hover:bg-tech-accent/20 transition-colors">
+                                  <Phone className="w-5 h-5 text-tech-accent" />
+                              </div>
+                              <div>
+                                  <div className="text-xs font-mono uppercase tracking-wider text-tech-secondary/50 mb-1">Phone</div>
+                                  <Body className="text-base text-tech-primary">{profile.phone}</Body>
+                              </div>
+                          </div>
+                        )}
+
+                        {profile.email && (
+                          <div className="group flex items-center gap-4 transition-colors">
+                              <div className="bg-white/5 p-3 rounded-lg group-hover:bg-tech-accent/20 transition-colors">
+                                  <Mail className="w-5 h-5 text-tech-accent" />
+                              </div>
+                              <div>
+                                  <div className="text-xs font-mono uppercase tracking-wider text-tech-secondary/50 mb-1">Email</div>
+                                  <a href={`mailto:${profile.email}`}>
+                                    <Body className="text-base text-tech-primary hover:text-tech-accent transition-colors">{profile.email}</Body>
+                                  </a>
+                              </div>
+                          </div>
+                        )}
                     </div>
 
                     <div className="flex gap-4 mt-12 pl-4">
-                        {[Share2, Mail, Phone].map((Icon, i) => (
-                            <a 
-                                key={i}
-                                href="#"
-                                className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-tech-secondary hover:bg-tech-accent hover:text-white transition-all border border-white/5 hover:border-tech-accent/50 hover:shadow-lg hover:shadow-tech-accent/20 hover:-translate-y-1"
-                            >
-                                <Icon className="w-5 h-5" />
-                            </a>
-                        ))}
+                        {profile.linkedin && (
+                          <a
+                            href={profile.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                            className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-tech-secondary hover:bg-tech-accent hover:text-white transition-all border border-white/5 hover:border-tech-accent/50 hover:shadow-lg hover:shadow-tech-accent/20 hover:-translate-y-1"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                          </a>
+                        )}
+                        {profile.github && (
+                          <a
+                            href={profile.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-tech-secondary hover:bg-tech-accent hover:text-white transition-all border border-white/5 hover:border-tech-accent/50 hover:shadow-lg hover:shadow-tech-accent/20 hover:-translate-y-1"
+                          >
+                            <GitFork className="w-5 h-5" />
+                          </a>
+                        )}
+                        {profile.email && (
+                          <a
+                            href={`mailto:${profile.email}`}
+                            className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-tech-secondary hover:bg-tech-accent hover:text-white transition-all border border-white/5 hover:border-tech-accent/50 hover:shadow-lg hover:shadow-tech-accent/20 hover:-translate-y-1"
+                          >
+                            <Mail className="w-5 h-5" />
+                          </a>
+                        )}
                     </div>
                 </div>
             </Col>
