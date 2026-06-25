@@ -104,15 +104,23 @@ async function uploadBase64ToMinio(
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  const dumpPath = path.resolve(
-    'D:/Hermes/workspace/research/firebase-dump-full.json',
-  );
+  const dumpPath = path.resolve('D:/Hermes/workspace/research/firebase-dump-complete.json');
   if (!fs.existsSync(dumpPath)) {
-    console.error('❌ Firebase dump not found at', dumpPath);
+    console.error('❌ Complete dump not found. Run: npx tsx prisma/dump-firestore.ts');
     process.exit(1);
   }
 
   const dump = JSON.parse(fs.readFileSync(dumpPath, 'utf-8'));
+
+  console.log('📦 Dump:');
+  console.log(`   profile: ${dump.profile?.length ?? 0}`);
+  console.log(`   skills: ${dump.skills?.length ?? 0}`);
+  console.log(`   experiences: ${dump.experiences?.length ?? 0}`);
+  console.log(`   projects: ${dump.projects?.length ?? 0}`);
+  console.log(`   education: ${dump.education?.length ?? 0}`);
+  console.log(`   publications: ${dump.publications?.length ?? 0}`);
+  console.log(`   licenses: ${dump.licenses?.length ?? 0}`);
+  console.log(`   volunteerExperiences: ${dump.volunteerExperiences?.length ?? 0}`);
 
   const minio = buildMinioClient();
   await ensureBucket(minio);
@@ -185,8 +193,9 @@ async function main() {
   // ─── 3. Experiences ────────────────────────────────────────────────────────
   await prisma.experience.deleteMany({ where: { profileId: profile.id } });
   let expCount = 0;
-  for (let i = 0; i < (dump.experiences || []).length; i++) {
-    const exp = dump.experiences[i];
+  const experienceList = dump.experiences ?? dump.experience ?? [];
+  for (let i = 0; i < experienceList.length; i++) {
+    const exp = experienceList[i];
     const startDate = parseDate(exp.startDate);
     const endDate = parseDate(exp.endDate);
 
@@ -204,7 +213,7 @@ async function main() {
       data: {
         profileId: profile.id,
         company: exp.company || '',
-        position: exp.title || '',
+        position: exp.position || exp.title || '',
         location: exp.location || null,
         locationType: exp.locationType || null,
         startDate,
@@ -278,8 +287,8 @@ async function main() {
         images,
         collaborators,
         client: proj.client || null,
-        liveUrl: proj.projectUrl || null,
-        githubUrl: proj.repoUrl || null,
+        liveUrl: proj.liveUrl || proj.projectUrl || null,
+        githubUrl: proj.githubUrl || proj.repoUrl || null,
         status: toPublishStatus(proj.status),
         aiHint: proj.aiHint || null,
         order: i,
@@ -385,7 +394,7 @@ async function main() {
 
   // ─── 8. Volunteer Experiences ──────────────────────────────────────────────
   await prisma.volunteerExperience.deleteMany({ where: { profileId: profile.id } });
-  const rawVolunteer: unknown[] = dump.volunteerExperiences ?? dump.volunteer ?? [];
+  const rawVolunteer: unknown[] = dump.volunteerExperiences ?? dump.volunteerExperience ?? dump.volunteer ?? [];
   let volCount = 0;
   for (let i = 0; i < rawVolunteer.length; i++) {
     const vol = rawVolunteer[i] as Record<string, unknown>;
