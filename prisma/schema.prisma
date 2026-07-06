@@ -71,6 +71,7 @@ model Skill {
   category          String?  // "Frontend", "Backend", "DevOps", "Language", etc.
   proficiency       Int?     // 1-5 scale
   iconSlug          String?  // icon identifier (devicon, simple-icons)
+  isVisible         Boolean  @default(true)
   order             Int      @default(0)
 
   createdAt         DateTime @default(now())
@@ -95,6 +96,7 @@ model Education {
   gpa               String?
   description       String?
   logoUrl           String?
+  isVisible         Boolean  @default(true)
 
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
@@ -123,7 +125,7 @@ model Experience {
   employmentType    String?  // "Full-time", "Contract", "Freelance", "Internship"
   images            String[]
   aiHint            String?
-  isPublic          Boolean  @default(true)
+  isVisible         Boolean  @default(true)
   order             Int      @default(0)
 
   createdAt         DateTime @default(now())
@@ -192,6 +194,7 @@ model Publication {
   authors           String[]
   doi               String?
   publicationType   String?  // "Journal", "Conference", "Book", "Article", "Other"
+  isVisible         Boolean  @default(true)
   order             Int      @default(0)
 
   createdAt         DateTime @default(now())
@@ -218,6 +221,7 @@ model License {
   logoUrl           String?
   images            String[]
   aiHint            String?
+  isVisible         Boolean  @default(true)
   order             Int      @default(0)
 
   createdAt         DateTime @default(now())
@@ -242,6 +246,7 @@ model VolunteerExperience {
   isCurrent         Boolean  @default(false)
   description       String?  @db.Text
   achievements      String[]
+  isVisible         Boolean  @default(true)
   order             Int      @default(0)
 
   createdAt         DateTime @default(now())
@@ -266,6 +271,7 @@ model Organization {
   endDate           DateTime?
   isCurrent         Boolean  @default(false)
   description       String?  @db.Text
+  isVisible         Boolean  @default(true)
   order             Int      @default(0)
 
   createdAt         DateTime @default(now())

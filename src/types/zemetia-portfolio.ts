@@ -33,9 +33,10 @@ export type Profile = {
 }
 
 export type Skill = {
-  id:string;
+  id: string;
   category: string;
   list: string;
+  isVisible?: boolean;
   order?: number;
 }
 
@@ -95,7 +96,7 @@ export type Experience = {
      */
     images: string[];
     aiHint?: string;
-    isPublic: boolean;
+    isVisible: boolean;
     order?: number;
 };
 

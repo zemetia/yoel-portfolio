@@ -1,8 +1,8 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { PageHeader } from '../_components/PageHeader';
+import { PageHeader } from '../../_components/PageHeader';
 
 interface Contact {
   id: string;
@@ -53,7 +53,7 @@ export default function ContactsPage() {
     <div>
       <PageHeader
         title="Contact Messages"
-        description={`${rows.length} total${unread > 0 ? ` · ${unread} unread` : ''}`}
+        description={`${rows.length} total${unread > 0 ? ` Â· ${unread} unread` : ''}`}
       />
 
       <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 16, height: 'calc(100vh - 160px)' }}>
@@ -124,7 +124,7 @@ export default function ContactsPage() {
                 <div>
                   <h2 style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700 }}>{selected.name}</h2>
                   <p style={{ margin: 0, fontSize: 13, color: 'var(--color-foreground-muted)' }}>
-                    {selected.email} · {new Date(selected.createdAt).toLocaleString()}
+                    {selected.email} Â· {new Date(selected.createdAt).toLocaleString()}
                   </p>
                 </div>
                 <button

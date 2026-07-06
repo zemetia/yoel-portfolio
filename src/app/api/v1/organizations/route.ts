@@ -14,6 +14,7 @@ const createSchema = z.object({
   endDate: z.string().datetime().optional().nullable(),
   isCurrent: z.boolean().optional().default(false),
   description: z.string().optional().nullable(),
+  isVisible: z.boolean().optional().default(true),
   order: z.number().int().optional().default(0),
 });
 

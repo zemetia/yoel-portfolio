@@ -9,13 +9,13 @@ interface ProjectsSectionProps {
   projects: Project[]
 }
 
-const TYPING_WORDS = ["Projects", "Businesses", "Crafting", "Architecthing"];
+const TYPING_WORDS = ["Projects", "Businesses", "Crafting", "Architecting"];
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   if (!projects || projects.length === 0) return null;
 
   return (
-    <section className="relative w-screen left-[calc(-50vw+50%)] py-32 flex flex-col gap-12 overflow-hidden bg-transparent transition-colors">
+    <section id="projects" className="relative py-32 flex flex-col gap-12 overflow-hidden bg-transparent transition-colors">
 
       <SectionHeading words={TYPING_WORDS} />
 

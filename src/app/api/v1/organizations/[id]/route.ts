@@ -14,6 +14,7 @@ const updateSchema = z.object({
   endDate: z.string().datetime().optional().nullable(),
   isCurrent: z.boolean().optional(),
   description: z.string().optional().nullable(),
+  isVisible: z.boolean().optional(),
   order: z.number().int().optional(),
 });
 

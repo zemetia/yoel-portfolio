@@ -1,11 +1,11 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { PageHeader } from '../_components/PageHeader';
-import { AdminTable } from '../_components/AdminTable';
-import { FormModal } from '../_components/FormModal';
-import { FormField, FormRow, SubmitBar } from '../_components/FormField';
+import { PageHeader } from '../../_components/PageHeader';
+import { AdminTable } from '../../_components/AdminTable';
+import { FormModal } from '../../_components/FormModal';
+import { FormField, FormRow, SubmitBar } from '../../_components/FormField';
 
 interface Organization {
   id: string;
@@ -72,7 +72,7 @@ export default function OrganizationsPage() {
     { key: 'name', label: 'Organization' },
     { key: 'role', label: 'Role' },
     { key: 'location', label: 'Location' },
-    { key: 'startDate', label: 'Period', render: (r: Organization) => `${r.startDate?.slice(0, 7) ?? '?'} → ${r.isCurrent ? 'Present' : (r.endDate?.slice(0, 7) ?? '?')}` },
+    { key: 'startDate', label: 'Period', render: (r: Organization) => `${r.startDate?.slice(0, 7) ?? '?'} â†’ ${r.isCurrent ? 'Present' : (r.endDate?.slice(0, 7) ?? '?')}` },
   ];
 
   return (

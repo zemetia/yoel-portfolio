@@ -14,6 +14,7 @@ const updateSchema = z.object({
   isCurrent: z.boolean().optional(),
   description: z.string().optional().nullable(),
   achievements: z.array(z.string()).optional(),
+  isVisible: z.boolean().optional(),
   order: z.number().int().optional(),
 });
 

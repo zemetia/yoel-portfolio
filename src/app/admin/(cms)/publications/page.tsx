@@ -1,11 +1,11 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { PageHeader } from '../_components/PageHeader';
-import { AdminTable } from '../_components/AdminTable';
-import { FormModal } from '../_components/FormModal';
-import { FormField, FormRow, SubmitBar } from '../_components/FormField';
+import { PageHeader } from '../../_components/PageHeader';
+import { AdminTable } from '../../_components/AdminTable';
+import { FormModal } from '../../_components/FormModal';
+import { FormField, FormRow, SubmitBar } from '../../_components/FormField';
 
 interface Publication {
   id: string;
@@ -71,7 +71,7 @@ export default function PublicationsPage() {
     { key: 'title', label: 'Title' },
     { key: 'publisher', label: 'Publisher' },
     { key: 'publicationType', label: 'Type' },
-    { key: 'publishedDate', label: 'Date', render: (r: Publication) => r.publishedDate?.slice(0, 7) ?? '—' },
+    { key: 'publishedDate', label: 'Date', render: (r: Publication) => r.publishedDate?.slice(0, 7) ?? 'â€”' },
   ];
 
   return (

@@ -1,9 +1,9 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
-import { PageHeader } from '../_components/PageHeader';
-import { FormField, FormRow, SubmitBar } from '../_components/FormField';
+import { PageHeader } from '../../_components/PageHeader';
+import { FormField, FormRow, SubmitBar } from '../../_components/FormField';
 
 interface Profile {
   id: string;

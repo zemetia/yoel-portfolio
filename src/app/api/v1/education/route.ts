@@ -14,6 +14,7 @@ const createSchema = z.object({
   gpa: z.string().optional().nullable(),
   description: z.string().optional().nullable(),
   logoUrl: z.string().optional().nullable(),
+  isVisible: z.boolean().optional().default(true),
 });
 
 // GET /api/v1/education?profileId=xxx&search=...

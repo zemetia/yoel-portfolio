@@ -16,6 +16,7 @@ const updateSchema = z.object({
   logoUrl: z.string().optional().nullable(),
   images: z.array(z.string()).optional(),
   aiHint: z.string().optional().nullable(),
+  isVisible: z.boolean().optional(),
   order: z.number().int().optional(),
 });
 

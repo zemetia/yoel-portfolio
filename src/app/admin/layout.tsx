@@ -2,7 +2,6 @@ import { Fira_Code, Noto_Sans, Space_Grotesk } from 'next/font/google';
 
 import { QueryProvider } from '@/providers/QueryProvider';
 import '../globals.css';
-import { AdminSidebar } from './_components/AdminSidebar';
 
 const notoSans = Noto_Sans({
   subsets: ['latin'],
@@ -34,14 +33,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       className={`${notoSans.variable} ${spaceGrotesk.variable} ${firaCode.variable}`}
     >
       <body style={{ margin: 0, background: 'var(--color-background)', color: 'var(--color-foreground)' }}>
-        <QueryProvider>
-          <div style={{ display: 'flex', minHeight: '100vh' }}>
-            <AdminSidebar />
-            <main style={{ flex: 1, overflow: 'auto', padding: '32px' }}>
-              {children}
-            </main>
-          </div>
-        </QueryProvider>
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );

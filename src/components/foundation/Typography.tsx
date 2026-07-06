@@ -9,7 +9,7 @@ export function H1({ children, className, as: Component = 'h1', ...props }: Typo
   return (
     <Component
       className={cn(
-        "font-heading text-[72px] md:text-[96px] leading-[1.1] font-bold tracking-tight text-tech-primary",
+        "font-heading text-[40px] sm:text-[56px] md:text-[72px] lg:text-[96px] leading-[1.05] font-bold tracking-tight text-tech-primary",
         className
       )}
       {...props}
@@ -23,7 +23,7 @@ export function H2({ children, className, as: Component = 'h2', ...props }: Typo
   return (
     <Component
       className={cn(
-        "font-heading text-[36px] md:text-[48px] leading-[1.2] font-bold text-tech-primary",
+        "font-heading text-[26px] sm:text-[32px] md:text-[48px] leading-[1.2] font-bold text-tech-primary",
         className
       )}
       {...props}

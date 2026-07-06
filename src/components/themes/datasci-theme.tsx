@@ -1,4 +1,5 @@
 import { Hero } from '@/components/foundation/Hero';
+import { NavHeader } from '@/components/foundation/NavHeader';
 import { ProfileSection } from '@/components/foundation/ProfileSection';
 import { ProjectsSection } from '@/components/foundation/ProjectsSection';
 import { VolunteerSection } from '@/components/foundation/VolunteerSection';
@@ -19,14 +20,17 @@ export function DataSciTheme({
 }: PortfolioData) {
   return (
     <div className="min-h-screen bg-tech-bg text-tech-primary font-sans selection:bg-tech-accent selection:text-white">
-      <Hero 
+      <NavHeader name={profile.name} />
+
+      <Hero
         name={profile.name}
         subtitle={profile.heroSubtitle}
         sequences={profile.heroSequences}
       />
+
       <div className="mx-auto max-w-desktop w-full px-page-margin">
-        
-        <ProfileSection 
+        <span id="about" className="sr-only" />
+        <ProfileSection
           profile={profile}
           projects={projects}
           experiences={experiences}
@@ -35,22 +39,25 @@ export function DataSciTheme({
           skills={skills}
           educations={educations}
         />
-        
+
         <ProjectsSection projects={projects} />
-        
       </div>
-      <ExperienceTimeline experiences={experiences} />
-      <div className="bg-neutral-900/50 w-full">
-        <div className="mx-auto max-w-desktop w-full px-page-margin ">
-          <VolunteerSection volunteerExperiences={volunteerExperiences} />  
+
+      <div id="experience">
+        <ExperienceTimeline experiences={experiences} />
+      </div>
+
+      <div className="bg-tech-border/10 w-full">
+        <div className="mx-auto max-w-desktop w-full px-page-margin">
+          <VolunteerSection volunteerExperiences={volunteerExperiences} />
         </div>
       </div>
-      <div className="mx-auto max-w-desktop w-full px-page-margin">
+
+      <div id="publications" className="mx-auto max-w-desktop w-full px-page-margin">
         <PublicationsSection publications={publications} />
       </div>
 
       <ContactSection profile={profile} />
-      
     </div>
   );
 }

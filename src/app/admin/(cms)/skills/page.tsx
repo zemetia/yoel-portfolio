@@ -1,11 +1,11 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { PageHeader } from '../_components/PageHeader';
-import { AdminTable } from '../_components/AdminTable';
-import { FormModal } from '../_components/FormModal';
-import { FormField, FormRow, SubmitBar } from '../_components/FormField';
+import { PageHeader } from '../../_components/PageHeader';
+import { AdminTable } from '../../_components/AdminTable';
+import { FormModal } from '../../_components/FormModal';
+import { FormField, FormRow, SubmitBar } from '../../_components/FormField';
 
 interface Skill {
   id: string;
@@ -67,7 +67,7 @@ export default function SkillsPage() {
     { key: 'name', label: 'Name / Category' },
     { key: 'list', label: 'Skills List' },
     { key: 'category', label: 'Category' },
-    { key: 'proficiency', label: 'Level (1-5)', render: (r: Skill) => r.proficiency ? '★'.repeat(r.proficiency) : '—' },
+    { key: 'proficiency', label: 'Level (1-5)', render: (r: Skill) => r.proficiency ? 'â˜…'.repeat(r.proficiency) : 'â€”' },
     { key: 'order', label: 'Order' },
   ];
 

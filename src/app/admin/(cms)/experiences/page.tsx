@@ -1,11 +1,11 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { PageHeader } from '../_components/PageHeader';
-import { AdminTable } from '../_components/AdminTable';
-import { FormModal } from '../_components/FormModal';
-import { FormField, FormRow, SubmitBar } from '../_components/FormField';
+import { PageHeader } from '../../_components/PageHeader';
+import { AdminTable } from '../../_components/AdminTable';
+import { FormModal } from '../../_components/FormModal';
+import { FormField, FormRow, SubmitBar } from '../../_components/FormField';
 
 interface Experience {
   id: string;
@@ -117,7 +117,7 @@ export default function ExperiencesPage() {
       key: 'startDate',
       label: 'Period',
       render: (r: Experience) =>
-        `${r.startDate ? r.startDate.slice(0, 7) : '?'} → ${r.isCurrent ? 'Present' : (r.endDate ? r.endDate.slice(0, 7) : '?')}`,
+        `${r.startDate ? r.startDate.slice(0, 7) : '?'} â†’ ${r.isCurrent ? 'Present' : (r.endDate ? r.endDate.slice(0, 7) : '?')}`,
     },
     { key: 'order', label: 'Order' },
   ];

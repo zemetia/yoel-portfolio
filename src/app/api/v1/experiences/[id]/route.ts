@@ -19,7 +19,7 @@ const updateSchema = z.object({
   employmentType: z.string().optional().nullable(),
   images: z.array(z.string()).optional(),
   aiHint: z.string().optional().nullable(),
-  isPublic: z.boolean().optional(),
+  isVisible: z.boolean().optional(),
   order: z.number().int().optional(),
 });
 

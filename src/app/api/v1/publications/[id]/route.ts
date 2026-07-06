@@ -13,6 +13,7 @@ const updateSchema = z.object({
   authors: z.array(z.string()).optional(),
   doi: z.string().optional().nullable(),
   publicationType: z.string().optional().nullable(),
+  isVisible: z.boolean().optional(),
   order: z.number().int().optional(),
 });
 

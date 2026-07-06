@@ -10,6 +10,7 @@ const updateSchema = z.object({
   category: z.string().optional().nullable(),
   proficiency: z.number().int().min(1).max(5).optional().nullable(),
   iconSlug: z.string().optional().nullable(),
+  isVisible: z.boolean().optional(),
   order: z.number().int().optional(),
 });
 

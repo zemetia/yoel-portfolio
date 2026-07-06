@@ -13,6 +13,7 @@ const createSchema = z.object({
   authors: z.array(z.string()).optional().default([]),
   doi: z.string().optional().nullable(),
   publicationType: z.string().optional().nullable(),
+  isVisible: z.boolean().optional().default(true),
   order: z.number().int().optional().default(0),
 });
 

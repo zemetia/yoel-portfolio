@@ -1,11 +1,11 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { PageHeader } from '../_components/PageHeader';
-import { AdminTable } from '../_components/AdminTable';
-import { FormModal } from '../_components/FormModal';
-import { FormField, FormRow, SubmitBar } from '../_components/FormField';
+import { PageHeader } from '../../_components/PageHeader';
+import { AdminTable } from '../../_components/AdminTable';
+import { FormModal } from '../../_components/FormModal';
+import { FormField, FormRow, SubmitBar } from '../../_components/FormField';
 
 interface License {
   id: string;
@@ -70,8 +70,8 @@ export default function LicensesPage() {
   const columns = [
     { key: 'name', label: 'Certification' },
     { key: 'issuer', label: 'Issuer' },
-    { key: 'issueDate', label: 'Issue Date', render: (r: License) => r.issueDate?.slice(0, 7) ?? '—' },
-    { key: 'doesNotExpire', label: 'Expires', render: (r: License) => r.doesNotExpire ? 'Never' : (r.expiryDate?.slice(0, 7) ?? '—') },
+    { key: 'issueDate', label: 'Issue Date', render: (r: License) => r.issueDate?.slice(0, 7) ?? 'â€”' },
+    { key: 'doesNotExpire', label: 'Expires', render: (r: License) => r.doesNotExpire ? 'Never' : (r.expiryDate?.slice(0, 7) ?? 'â€”') },
   ];
 
   return (

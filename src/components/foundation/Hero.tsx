@@ -2,7 +2,7 @@ import { H1, Body } from './Typography';
 import { Grid, Col } from './LayoutWrapper';
 import { cn } from '@/lib/cn';
 import { ArrowRight, FileText } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 import { VantaBackground } from '@/components/ui/VantaBackground';
 import { TypingAnimation } from '@/components/typing-animation';
@@ -30,10 +30,10 @@ export function Hero({ name, subtitle, sequences }: HeroProps) {
   return (
     <VantaBackground>
       <div className="mx-auto max-w-desktop w-full px-page-margin">
-      <section className="min-h-screen flex flex-col justify-center py-20">
+      <section className="min-h-screen flex flex-col justify-center py-16 md:py-20">
         <Grid>
           <Col span={10} className="lg:col-span-12 xl:col-span-10">
-            <div className="space-y-8 md:space-y-12">
+            <div className="space-y-5 sm:space-y-8 md:space-y-12">
                <div className="block mb-4 text-tech-accent animate-in fade-in slide-in-from-bottom-4 duration-1000 font-mono text-sm tracking-widest uppercase">
                 <TypingAnimation sequences={activeSequences} />
               </div>
@@ -48,7 +48,7 @@ export function Hero({ name, subtitle, sequences }: HeroProps) {
                 </Body>
               </div>
 
-              <div className="pt-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 flex flex-wrap gap-6 items-center">
+              <div className="pt-4 md:pt-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 flex flex-wrap gap-4 md:gap-6 items-center">
                 <a
                   href="#projects"
                   className={cn(

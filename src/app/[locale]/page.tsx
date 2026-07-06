@@ -3,6 +3,9 @@ import { getTranslations } from 'next-intl/server';
 
 import { DataSciTheme } from '@/components/themes/datasci-theme';
 import { prismaPortfolioService } from '@/services/prisma-portfolio';
+import { buildMetadata } from '@/lib/seo';
+import { serializeSchema, webPageSchema, organizationSchema } from '@/lib/structured-data';
+import { siteConfig } from '@/config/site';
 import type { PortfolioData } from '@/types/zemetia-portfolio';
 
 const PROFILE_SLUG = process.env['NEXT_PUBLIC_PORTFOLIO_SLUG'] ?? 'main';
@@ -17,23 +20,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const raw = await prismaPortfolioService.getPortfolioData(PROFILE_SLUG).catch(() => null);
   const name = (raw?.profile as Record<string, unknown> | null)?.['fullName'] as string | undefined;
+  const title = name ? `${name} — Data Science Portfolio` : t('title');
 
-  return {
-    title: {
-      template: `%s | ${name ?? 'Portfolio'}`,
-      default: name ? `${name} — Data Science Portfolio` : t('title'),
-    },
+  return buildMetadata({
+    title,
     description: t('description'),
-    metadataBase: new URL(process.env['NEXT_PUBLIC_APP_URL'] ?? 'http://localhost:3000'),
-  };
+    path: '/',
+    locale,
+  });
 }
 
 export default async function HomePage() {
   const raw = await prismaPortfolioService.getPortfolioData(PROFILE_SLUG).catch(() => null);
-
   const data: PortfolioData = mapToZemetiaPortfolioData(raw);
 
-  return <DataSciTheme {...data} />;
+  const pageSchema = webPageSchema({
+    name: data.profile.name,
+    description: data.profile.bio || siteConfig.description,
+    url: siteConfig.url,
+  });
+
+  return (
+    <>
+      <script
+        id="org-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(organizationSchema()) }}
+      />
+      <script
+        id="page-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(pageSchema) }}
+      />
+      <DataSciTheme {...data} />
+    </>
+  );
 }
 
 /** Format a Prisma Date → "Aug 2022". Returns null when val is null/undefined. */
@@ -68,11 +89,11 @@ function mapToZemetiaPortfolioData(raw: Awaited<ReturnType<typeof prismaPortfoli
     activeTheme: 'datasci' as const,
   };
 
-  // Each Skill row = one category with a comma-separated list field
   const skills = ((raw?.skills ?? []) as unknown as R[]).map((s, i) => ({
     id: (s['id'] as string) ?? `skill-${i}`,
     category: (s['category'] as string) ?? (s['name'] as string) ?? 'Other',
     list: (s['list'] as string) ?? (s['name'] as string) ?? '',
+    isVisible: (s['isVisible'] as boolean) ?? true,
     order: (s['order'] as number) ?? i,
   }));
 
@@ -99,7 +120,7 @@ function mapToZemetiaPortfolioData(raw: Awaited<ReturnType<typeof prismaPortfoli
     description: (e['description'] as string) ?? '',
     skills: (e['skills'] as string[]) ?? [],
     images: (e['images'] as string[]) ?? [],
-    isPublic: true,
+    isVisible: true,
     order: (e['order'] as number) ?? i,
   }));
 

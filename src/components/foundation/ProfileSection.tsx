@@ -38,7 +38,7 @@ function Counter({ value, label }: { value: number; label: string }) {
 
   return (
     <div ref={ref} className="group">
-      <div className="font-heading text-5xl md:text-6xl font-bold text-tech-accent mb-1 tabular-nums">
+      <div className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-tech-accent mb-1 tabular-nums">
         {displayValue}
       </div>
       <div className="font-mono text-xs uppercase tracking-wider text-tech-secondary/70 group-hover:text-tech-primary transition-colors">
@@ -73,17 +73,19 @@ export function ProfileSection({
   educations
 }: ProfileSectionProps) {
 
-  const groupedSkills = skills.reduce((acc, skill) => {
-    acc[skill.category] = skill.list.split(',').map(s => s.trim());
-    return acc;
-  }, {} as Record<string, string[]>);
+  const groupedSkills = skills
+    .filter(skill => skill.isVisible !== false)
+    .reduce((acc, skill) => {
+      acc[skill.category] = skill.list.split(',').map(s => s.trim()).filter(Boolean);
+      return acc;
+    }, {} as Record<string, string[]>);
 
   return (
-    <section className="py-24 md:py-32 border-t border-tech-border/30 bg-tech-bg relative">
+    <section className="py-16 md:py-24 lg:py-32 border-t border-tech-border/30 bg-tech-bg relative">
       <Grid>
         {/* Left Column: Portrait & Identity */}
         <Col span={12} className="lg:col-span-5 mb-16 lg:mb-0">
-            <div className="lg:sticky lg:top-0 lg:pt-3">
+            <div className="lg:sticky lg:top-20 lg:pt-3">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +114,7 @@ export function ProfileSection({
 
         {/* Right Column: Metrics & Content */}
         <Col span={12} className="lg:col-span-7 lg:col-start-6">
-            <div className="space-y-24">
+            <div className="space-y-14 md:space-y-24">
 
                 {/* Metrics Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 border-b border-tech-border/30 pb-16">
@@ -124,7 +126,7 @@ export function ProfileSection({
 
                 {/* About */}
                 <ContentBlock title="// ABOUT" delay={0.1}>
-                    <Body className="whitespace-pre-line text-lg md:text-xl leading-relaxed">
+                    <Body className="whitespace-pre-line text-base md:text-lg lg:text-xl leading-relaxed">
                         {profile.bio}
                     </Body>
                 </ContentBlock>
@@ -156,7 +158,7 @@ export function ProfileSection({
                                     {skillList.map(skill => (
                                         <motion.span
                                           key={skill}
-                                          className="font-mono text-sm text-tech-secondary inline-block"
+                                          className="font-mono text-xs text-tech-secondary border border-tech-border/50 bg-tech-border/10 px-2 py-0.5 rounded-sm hover:border-tech-accent/50 hover:text-tech-primary transition-colors"
                                           variants={{
                                             hidden: { opacity: 0, y: 10 },
                                             visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }

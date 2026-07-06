@@ -14,6 +14,7 @@ const createSchema = z.object({
   isCurrent: z.boolean().optional().default(false),
   description: z.string().optional().nullable(),
   achievements: z.array(z.string()).optional().default([]),
+  isVisible: z.boolean().optional().default(true),
   order: z.number().int().optional().default(0),
 });
 

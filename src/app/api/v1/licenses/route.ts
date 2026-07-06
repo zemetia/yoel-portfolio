@@ -16,6 +16,7 @@ const createSchema = z.object({
   logoUrl: z.string().optional().nullable(),
   images: z.array(z.string()).optional().default([]),
   aiHint: z.string().optional().nullable(),
+  isVisible: z.boolean().optional().default(true),
   order: z.number().int().optional().default(0),
 });
 

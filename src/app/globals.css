@@ -108,12 +108,18 @@
   --radius-full: 9999px;
 }
 
-/* ─── Responsive page-margin overrides ───────────────────────── */
+/* ─── Responsive spacing overrides ───────────────────────────── */
 @media (max-width: 639px) {
-  :root { --spacing-page-margin: 1.25rem; }
+  :root {
+    --spacing-page-margin: 1.25rem;
+    --spacing-gutter: 12px;
+  }
 }
 @media (min-width: 640px) and (max-width: 1023px) {
-  :root { --spacing-page-margin: 2.5rem; }
+  :root {
+    --spacing-page-margin: 2.5rem;
+    --spacing-gutter: 16px;
+  }
 }
 
 /* ─── Base Styles ─────────────────────────────────────────────── */

@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/prisma';
+﻿import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 
 async function getStats() {
@@ -116,7 +116,7 @@ export default async function AdminDashboardPage() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
           <h2 style={{ margin: 0, fontSize: 16, fontWeight: 600 }}>Recent Contact Messages</h2>
           <Link href="/admin/contacts" style={{ fontSize: 13, color: 'var(--color-primary)' }}>
-            View all →
+            View all â†’
           </Link>
         </div>
 
@@ -142,7 +142,7 @@ export default async function AdminDashboardPage() {
                 )}
                 <div style={{ flex: 1 }}>
                   <p style={{ margin: '0 0 2px', fontSize: 14, fontWeight: 600 }}>
-                    {c.name} <span style={{ fontWeight: 400, color: 'var(--color-foreground-muted)' }}>— {c.email}</span>
+                    {c.name} <span style={{ fontWeight: 400, color: 'var(--color-foreground-muted)' }}>â€” {c.email}</span>
                   </p>
                   {c.subject && <p style={{ margin: '0 0 4px', fontSize: 12, color: 'var(--color-primary)' }}>{c.subject}</p>}
                   <p style={{ margin: 0, fontSize: 13, color: 'var(--color-foreground-muted)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 500 }}>

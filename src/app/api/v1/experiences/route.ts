@@ -19,7 +19,7 @@ const createSchema = z.object({
   employmentType: z.string().optional().nullable(),
   images: z.array(z.string()).optional().default([]),
   aiHint: z.string().optional().nullable(),
-  isPublic: z.boolean().optional().default(true),
+  isVisible: z.boolean().optional().default(true),
   order: z.number().int().optional().default(0),
 });
 

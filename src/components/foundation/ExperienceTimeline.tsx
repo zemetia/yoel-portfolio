@@ -83,13 +83,13 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
       return (aY * 12 + aM) - (bY * 12 + bM);
     });
 
-    sortedGroupKeys.forEach(key => {
+    sortedGroupKeys.forEach((key, groupIndex) => {
       const items = groups[key] ?? [];
       if (!items.length || !items[0]) return;
       const firstItem = items[0];
       const groupYear = firstItem.startYear;
       const groupMonth = firstItem.startMonth;
-      const zone = groupYear % 2 !== 0 ? 'top' : 'bottom';
+      const zone = groupIndex % 2 === 0 ? 'top' : 'bottom';
       const processedItems: ProcessedExperience[] = [];
       const groupStart = currentX;
 
@@ -170,7 +170,7 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
       className="relative z-10"
       style={{ height: `${containerHeight}px` }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-tech-bg">
 
         {/* Background Year Indicator */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
